@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preisliste Webentwicklung – Under Pressure Group | Luzern</title>
+<meta name="description" content="Preisliste für massgeschneiderte Websites von Under Pressure Group. Keine Templates, keine Abogebühren. Website ab CHF 800.– inklusive Domain, Hosting und SEO. Luzern, Schweiz.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://underpressure.ch/preisliste">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #0a0a0a;
+    --surface: #111111;
+    --card:    #161616;
+    --red:     #e63000;
+    --red2:    #ff4a1a;
+    --white:   #f2f2f2;
+    --muted:   #555;
+    --soft:    #888;
+    --border:  rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--white); font-family:'Outfit',sans-serif; font-weight:300; overflow-x:hidden; }
+
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:1.1rem 3.5rem;
+    display:flex; justify-content:space-between; align-items:center;
+    background:rgba(10,10,10,0.95); backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-logo { font-family:'Chakra Petch',sans-serif; font-size:1rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--white); text-decoration:none; }
+  .nav-logo span { color:var(--red); }
+  .nav-back { font-family:'Chakra Petch',sans-serif; font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+  .nav-back:hover { color:var(--white); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 10rem 3.5rem 5rem;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(230,48,0,0.05) 0%, transparent 65%);
+    pointer-events:none;
+  }
+  .hero-label {
+    font-family:'Chakra Petch',sans-serif; font-size:0.62rem; letter-spacing:0.38em;
+    text-transform:uppercase; color:var(--red); margin-bottom:1rem;
+    display:flex; align-items:center; gap:0.8rem;
+  }
+  .hero-label::before { content:''; display:inline-block; width:24px; height:1px; background:var(--red); }
+  .hero h1 {
+    font-family:'Chakra Petch',sans-serif;
+    font-size:clamp(2.8rem,6vw,5.5rem);
+    font-weight:700; text-transform:uppercase; letter-spacing:-0.01em; line-height:0.95;
+    margin-bottom:1.5rem;
+  }
+  .hero h1 .accent { color:var(--red); }
+  .hero-sub {
+    font-size:0.95rem; color:var(--soft); max-width:520px; line-height:1.85;
+    border-left:2px solid var(--red); padding-left:1.2rem; margin-top:1.5rem;
+  }
+  .hero-note {
+    margin-top:2rem;
+    font-family:'Chakra Petch',sans-serif; font-size:0.65rem; letter-spacing:0.18em;
+    text-transform:uppercase; color:var(--muted);
+  }
+
+  /* ── PAGE ── */
+  .page { max-width:1100px; margin:0 auto; padding:5rem 3.5rem 6rem; }
+
+  /* ── SECTION ── */
+  .section { margin-bottom:4rem; }
+  .section-header {
+    display:flex; align-items:baseline; gap:1rem;
+    border-bottom:1px solid var(--border); padding-bottom:0.8rem; margin-bottom:1.5rem;
+  }
+  .section-num {
+    font-family:'Chakra Petch',sans-serif; font-size:0.6rem; letter-spacing:0.3em;
+    text-transform:uppercase; color:var(--red); min-width:36px;
+  }
+  .section-title {
+    font-family:'Chakra Petch',sans-serif; font-size:1.2rem; font-weight:600;
+    text-transform:uppercase; letter-spacing:0.06em;
+  }
+  .section-note { margin-left:auto; font-size:0.72rem; color:var(--muted); font-style:italic; }
+
+  /* ── PAKETE ── */
+  .pakete-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--border); border:1px solid var(--border);
+  }
+  .paket {
+    background:var(--card); padding:2.5rem;
+    display:flex; flex-direction:column; gap:0.4rem;
+    position:relative; overflow:hidden;
+    transition:background 0.2s;
+  }
+  .paket:hover { background:var(--surface); }
+  .paket::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background:var(--border2);
+    transition:background 0.2s;
+  }
+  .paket.highlight::before { background:var(--red); }
+  .paket-tag {
+    font-family:'Chakra Petch',sans-serif; font-size:0.58rem; letter-spacing:0.25em;
+    text-transform:uppercase; color:var(--red); margin-bottom:0.5rem;
+  }
+  .paket h3 {
+    font-family:'Chakra Petch',sans-serif; font-size:1.2rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:0.06em; color:var(--white);
+    margin-bottom:0.3rem;
+  }
+  .paket-price {
+    font-family:'Chakra Petch',sans-serif; font-size:2.2rem; font-weight:700;
+    color:var(--white); line-height:1; margin:1rem 0;
+  }
+  .paket-price small {
+    font-size:0.85rem; font-weight:300; color:var(--muted); display:block;
+    margin-top:0.2rem; font-family:'Outfit',sans-serif;
+  }
+  .paket-features { list-style:none; margin:0.5rem 0 1.5rem; flex:1; }
+  .paket-features li {
+    font-size:0.82rem; color:var(--soft); padding:0.4rem 0;
+    border-bottom:1px solid var(--border);
+    display:flex; align-items:flex-start; gap:0.6rem;
+  }
+  .paket-features li::before { content:'—'; color:var(--red); font-size:0.75rem; flex-shrink:0; margin-top:0.05rem; }
+  .paket-features li.incl { color:#ccc; }
+  .paket-features li.incl::before { content:'✓'; color:var(--red); }
+  .paket-cta {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:var(--red); color:#fff; text-decoration:none;
+    font-family:'Chakra Petch',sans-serif; font-size:0.65rem; font-weight:600;
+    letter-spacing:0.2em; text-transform:uppercase;
+    padding:0.75rem 1.5rem; margin-top:auto;
+    transition:background 0.2s;
+  }
+  .paket-cta:hover { background:var(--red2); }
+  .paket-cta.ghost {
+    background:none; border:1px solid var(--border2); color:var(--muted);
+  }
+  .paket-cta.ghost:hover { border-color:var(--red); color:var(--white); background:none; }
+
+  /* ── EINZELLEISTUNGEN TABLE ── */
+  table { width:100%; border-collapse:collapse; }
+  thead tr { background:var(--surface); border-bottom:1px solid var(--border); }
+  thead th {
+    font-family:'Chakra Petch',sans-serif; font-size:0.58rem; letter-spacing:0.25em;
+    text-transform:uppercase; color:var(--muted); font-weight:400;
+    padding:0.65rem 1rem; text-align:left;
+  }
+  thead th:last-child { text-align:right; }
+  tbody tr { border-bottom:1px solid rgba(255,255,255,0.04); transition:background 0.15s; }
+  tbody tr:hover { background:rgba(230,48,0,0.03); }
+  tbody td { padding:0.85rem 1rem; vertical-align:top; }
+  .td-name { color:var(--white); font-weight:400; font-size:0.88rem; }
+  .td-name small { display:block; color:var(--muted); font-size:0.75rem; font-weight:300; margin-top:0.1rem; }
+  .td-preis {
+    text-align:right; white-space:nowrap;
+    font-family:'Chakra Petch',sans-serif; font-size:1rem; font-weight:600; color:var(--white);
+  }
+  .td-preis.anfrage { font-size:0.8rem; font-family:'Outfit',sans-serif; font-weight:300; color:var(--muted); font-style:italic; }
+  .td-einheit { color:var(--muted); font-size:0.78rem; }
+
+  /* ── INFO BOX ── */
+  .infobox {
+    background:var(--card); border:1px solid var(--border); border-left:2px solid var(--red);
+    padding:1.2rem 1.5rem; font-size:0.82rem; color:var(--soft); line-height:1.75; margin-top:1rem;
+  }
+  .infobox strong { color:var(--white); font-weight:400; }
+  .infobox .ib-label {
+    font-family:'Chakra Petch',sans-serif; font-size:0.58rem; letter-spacing:0.28em;
+    text-transform:uppercase; color:var(--red); display:block; margin-bottom:0.4rem;
+  }
+
+  /* ── PROCESS ── */
+  .process-grid {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--border); border:1px solid var(--border);
+  }
+  .process-step { background:var(--card); padding:2rem; transition:background 0.2s; }
+  .process-step:hover { background:var(--surface); }
+  .step-num {
+    font-family:'Chakra Petch',sans-serif; font-size:2.5rem; font-weight:700;
+    color:var(--border2); line-height:1; margin-bottom:1rem;
+  }
+  .process-step h3 {
+    font-family:'Chakra Petch',sans-serif; font-size:0.82rem; font-weight:600;
+    text-transform:uppercase; letter-spacing:0.1em; color:var(--red); margin-bottom:0.5rem;
+  }
+  .process-step p { font-size:0.78rem; color:var(--muted); line-height:1.7; }
+
+  /* ── CTA BOTTOM ── */
+  .cta-bottom {
+    margin-top:4rem; padding:2.5rem 3rem;
+    border:1px solid var(--border2);
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:1.5rem;
+  }
+  .cta-bottom p { font-size:0.88rem; color:var(--soft); max-width:500px; line-height:1.7; }
+  .cta-bottom p strong { color:var(--white); font-weight:400; }
+  .btn-red {
+    display:inline-flex; align-items:center; gap:0.7rem;
+    background:var(--red); color:#fff; text-decoration:none;
+    font-family:'Chakra Petch',sans-serif; font-size:0.72rem; font-weight:600;
+    letter-spacing:0.2em; text-transform:uppercase; padding:0.9rem 2rem;
+    transition:background 0.2s;
+  }
+  .btn-red:hover { background:var(--red2); }
+
+  /* ── FOOTER ── */
+  footer {
+    background:var(--surface); border-top:1px solid var(--border);
+    padding:2rem 3.5rem; display:flex; justify-content:space-between; align-items:center;
+    font-family:'Chakra Petch',sans-serif; font-size:0.62rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--muted); flex-wrap:wrap; gap:1rem;
+  }
+  footer a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
+  footer a:hover { color:var(--red2); }
+
+  @media print {
+    nav, .paket-cta, .cta-bottom .btn-red { display:none; }
+    body { background:white; color:#111; }
+    :root { --bg:#fff; --surface:#f5f5f5; --card:#f0f0f0; --red:#c00; --white:#111; --muted:#666; --soft:#444; --border:rgba(0,0,0,0.1); --border2:rgba(0,0,0,0.15); }
+    .hero { padding:3rem 3.5rem 2rem; }
+    .page { padding:2rem 3.5rem; }
+  }
+
+  @media (max-width:768px) {
+    nav { padding:1rem 1.5rem; }
+    .hero { padding:8rem 1.5rem 4rem; }
+    .page { padding:3rem 1.5rem; }
+    .pakete-grid { grid-template-columns:1fr; }
+    .process-grid { grid-template-columns:1fr 1fr; }
+    footer { flex-direction:column; text-align:center; padding:2rem 1.5rem; }
+  }
+
+  ::-webkit-scrollbar { width:3px; }
+  ::-webkit-scrollbar-track { background:var(--bg); }
+  ::-webkit-scrollbar-thumb { background:var(--red); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="https://underpressure.ch"><span>Under</span>Pressure</a>
+  <a class="nav-back" href="https://underpressure.ch">← Zurück</a>
+</nav>
+
+<div class="hero">
+  <p class="hero-label">Webentwicklung · Under Pressure Group</p>
+  <h1>PREIS<span class="accent">LISTE</span><br>WEB 2026</h1>
+  <p class="hero-sub">
+    Massgeschneiderte Websites für Schweizer KMU. Kein Template, kein Baukastensystem, keine monatlichen Abogebühren. Domain, Hosting und SEO inklusive.
+  </p>
+  <p class="hero-note">Alle Preise CHF exkl. MwSt. · Stand: Mai 2026 · Michael Küng · Kriens, Luzern</p>
+</div>
+
+<div class="page">
+
+  <!-- 01 PAKETE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Website-Pakete</span>
+      <span class="section-note">Einmalige Kosten · kein Abo</span>
+    </div>
+
+    <div class="pakete-grid">
+
+      <div class="paket">
+        <p class="paket-tag">Einsteiger</p>
+        <h3>Visitenkarte</h3>
+        <div class="paket-price">
+          800.–<small>einmalig · exkl. MwSt.</small>
+        </div>
+        <ul class="paket-features">
+          <li class="incl">1 Seite (Landingpage)</li>
+          <li class="incl">Kontaktformular / E-Mail-Link</li>
+          <li class="incl">Mobile-optimiert</li>
+          <li class="incl">Domain 1 Jahr inklusive</li>
+          <li class="incl">GitHub Pages Hosting</li>
+          <li class="incl">SEO Grundsetup</li>
+          <li>Kein CMS / kein Login</li>
+          <li>Lieferzeit: 3–5 Werktage</li>
+        </ul>
+        <a href="mailto:info@industrietaucher.ch?subject=Anfrage%20Webseite%20Visitenkarte" class="paket-cta ghost">Anfragen →</a>
+      </div>
+
+      <div class="paket highlight">
+        <p class="paket-tag">Empfohlen · Am beliebtesten</p>
+        <h3>Business</h3>
+        <div class="paket-price">
+          1'500.– – 2'500.–<small>je nach Umfang · exkl. MwSt.</small>
+        </div>
+        <ul class="paket-features">
+          <li class="incl">Mehrere Seiten (3–8)</li>
+          <li class="incl">Kontaktformular mit Weiterleitung</li>
+          <li class="incl">Mobile & Print optimiert</li>
+          <li class="incl">Domain 1 Jahr inklusive</li>
+          <li class="incl">GitHub Pages Hosting</li>
+          <li class="incl">Vollständiges SEO-Paket</li>
+          <li class="incl">Google Search Console Setup</li>
+          <li class="incl">Preisliste / Leistungsseite</li>
+          <li class="incl">DE + EN (Zweisprachig)</li>
+          <li>Lieferzeit: 5–10 Werktage</li>
+        </ul>
+        <a href="mailto:info@industrietaucher.ch?subject=Anfrage%20Webseite%20Business" class="paket-cta">Anfragen →</a>
+      </div>
+
+      <div class="paket">
+        <p class="paket-tag">Komplex</p>
+        <h3>Individuell</h3>
+        <div class="paket-price">
+          auf Anfrage<small>schriftliche Offerte</small>
+        </div>
+        <ul class="paket-features">
+          <li class="incl">Unbegrenzte Seiten</li>
+          <li class="incl">Datenbankanbindung möglich</li>
+          <li class="incl">Shop / Buchungssystem</li>
+          <li class="incl">API-Integrationen</li>
+          <li class="incl">Alles aus Business-Paket</li>
+          <li class="incl">Laufende Betreuung möglich</li>
+          <li>Offerte innert 24h</li>
+        </ul>
+        <a href="mailto:info@industrietaucher.ch?subject=Anfrage%20Webprojekt%20Individuell" class="paket-cta ghost">Anfragen →</a>
+      </div>
+
+    </div>
+
+    <div class="infobox" style="margin-top:1rem;">
+      <span class="ib-label">Wichtig</span>
+      Keine versteckten Kosten. Nach Abschluss gehört die Website Ihnen — keine Lizenzgebühren, keine Plattform-Abhängigkeit. Hosting via GitHub Pages ist dauerhaft kostenlos.
+    </div>
+  </div>
+
+  <!-- 02 EINZELLEISTUNGEN -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Einzelleistungen & Add-ons</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:45%">Leistung</th>
+          <th style="width:30%">Einheit</th>
+          <th style="width:25%">Preis CHF</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-name">Zusätzliche Seite / Unterseite<small>Design und Entwicklung einer weiteren Seite</small></td>
+          <td class="td-einheit">pro Seite</td>
+          <td class="td-preis">200.– – 400.–</td>
+        </tr>
+        <tr>
+          <td class="td-name">SEO-Paket Komplett<small>Strukturierte Daten, FAQ-Schema, Search Console, Sitemap</small></td>
+          <td class="td-einheit">einmalig</td>
+          <td class="td-preis">350.–</td>
+        </tr>
+        <tr>
+          <td class="td-name">Texte / Copywriting<small>Professionelle Website-Texte auf Deutsch</small></td>
+          <td class="td-einheit">pro Seite</td>
+          <td class="td-preis">150.– – 300.–</td>
+        </tr>
+        <tr>
+          <td class="td-name">Zweisprachigkeit (DE/EN)<small>Alle Inhalte übersetzt und umschaltbar</small></td>
+          <td class="td-einheit">einmalig</td>
+          <td class="td-preis">300.– – 500.–</td>
+        </tr>
+        <tr>
+          <td class="td-name">Bestehende Website überarbeiten<small>Design-Update, Inhaltspflege, SEO-Upgrade</small></td>
+          <td class="td-einheit">auf Anfrage</td>
+          <td class="td-preis anfrage">Ab CHF 500.–</td>
+        </tr>
+        <tr>
+          <td class="td-name">Stundenhonorar<small>Änderungen, Support, Beratung</small></td>
+          <td class="td-einheit">pro Stunde</td>
+          <td class="td-preis">120.–</td>
+        </tr>
+        <tr>
+          <td class="td-name">Domain-Registrierung / -Transfer<small>Inkl. 1 Jahr bei Paketbuchung</small></td>
+          <td class="td-einheit">pro Jahr</td>
+          <td class="td-preis">25.– – 50.–</td>
+        </tr>
+        <tr>
+          <td class="td-name">Google Business Profil einrichten<small>Verifizierung, Beschreibung, Fotos, Kategorien</small></td>
+          <td class="td-einheit">einmalig</td>
+          <td class="td-preis">150.–</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 03 PROZESS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Wie es läuft</span>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Anfrage</h3>
+        <p>Kurze Beschreibung was Sie brauchen. Antwort innert 24h, Offerte innert 48h.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Briefing</h3>
+        <p>Kurzes Gespräch oder schriftliches Briefing: Ziel, Zielgruppe, Inhalte, Stil.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Entwicklung</h3>
+        <p>Design und Code. Keine Templates. Kein Drag & Drop. Echte Handarbeit.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3>Launch</h3>
+        <p>Domain, Hosting, SEO — alles eingerichtet. Sie erhalten eine fertige Website.</p>
+      </div>
+    </div>
+
+    <div class="infobox" style="margin-top:1rem;">
+      <span class="ib-label">Beweis</span>
+      Diese Website und beide Tauchdienste (industrietaucher.ch, notfalltaucher.ch) wurden innerhalb eines Tages entwickelt und deployed. <strong>Was ich baue, funktioniert — weil ich selbst darauf angewiesen bin.</strong>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-bottom">
+    <p><strong>Bereit für eine Website die gefunden wird?</strong><br>Schreiben Sie mir kurz was Sie brauchen — ich antworte innert 24 Stunden mit einer unverbindlichen Einschätzung.</p>
+    <a href="mailto:info@industrietaucher.ch?subject=Webseite%20Anfrage" class="btn-red">Jetzt anfragen →</a>
+  </div>
+
+</div><!-- /page -->
+
+<footer>
+  <span>© 2026 Under Pressure Group · Michael Küng · Erlenweg 10, 6010 Kriens</span>
+  <span>
+    <a href="https://underpressure.ch">underpressure.ch</a> ·
+    <a href="https://industrietaucher.ch">industrietaucher.ch</a> ·
+    <a href="https://notfalltaucher.ch">notfalltaucher.ch</a> ·
+    <a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a>
+  </span>
+</footer>
+
+</body>
+</html>
