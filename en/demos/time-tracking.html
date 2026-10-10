@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Time tracking (demo) | Under Pressure</title>
+<meta name="description" content="Working hours, flextime, holidays and expenses. Working demo with sample data.">
+
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://underpressure.ch/en/demos/time-tracking.html">
+<link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/time-tracking.html">
+<link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/zeiterfassung.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Time tracking (demo) | Under Pressure">
+<meta property="og:description" content="Working hours, flextime, holidays and expenses. Working demo with sample data.">
+<meta property="og:url" content="https://underpressure.ch/en/demos/time-tracking.html">
+<meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/demo.css">
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/demo-common.js" defer></script>
+<script src="/assets/js/demo-time.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="/en/" aria-label="Under Pressure, Home">Under Pressure</a>
+<nav class="nav-desktop" aria-label="Main navigation">
+<ul><li><a href="/en/">Home</a></li><li><a href="/en/web.html">Web and software</a></li><li><a href="/en/demos/" aria-current="page">Demos</a></li><li><a href="/en/fpv.html">FPV and drones</a></li><li><a href="/en/about.html">About me</a></li><li><a href="/en/contact.html">Contact</a></li><li><a class="lang" href="/demos/zeiterfassung.html" hreflang="de" lang="de" title="Deutsche Version">DE</a></li></ul>
+</nav>
+<details class="nav-mobile">
+<summary>Menu</summary>
+<nav aria-label="Main navigation"><ul><li><a href="/en/">Home</a></li><li><a href="/en/web.html">Web and software</a></li><li><a href="/en/demos/" aria-current="page">Demos</a></li><li><a href="/en/fpv.html">FPV and drones</a></li><li><a href="/en/about.html">About me</a></li><li><a href="/en/contact.html">Contact</a></li><li><a href="/demos/zeiterfassung.html" hreflang="de" lang="de">Deutsche Version</a></li></ul></nav>
+</details>
+</div>
+</header>
+<main id="main">
+<div class="page-head">
+<div class="wrap">
+<p class="kicker">Demo</p>
+<h1>Time tracking (demo)</h1>
+<p class="lead">Working hours, flextime, holidays and expenses. Working demo with sample data.</p>
+</div>
+</div>
+<div class="wrap demo-wrap">
+<div class="demo-note" role="note">
+<p><strong>Demo with made-up sample data.</strong> Everything you enter stays in your browser.</p>
+<button type="button" class="btn small" id="demo-reset">Reset demo</button>
+</div>
+<div class="tabs" role="tablist" aria-label="Demo or manual">
+<button role="tab" id="tab-demo" aria-controls="panel-demo" aria-selected="true" type="button">Demo</button>
+<button role="tab" id="tab-man" aria-controls="panel-man" aria-selected="false" type="button" tabindex="-1">Manual</button>
+</div>
+<div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel">
+<div id="app" data-lang="en"><p class="muted">The demo requires JavaScript.</p></div>
+</div>
+<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel prose manual" hidden>
+<h2>Manual: Time tracking</h2>
+<h3>Purpose</h3><p>Time tracking records working hours, calculates the flextime balance, manages holidays and absences and collects expenses. Management approves, the report goes to Excel.</p><h3>Usage</h3><p>At the top you choose the view: employees see only their own data, management sees everyone and approves requests.</p><ul class="ticks"><li>Time: record entries with from, to, break and project. The month sheet shows actual, target and difference per day.</li><li>Holidays: request a period, management approves or rejects.</li><li>Expenses: record amount, category and note, management approves.</li><li>Export: monthly report as a CSV file that Excel opens directly.</li></ul><h3>Calculation</h3><p>In the demo the target is 8.4 hours per working day (Monday to Friday). Approved holidays and absences count as target met. The flextime balance is the sum of actual minus target since the first entry.</p><h3>Typical set-up of a real solution</h3><p>Web application with database, sign-in and roles, run at a provider of your choice. The export layout follows your existing Excel format. In a real solution this manual also describes backup, restore and customisation.</p>
+</div>
+</div>
+</main>
+<section class="cta-band" aria-labelledby="h-cta">
+<div class="wrap">
+<h2 id="h-cta">Let&#x27;s talk about your project.</h2>
+<p>Tell me briefly what it is about. You get an honest assessment and a quote with no follow-up costs.</p>
+<div class="cta">
+<a class="btn primary" href="/en/contact.html">Request a project</a>
+<a class="btn" href="tel:+41779217136">+41 77 921 71 36</a>
+</div>
+</div>
+</section>
+<footer class="site-footer">
+<div class="wrap foot-grid">
+<div>
+<p class="foot-brand">Under Pressure</p>
+<p>Websites, web apps and custom software. From my home office in central Switzerland. Everything on request, no follow-up costs.</p>
+</div>
+<div>
+<p class="foot-h">Pages</p>
+<ul><li><a href="/en/">Home</a></li><li><a href="/en/web.html">Web and software</a></li><li><a href="/en/demos/">Demos</a></li><li><a href="/en/fpv.html">FPV and drones</a></li><li><a href="/en/about.html">About me</a></li><li><a href="/en/contact.html">Contact</a></li></ul>
+</div>
+<div>
+<p class="foot-h">Contact</p>
+<ul>
+<li><a href="tel:+41779217136">+41 77 921 71 36</a></li>
+<li><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></li>
+</ul>
+</div>
+</div>
+<div class="wrap foot-base">
+<span>&copy; 2026 Under Pressure</span>
+<span><a href="/en/imprint.html">Imprint</a> &middot; <a href="/en/privacy.html">Privacy</a></span>
+</div>
+</footer>
+<div class="alt-readout" aria-hidden="true">Altitude <b id="alt-value">0</b> m</div>
+</body>
+</html>

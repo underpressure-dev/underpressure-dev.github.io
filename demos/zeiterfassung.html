@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Zeiterfassung (Demo) | Under Pressure</title>
+<meta name="description" content="Arbeitszeit, Gleitzeit, Ferien und Spesen. Lauffähige Demo mit Beispieldaten.">
+
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://underpressure.ch/demos/zeiterfassung.html">
+<link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/zeiterfassung.html">
+<link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/time-tracking.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zeiterfassung (Demo) | Under Pressure">
+<meta property="og:description" content="Arbeitszeit, Gleitzeit, Ferien und Spesen. Lauffähige Demo mit Beispieldaten.">
+<meta property="og:url" content="https://underpressure.ch/demos/zeiterfassung.html">
+<meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
+<meta property="og:locale" content="de_CH">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/demo.css">
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/demo-common.js" defer></script>
+<script src="/assets/js/demo-time.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="/" aria-label="Under Pressure, Startseite">Under Pressure</a>
+<nav class="nav-desktop" aria-label="Hauptnavigation">
+<ul><li><a href="/">Start</a></li><li><a href="/web.html">Web und Software</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a class="lang" href="/en/demos/time-tracking.html" hreflang="en" lang="en" title="English version">EN</a></li></ul>
+</nav>
+<details class="nav-mobile">
+<summary>Menü</summary>
+<nav aria-label="Hauptnavigation"><ul><li><a href="/">Start</a></li><li><a href="/web.html">Web und Software</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a href="/en/demos/time-tracking.html" hreflang="en" lang="en">English version</a></li></ul></nav>
+</details>
+</div>
+</header>
+<main id="main">
+<div class="page-head">
+<div class="wrap">
+<p class="kicker">Demo</p>
+<h1>Zeiterfassung (Demo)</h1>
+<p class="lead">Arbeitszeit, Gleitzeit, Ferien und Spesen. Lauffähige Demo mit Beispieldaten.</p>
+</div>
+</div>
+<div class="wrap demo-wrap">
+<div class="demo-note" role="note">
+<p><strong>Demo mit erfundenen Beispieldaten.</strong> Alles, was du eingibst, bleibt in deinem Browser.</p>
+<button type="button" class="btn small" id="demo-reset">Demo zurücksetzen</button>
+</div>
+<div class="tabs" role="tablist" aria-label="Demo oder Handbuch">
+<button role="tab" id="tab-demo" aria-controls="panel-demo" aria-selected="true" type="button">Demo</button>
+<button role="tab" id="tab-man" aria-controls="panel-man" aria-selected="false" type="button" tabindex="-1">Handbuch</button>
+</div>
+<div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel">
+<div id="app" data-lang="de"><p class="muted">Die Demo benötigt JavaScript.</p></div>
+</div>
+<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel prose manual" hidden>
+<h2>Handbuch: Zeiterfassung</h2>
+<h3>Zweck</h3><p>Die Zeiterfassung erfasst Arbeitszeit, berechnet das Gleitzeitsaldo, verwaltet Ferien und Absenzen und sammelt Spesen. Die Leitung genehmigt, die Auswertung geht nach Excel.</p><h3>Bedienung</h3><p>Oben wählst du die Ansicht: Mitarbeitende sehen nur ihre eigenen Daten, die Leitung sieht alle und genehmigt Anträge.</p><ul class="ticks"><li>Zeiten: Einträge mit Von, Bis, Pause und Projekt erfassen. Das Monatsblatt zeigt Ist, Soll und Differenz pro Tag.</li><li>Ferien: Zeitraum beantragen, die Leitung genehmigt oder lehnt ab.</li><li>Spesen: Betrag, Kategorie und Notiz erfassen, die Leitung genehmigt.</li><li>Export: Monatsauswertung als CSV-Datei, die Excel direkt öffnet.</li></ul><h3>Berechnung</h3><p>Das Soll beträgt in der Demo 8.4 Stunden pro Arbeitstag (Montag bis Freitag). Genehmigte Ferien und Absenzen zählen als Soll erfüllt. Das Gleitzeitsaldo ist die Summe aus Ist minus Soll seit dem ersten Eintrag.</p><h3>Typischer Aufbau einer echten Lösung</h3><p>Webanwendung mit Datenbank, Anmeldung und Rollen, betrieben bei einem Anbieter deiner Wahl. Der Exportaufbau richtet sich nach deinem bisherigen Excel-Format. Dieses Handbuch beschreibt dann auch Sicherung, Wiederherstellung und Anpassung.</p>
+</div>
+</div>
+</main>
+<section class="cta-band" aria-labelledby="h-cta">
+<div class="wrap">
+<h2 id="h-cta">Reden wir über dein Projekt.</h2>
+<p>Erzähl mir kurz, worum es geht. Du bekommst eine ehrliche Einschätzung und eine Offerte ohne Folgekosten.</p>
+<div class="cta">
+<a class="btn primary" href="/kontakt.html">Projekt anfragen</a>
+<a class="btn" href="tel:+41779217136">+41 77 921 71 36</a>
+</div>
+</div>
+</section>
+<footer class="site-footer">
+<div class="wrap foot-grid">
+<div>
+<p class="foot-brand">Under Pressure</p>
+<p>Websites, Web-Apps und Software nach Mass. Aus dem Homeoffice in der Zentralschweiz. Alles auf Anfrage, ohne Folgekosten.</p>
+</div>
+<div>
+<p class="foot-h">Seiten</p>
+<ul><li><a href="/">Start</a></li><li><a href="/web.html">Web und Software</a></li><li><a href="/demos/">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li></ul>
+</div>
+<div>
+<p class="foot-h">Kontakt</p>
+<ul>
+<li><a href="tel:+41779217136">+41 77 921 71 36</a></li>
+<li><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></li>
+</ul>
+</div>
+</div>
+<div class="wrap foot-base">
+<span>&copy; 2026 Under Pressure</span>
+<span><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a></span>
+</div>
+</footer>
+<div class="alt-readout" aria-hidden="true">Höhe <b id="alt-value">0</b> m</div>
+</body>
+</html>

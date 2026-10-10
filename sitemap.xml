@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://underpressure.ch/</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://underpressure.ch/preisliste</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://underpressure.ch/impressum.html</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://underpressure.ch/agb.html</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url><loc>https://underpressure.ch/</loc><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/"/><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/"/></url>
+<url><loc>https://underpressure.ch/en/</loc><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/"/><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/"/></url>
+<url><loc>https://underpressure.ch/web.html</loc><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/web.html"/><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/web.html"/></url>
+<url><loc>https://underpressure.ch/en/web.html</loc><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/web.html"/><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/web.html"/></url>
+<url><loc>https://underpressure.ch/demos/</loc><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/"/><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/"/></url>
+<url><loc>https://underpressure.ch/en/demos/</loc><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/"/><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/"/></url>
+<url><loc>https://underpressure.ch/demos/zeiterfassung.html</loc><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/zeiterfassung.html"/><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/time-tracking.html"/></url>
+<url><loc>https://underpressure.ch/en/demos/time-tracking.html</loc><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/time-tracking.html"/><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/zeiterfassung.html"/></url>
+<url><loc>https://underpressure.ch/demos/kundenportal.html</loc><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/kundenportal.html"/><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/client-portal.html"/></url>
+<url><loc>https://underpressure.ch/en/demos/client-portal.html</loc><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/client-portal.html"/><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/kundenportal.html"/></url>
+<url><loc>https://underpressure.ch/demos/dokumentenlenkung.html</loc><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/dokumentenlenkung.html"/><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/document-control.html"/></url>
+<url><loc>https://underpressure.ch/en/demos/document-control.html</loc><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/document-control.html"/><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/dokumentenlenkung.html"/></url>
+<url><loc>https://underpressure.ch/fpv.html</loc><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/fpv.html"/><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/fpv.html"/></url>
+<url><loc>https://underpressure.ch/en/fpv.html</loc><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/fpv.html"/><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/fpv.html"/></url>
+<url><loc>https://underpressure.ch/ich.html</loc><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/ich.html"/><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/about.html"/></url>
+<url><loc>https://underpressure.ch/en/about.html</loc><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/about.html"/><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/ich.html"/></url>
+<url><loc>https://underpressure.ch/kontakt.html</loc><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/kontakt.html"/><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/contact.html"/></url>
+<url><loc>https://underpressure.ch/en/contact.html</loc><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/contact.html"/><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/kontakt.html"/></url>
+<url><loc>https://underpressure.ch/impressum.html</loc><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/impressum.html"/><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/imprint.html"/></url>
+<url><loc>https://underpressure.ch/en/imprint.html</loc><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/imprint.html"/><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/impressum.html"/></url>
+<url><loc>https://underpressure.ch/datenschutz.html</loc><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/datenschutz.html"/><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/privacy.html"/></url>
+<url><loc>https://underpressure.ch/en/privacy.html</loc><xhtml:link rel="alternate" hreflang="en" href="https://underpressure.ch/en/privacy.html"/><xhtml:link rel="alternate" hreflang="de" href="https://underpressure.ch/datenschutz.html"/></url>
 </urlset>

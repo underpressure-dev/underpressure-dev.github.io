@@ -1,895 +1,134 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="de-CH">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Mike | Websites, Web-Apps und Software nach Mass | Under Pressure</title>
+<meta name="description" content="Websites, Web-Apps und Software nach Mass von Mike, aus dem Homeoffice. Mit lauffähigen Demos. Alles auf Anfrage, ohne Folgekosten.">
 
-<!-- ═══ PRIMÄRE SEO META TAGS ═══ -->
-<title>Under Pressure Group – Michael Küng | Industrietaucher, Webentwicklung, Luzern</title>
-<meta name="description" content="Under Pressure Group – Michael Küng, Luzern. Industrietaucher, Notfalltaucher & Webentwickler. Unterwasser-Dienstleistungen und massgeschneiderte Websites für KMU in der Schweiz. ☎ +41 77 921 71 36">
-<meta name="keywords" content="Under Pressure Group, Michael Küng Luzern, Industrietaucher Luzern, Webentwicklung Luzern Schweiz, Website erstellen Schweiz KMU, Webdesign Luzern, Notfalltaucher Schweiz, Sprengmeister Taucher Schweiz, Website ohne Abo Schweiz, Freelancer Webentwicklung Luzern, underpressure.ch">
-<meta name="author" content="Michael Küng – Under Pressure Group">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-<meta name="language" content="de">
-<meta name="revisit-after" content="14 days">
-
-<!-- ═══ GEO TAGS ═══ -->
-<meta name="geo.region" content="CH-LU">
-<meta name="geo.placename" content="Kriens, Luzern, Schweiz">
-<meta name="geo.position" content="47.0335;8.2833">
-<meta name="ICBM" content="47.0335, 8.2833">
-
-<!-- ═══ CANONICAL ═══ -->
-<link rel="canonical" href="https://underpressure.ch">
-
-<!-- ═══ OPEN GRAPH ═══ -->
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://underpressure.ch/">
+<link rel="alternate" hreflang="de" href="https://underpressure.ch/">
+<link rel="alternate" hreflang="en" href="https://underpressure.ch/en/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://underpressure.ch">
-<meta property="og:title" content="Under Pressure Group – Tauchen & Web | Michael Küng, Luzern">
-<meta property="og:description" content="Industrietaucher, Notfalltaucher und Webentwickler in einem. Basiert in Kriens/Luzern, schweizweit tätig.">
-<meta property="og:image" content="https://underpressure.ch/og-image.jpg">
+<meta property="og:title" content="Mike | Websites, Web-Apps und Software nach Mass | Under Pressure">
+<meta property="og:description" content="Websites, Web-Apps und Software nach Mass von Mike, aus dem Homeoffice. Mit lauffähigen Demos. Alles auf Anfrage, ohne Folgekosten.">
+<meta property="og:url" content="https://underpressure.ch/">
+<meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
 <meta property="og:locale" content="de_CH">
-<meta property="og:site_name" content="Under Pressure Group">
-
-<!-- ═══ TWITTER CARD ═══ -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Under Pressure Group – Michael Küng | Luzern">
-<meta name="twitter:description" content="Industrietaucher, Notfalltaucher & Webentwickler. Luzern, Schweiz.">
-<meta name="twitter:image" content="https://underpressure.ch/og-image.jpg">
-
-<!-- ═══ SCHEMA.ORG ═══ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["ProfessionalService", "LocalBusiness"],
-      "@id": "https://underpressure.ch/#business",
-      "name": "Under Pressure Group",
-      "alternateName": "Michael Küng – Under Pressure Group",
-      "description": "Under Pressure Group betreibt spezialisierte Unterwasser-Dienstleistungen (Industrietaucher, Notfalltaucher) und Webentwicklung für KMU in der Schweiz. Inhaber: Michael Küng, ausgebildeter Sprengmeister und technischer Taucher.",
-      "url": "https://underpressure.ch",
-      "telephone": "+41779217136",
-      "email": "info@industrietaucher.ch",
-      "founder": {
-        "@type": "Person",
-        "name": "Michael Küng",
-        "jobTitle": "Inhaber – Industrietaucher, Sprengmeister & Webentwickler",
-        "knowsAbout": ["Industrietauchen", "Technisches Tauchen", "Webentwicklung", "SEO", "Sprengstofftechnik"]
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Erlenweg 10",
-        "addressLocality": "Kriens",
-        "postalCode": "6010",
-        "addressRegion": "Luzern",
-        "addressCountry": "CH"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 47.0335,
-        "longitude": 8.2833
-      },
-      "areaServed": {"@type": "Country", "name": "Schweiz"},
-      "openingHours": "Mo-Su 00:00-24:00",
-      "hasMap": "https://maps.google.com/?q=Under+Pressure+Group+Kriens",
-      "sameAs": [
-        "https://industrietaucher.ch",
-        "https://notfalltaucher.ch"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Leistungen Under Pressure Group",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Industrietauchen",
-              "url": "https://industrietaucher.ch",
-              "description": "Professionelle Unterwasser-Dienstleistungen für Industrie, Gemeinden und Behörden."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Notfalltauchen",
-              "url": "https://notfalltaucher.ch",
-              "description": "24/7 Notfalltaucher für Bergung und Unterwasser-Problemlösung."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Webentwicklung",
-              "url": "https://underpressure.ch/preisliste",
-              "description": "Massgeschneiderte Websites für KMU. Ohne Template, ohne Abo. Inklusive SEO und Hosting."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://underpressure.ch/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Was kostet eine Website von Under Pressure Group?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Einfache Visitenkarten-Website ab CHF 800.–. Business-Website mit Kontaktformular ab CHF 1'500.–. Inklusive Domain, Hosting und SEO-Grundsetup. Keine monatlichen Abogebühren. Preisliste: underpressure.ch/preisliste"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Wie lange dauert die Erstellung einer Website?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Eine einfache Business-Website ist in 3–7 Werktagen fertig. Komplexere Projekte werden individuell kalkuliert. Antwort auf Anfragen innert 24 Stunden."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Bietet Under Pressure Group auch SEO an?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ja. Jede Website wird mit technischem SEO ausgeliefert: strukturierte Daten (Schema.org), optimierte Meta-Tags, Sitemap, robots.txt und Google Search Console Einrichtung. Laufende SEO-Betreuung auf Anfrage."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Wer ist Michael Küng von Under Pressure Group?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Michael Küng ist Inhaber der Under Pressure Group in Kriens/Luzern. Ausgebildeter Industrietaucher, eidg. dipl. Sprengmeister und Webentwickler. Betreibt industrietaucher.ch, notfalltaucher.ch und underpressure.ch."
-          }
-        }
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://underpressure.ch/#website",
-      "url": "https://underpressure.ch",
-      "name": "Under Pressure Group",
-      "inLanguage": ["de", "en"],
-      "publisher": {"@id": "https://underpressure.ch/#business"}
-    }
-  ]
-}
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg:      #0a0a0a;
-    --surface: #111111;
-    --card:    #161616;
-    --red:     #e63000;
-    --red2:    #ff4a1a;
-    --white:   #f2f2f2;
-    --muted:   #555;
-    --border:  rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.12);
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { background:var(--bg); color:var(--white); font-family:'Outfit',sans-serif; font-weight:300; overflow-x:hidden; }
-
-  nav {
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    padding:1.1rem 3.5rem;
-    display:flex; justify-content:space-between; align-items:center;
-    background:rgba(10,10,10,0.92); backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--border);
-  }
-  .nav-logo { font-family:'Chakra Petch',sans-serif; font-size:1rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--white); text-decoration:none; }
-  .nav-logo span { color:var(--red); }
-  .nav-links { display:flex; gap:2.5rem; list-style:none; align-items:center; }
-  .nav-links a { color:var(--muted); text-decoration:none; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; font-family:'Chakra Petch',sans-serif; transition:color 0.2s; }
-  .nav-links a:hover { color:var(--white); }
-  .lang-switch { display:flex; gap:0.3rem; }
-  .lang-btn { background:none; border:1px solid var(--border2); color:var(--muted); font-family:'Chakra Petch',sans-serif; font-size:0.65rem; letter-spacing:0.1em; padding:0.25rem 0.55rem; cursor:pointer; transition:all 0.2s; text-transform:uppercase; }
-  .lang-btn.active,.lang-btn:hover { border-color:var(--red); color:var(--red2); }
-
-  .hero { min-height:100vh; display:flex; align-items:flex-end; padding:0 3.5rem 5.5rem; position:relative; overflow:hidden; }
-  .hero::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,0.012) 2px,rgba(255,255,255,0.012) 4px); pointer-events:none; }
-  .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse 70% 80% at 80% 50%,rgba(230,48,0,0.06) 0%,transparent 65%), radial-gradient(ellipse 40% 60% at 10% 80%,rgba(255,255,255,0.03) 0%,transparent 60%); }
-  .hero-content { position:relative; z-index:2; max-width:900px; }
-
-  .hero-tag { font-family:'Chakra Petch',sans-serif; font-size:0.65rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--red); margin-bottom:2rem; display:flex; align-items:center; gap:1rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.1s; }
-  .hero-tag::before { content:''; display:inline-block; width:30px; height:1px; background:var(--red); }
-
-  h1.hero-title { font-family:'Chakra Petch',sans-serif; font-size:clamp(3.5rem,8.5vw,8.5rem); font-weight:700; line-height:0.9; text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:2.5rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.25s; }
-  h1.hero-title .accent { color:var(--red); }
-  h1.hero-title .thin { font-weight:300; color:var(--muted); display:block; font-size:0.55em; letter-spacing:0.05em; margin-bottom:0.3rem; }
-
-  .hero-sub { font-size:0.95rem; color:var(--muted); max-width:480px; line-height:1.85; margin-bottom:3rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.4s; }
-  .hero-sub strong { color:var(--white); font-weight:400; }
-
-  .hero-ctas { display:flex; gap:1rem; flex-wrap:wrap; opacity:0; animation:fadeUp 0.7s ease forwards 0.55s; }
-
-  .btn-red { display:inline-flex; align-items:center; gap:0.7rem; background:var(--red); color:#fff; text-decoration:none; font-family:'Chakra Petch',sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; padding:0.9rem 2rem; transition:background 0.2s; }
-  .btn-red:hover { background:var(--red2); }
-  .btn-ghost { display:inline-flex; align-items:center; gap:0.7rem; border:1px solid var(--border2); color:var(--muted); text-decoration:none; font-family:'Chakra Petch',sans-serif; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; padding:0.9rem 2rem; transition:all 0.2s; }
-  .btn-ghost:hover { border-color:var(--white); color:var(--white); }
-
-  .hero-status { position:absolute; top:50%; right:3.5rem; transform:translateY(-50%); display:flex; flex-direction:column; gap:2rem; opacity:0; animation:fadeUp 0.7s ease forwards 0.8s; }
-  .status-item { text-align:right; border-right:2px solid var(--border2); padding-right:1.2rem; }
-  .status-item .num { font-family:'Chakra Petch',sans-serif; font-size:1.8rem; font-weight:700; color:var(--white); line-height:1; }
-  .status-item .label { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-top:0.2rem; }
-
-  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
-
-  section { padding:7rem 3.5rem; }
-
-  .sec-label { font-family:'Chakra Petch',sans-serif; font-size:0.62rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--red); margin-bottom:0.6rem; display:flex; align-items:center; gap:0.8rem; }
-  .sec-label::after { content:''; display:inline-block; width:30px; height:1px; background:var(--red); }
-  h2.sec-title { font-family:'Chakra Petch',sans-serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:700; text-transform:uppercase; letter-spacing:0.02em; line-height:1; margin-bottom:1rem; }
-
-  /* ABOUT */
-  .about { background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-  .about-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:6rem; align-items:start; margin-top:4rem; }
-  .about-text p { color:#888; line-height:1.9; margin-bottom:1rem; font-size:0.92rem; }
-  .about-text p strong { color:var(--white); font-weight:400; }
-  .about-text .quote { font-family:'Chakra Petch',sans-serif; font-size:0.85rem; color:var(--red2); border-left:2px solid var(--red); padding-left:1.2rem; margin:2rem 0; font-style:normal; line-height:1.6; }
-  .about-specs { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); margin-top:3rem; border:1px solid var(--border); }
-  .spec { background:var(--surface); padding:1.5rem; }
-  .spec .num { font-family:'Chakra Petch',sans-serif; font-size:2rem; font-weight:700; color:var(--white); line-height:1; }
-  .spec .label { font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-top:0.3rem; }
-  .about-sidebar {}
-  .sidebar-block { padding:1.5rem 0; border-bottom:1px solid var(--border); }
-  .sidebar-block:first-child { padding-top:0; }
-  .sidebar-block .s-label { font-family:'Chakra Petch',sans-serif; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--red); margin-bottom:0.5rem; }
-  .sidebar-block p { font-size:0.82rem; color:#777; line-height:1.7; }
-
-  /* VENTURES */
-  .ventures { background:var(--bg); }
-  .ventures-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:4rem; }
-  .venture { background:var(--bg); padding:2.8rem; position:relative; overflow:hidden; transition:background 0.2s; text-decoration:none; color:inherit; display:flex; flex-direction:column; }
-  .venture:hover { background:var(--card); }
-  .venture::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform 0.3s ease; }
-  .venture:hover::before { transform:scaleX(1); }
-  .venture-num { font-family:'Chakra Petch',sans-serif; font-size:4rem; font-weight:700; color:var(--border2); line-height:1; margin-bottom:1.5rem; letter-spacing:-0.02em; }
-  .venture-tag { font-family:'Chakra Petch',sans-serif; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--red); margin-bottom:0.8rem; }
-  .venture h3 { font-family:'Chakra Petch',sans-serif; font-size:1.4rem; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:1rem; color:var(--white); }
-  .venture p { font-size:0.82rem; color:#666; line-height:1.75; flex:1; margin-bottom:1.5rem; }
-  .venture-arrow { font-family:'Chakra Petch',sans-serif; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); transition:color 0.2s; margin-top:auto; }
-  .venture:hover .venture-arrow { color:var(--red2); }
-
-  /* WEB */
-  .web { background:var(--surface); border-top:1px solid var(--border); }
-  .web-intro { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; margin-bottom:4rem; }
-  .web-intro p { color:#777; font-size:0.9rem; line-height:1.85; margin-top:1.5rem; }
-  .web-proof { margin-top:1.5rem; padding:1.2rem 1.5rem; border:1px solid var(--border2); border-left:2px solid var(--red); font-size:0.8rem; color:#888; font-style:italic; }
-  .web-proof strong { color:var(--white); font-weight:400; font-style:normal; }
-  .web-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
-  .web-card { background:var(--surface); padding:2rem; transition:background 0.2s; }
-  .web-card:hover { background:var(--card); }
-  .web-card .wnum { font-family:'Chakra Petch',sans-serif; font-size:0.6rem; letter-spacing:0.25em; color:var(--red); margin-bottom:1rem; text-transform:uppercase; }
-  .web-card h3 { font-family:'Chakra Petch',sans-serif; font-size:1rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.8rem; color:var(--white); }
-  .web-card p { font-size:0.8rem; color:#666; line-height:1.75; }
-  .web-cta { margin-top:3rem; display:flex; align-items:center; justify-content:space-between; padding:2rem 2.5rem; border:1px solid var(--border2); flex-wrap:wrap; gap:1.5rem; }
-  .web-cta p { font-size:0.85rem; color:#777; max-width:500px; line-height:1.7; }
-
-  /* CONTACT */
-  .contact { background:var(--bg); }
-  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; margin-top:4rem; }
-  .c-block { margin-bottom:2rem; }
-  .c-label { font-family:'Chakra Petch',sans-serif; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--red); margin-bottom:0.6rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
-  .c-block a,.c-block span { color:#888; text-decoration:none; display:block; font-size:0.88rem; line-height:1.9; transition:color 0.2s; }
-  .c-block a:hover { color:var(--white); }
-  .link-list { margin-top:1rem; }
-  .link-item { display:flex; align-items:center; justify-content:space-between; padding:1rem 1.2rem; border:1px solid var(--border); text-decoration:none; color:#888; margin-bottom:0.6rem; font-family:'Chakra Petch',sans-serif; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; transition:all 0.2s; }
-  .link-item:hover { border-color:var(--red); color:var(--white); background:var(--card); }
-  .link-item span { color:var(--muted); font-size:0.65rem; }
-
-  footer { background:var(--surface); border-top:1px solid var(--border); padding:2rem 3.5rem; display:flex; justify-content:space-between; align-items:center; font-family:'Chakra Petch',sans-serif; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); flex-wrap:wrap; gap:1rem; }
-  footer a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
-  footer a:hover { color:var(--red2); }
-
-  [lang="en"] { display:none; }
-  body.en [lang="de"] { display:none; }
-  body.en [lang="en"] { display:block; }
-  body.en span[lang="en"] { display:inline; }
-  body.en span[lang="de"] { display:none; }
-  span[lang="de"] { display:inline; }
-
-  @media (max-width:768px) {
-    nav { padding:1rem 1.5rem; }
-    .nav-links { display:none; }
-    section { padding:5rem 1.5rem; }
-    .hero { padding:0 1.5rem 5rem; }
-    .hero-status { display:none; }
-    .about-grid,.web-intro,.contact-grid { grid-template-columns:1fr; gap:3rem; }
-    .ventures-grid,.web-grid { grid-template-columns:1fr; }
-    footer { flex-direction:column; text-align:center; }
-  }
-
-  ::-webkit-scrollbar { width:3px; }
-  ::-webkit-scrollbar-track { background:var(--bg); }
-  ::-webkit-scrollbar-thumb { background:var(--red); }
-
-  /* ── STATS BAR ── */
-  .stats-bar {
-    background: var(--red);
-    padding: 2rem 3.5rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
-  .stat-item { text-align: center; }
-  .stat-item .big {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1;
-  }
-  .stat-item .small {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    margin-top: 0.3rem;
-  }
-
-  /* ── WHY ── */
-  .why { background: var(--card); border-top: 1px solid var(--border); }
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 4rem;
-  }
-  .why-card {
-    background: var(--card);
-    padding: 2.5rem;
-    transition: background 0.2s;
-  }
-  .why-card:hover { background: var(--surface); }
-  .why-card .icon {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    display: block;
-  }
-  .why-card h3 {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--white);
-    margin-bottom: 0.7rem;
-  }
-  .why-card p { font-size: 0.82rem; color: #666; line-height: 1.75; }
-
-  /* ── PROCESS ── */
-  .process { background: var(--bg); border-top: 1px solid var(--border); }
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 4rem;
-  }
-  .process-step {
-    background: var(--bg);
-    padding: 2.5rem;
-    position: relative;
-    transition: background 0.2s;
-  }
-  .process-step:hover { background: var(--card); }
-  .step-num {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--border2);
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-  .process-step h3 {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--red);
-    margin-bottom: 0.6rem;
-  }
-  .process-step p { font-size: 0.8rem; color: #666; line-height: 1.7; }
-
-  /* ── PROJECTS ── */
-  .projects { background: var(--surface); border-top: 1px solid var(--border); }
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 4rem;
-  }
-  .project-card {
-    background: var(--surface);
-    padding: 2rem;
-    transition: background 0.2s;
-  }
-  .project-card:hover { background: var(--card); }
-  .project-tag {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 0.58rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 0.8rem;
-  }
-  .project-card h3 {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--white);
-    margin-bottom: 0.6rem;
-  }
-  .project-card p { font-size: 0.8rem; color: #666; line-height: 1.7; }
-  .project-meta {
-    margin-top: 1rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid var(--border);
-    font-size: 0.68rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    font-family: 'Chakra Petch', sans-serif;
-    text-transform: uppercase;
-  }
-
-  /* ── CONTACT FORM ── */
-  .up-contact { background: var(--card); border-top: 1px solid var(--border); }
-  .up-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 3rem;
-    max-width: 700px;
-  }
-  .up-form .full { grid-column: 1 / -1; }
-  .up-field { display: flex; flex-direction: column; gap: 0.4rem; }
-  .up-field label {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .up-field input, .up-field textarea, .up-field select {
-    background: var(--surface);
-    border: 1px solid var(--border2);
-    color: var(--white);
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.88rem;
-    padding: 0.8rem 1rem;
-    outline: none;
-    transition: border-color 0.2s;
-    resize: vertical;
-  }
-  .up-field input:focus, .up-field textarea:focus { border-color: var(--red); }
-  .up-field select option { background: var(--card); }
-  .up-field textarea { min-height: 120px; }
-  .up-submit {
-    grid-column: 1 / -1;
-    background: var(--red);
-    color: #fff;
-    border: none;
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    cursor: pointer;
-    transition: background 0.2s;
-    text-align: left;
-  }
-  .up-submit:hover { background: var(--red2); }
-  .up-success {
-    display: none;
-    background: rgba(39,174,96,0.08);
-    border: 1px solid rgba(39,174,96,0.3);
-    color: #7dcea0;
-    padding: 1rem 1.5rem;
-    font-size: 0.85rem;
-    margin-top: 1rem;
-    grid-column: 1 / -1;
-  }
-
-  @media (max-width: 768px) {
-    .stats-bar { grid-template-columns: 1fr 1fr; }
-    .why-grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr 1fr; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .up-form { grid-template-columns: 1fr; }
-  }
-
-</style>
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/main.js" defer></script>
 </head>
 <body>
-
-<nav>
-  <a class="nav-logo" href="#"><span>Under</span>Pressure</a>
-  <ul class="nav-links">
-    <li><a href="#ueber"><span lang="de">Wer wir sind</span><span lang="en">About</span></a></li>
-    <li><a href="#ventures"><span lang="de">Unternehmen</span><span lang="en">Ventures</span></a></li>
-    <li><a href="#web">Web</a></li>
-    <li><a href="#anfrage"><span lang="de">Anfrage</span><span lang="en">Enquiry</span></a></li><li><a href="#kontakt"><span lang="de">Kontakt</span><span lang="en">Contact</span></a></li>
-  </ul>
-  <div class="lang-switch">
-    <button class="lang-btn active" onclick="setLang('de')">DE</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
-  </div>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="/" aria-label="Under Pressure, Startseite">Under Pressure</a>
+<nav class="nav-desktop" aria-label="Hauptnavigation">
+<ul><li><a href="/" aria-current="page">Start</a></li><li><a href="/web.html">Web und Software</a></li><li><a href="/demos/">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a class="lang" href="/en/" hreflang="en" lang="en" title="English version">EN</a></li></ul>
 </nav>
-
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <p class="hero-tag">Under Pressure Group · Luzern · Schweiz</p>
-    <h1 class="hero-title">
-      <span class="thin">Michael Küng</span>
-      <span lang="de">TIEF<br><span class="accent">UNTEN.</span><br>ONLINE.</span>
-      <span lang="en">DEEP<br><span class="accent">BELOW.</span><br>ONLINE.</span>
-    </h1>
-    <p class="hero-sub">
-      <span lang="de">Ich löse Probleme — <strong>unter Wasser</strong> und <strong>im Web</strong>. Zwei sehr verschiedene Orte. Gleicher Anspruch: Es muss funktionieren.</span>
-      <span lang="en">I solve problems — <strong>underwater</strong> and <strong>on the web</strong>. Two very different places. Same standard: it has to work.</span>
-    </p>
-    <div class="hero-ctas">
-      <a href="#ventures" class="btn-red"><span lang="de">Was ich tue →</span><span lang="en">What I do →</span></a>
-      <a href="#kontakt" class="btn-ghost"><span lang="de">Kontakt</span><span lang="en">Contact</span></a>
-    </div>
-  </div>
-  <div class="hero-status">
-    <div class="status-item"><div class="num">40m+</div><div class="label"><span lang="de">Tiefe</span><span lang="en">Depth</span></div></div>
-    <div class="status-item"><div class="num">24/7</div><div class="label"><span lang="de">Alarmierbar</span><span lang="en">On call</span></div></div>
-    <div class="status-item"><div class="num">2</div><div class="label"><span lang="de">Firmen</span><span lang="en">Ventures</span></div></div>
-  </div>
+<details class="nav-mobile">
+<summary>Menü</summary>
+<nav aria-label="Hauptnavigation"><ul><li><a href="/" aria-current="page">Start</a></li><li><a href="/web.html">Web und Software</a></li><li><a href="/demos/">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a href="/en/" hreflang="en" lang="en">English version</a></li></ul></nav>
+</details>
 </div>
-
-
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stat-item">
-    <div class="big">140+</div>
-    <div class="label"><span lang="de">Tauchgänge 2025</span><span lang="en">Dives 2025</span></div>
-  </div>
-  <div class="stat-item">
-    <div class="big">40m+</div>
-    <div class="label"><span lang="de">Einsatztiefe</span><span lang="en">Max depth</span></div>
-  </div>
-  <div class="stat-item">
-    <div class="big">3</div>
-    <div class="label"><span lang="de">Unternehmen</span><span lang="en">Ventures</span></div>
-  </div>
-  <div class="stat-item">
-    <div class="big">24/7</div>
-    <div class="label"><span lang="de">Alarmierbar</span><span lang="en">On call</span></div>
-  </div>
+</header>
+<main id="main">
+<section class="hero" id="top" aria-labelledby="h1">
+<picture>
+<source media="(max-width: 700px)" srcset="/assets/img/hero-small.webp" width="900" height="506">
+<img class="bg" src="/assets/img/hero.webp" width="1920" height="1080" alt="" fetchpriority="high">
+</picture>
+<div class="wrap">
+<p class="kicker">Under Pressure</p>
+<h1 id="h1">Unter Druck bin ich am besten.</h1>
+<p class="lead">Websites, Web-Apps und Software nach Mass. Von mir gebaut, aus dem Homeoffice, alles auf Anfrage und ohne Folgekosten.</p>
+<p class="roles">Entwickler. Speedflyer. FPV-Pilot. Technischer Taucher. Sprengmeister.</p>
+<div class="cta">
+<a class="btn primary" href="/kontakt.html">Projekt anfragen</a>
+<a class="btn" href="/demos/">Demos ausprobieren</a>
 </div>
-
-<section class="about" id="ueber">
-  <p class="sec-label">01 — <span lang="de">Wer wir sind</span><span lang="en">About</span></p>
-  <h2 class="sec-title"><span lang="de">Der Mann dahinter</span><span lang="en">The man behind it</span></h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p><span lang="de">Ich bin <strong>Michael Küng</strong>, aus Luzern. Ausgebildeter Sprengmeister, technischer Taucher und Webentwickler. Nicht weil ich nicht entscheiden konnte — sondern weil alle drei dasselbe verlangen: <strong>Präzision wenn es darauf ankommt.</strong></span><span lang="en">I'm <strong>Michael Küng</strong>, from Lucerne. Trained demolition specialist, technical diver and web developer. Not because I couldn't decide — but because all three demand the same: <strong>precision when it counts.</strong></span></p>
-      <p><span lang="de">Unter dem Namen <strong>Under Pressure Group</strong> betreibe ich zwei spezialisierte Tauchdienste und entwickle Websites für Unternehmen. Das klingt ungewöhnlich. Das ist es auch.</span><span lang="en">Under the name <strong>Under Pressure Group</strong>, I operate two specialised diving services and build websites for businesses. That sounds unusual. It is.</span></p>
-      <blockquote class="quote">
-        <span lang="de">"Ich tauchte schon bei 4°C und Null-Sicht. Eine schwierige Kundenanfrage bringt mich nicht aus der Ruhe."</span>
-        <span lang="en">"I've dived in 4°C water with zero visibility. A difficult client request won't throw me off."</span>
-      </blockquote>
-      <div class="about-specs">
-        <div class="spec"><div class="num">40m+</div><div class="label"><span lang="de">Tauchtiefe</span><span lang="en">Depth</span></div></div>
-        <div class="spec"><div class="num">24/7</div><div class="label"><span lang="de">Alarmierbar</span><span lang="en">On call</span></div></div>
-        <div class="spec"><div class="num">CH</div><div class="label"><span lang="de">Schweizweit</span><span lang="en">Nationwide</span></div></div>
-        <div class="spec"><div class="num">∞</div><div class="label"><span lang="de">Lösungen</span><span lang="en">Solutions</span></div></div>
-      </div>
-    </div>
-    <div class="about-sidebar">
-      <div class="sidebar-block"><p class="s-label"><span lang="de">Sprengmeister</span><span lang="en">Demolition</span></p><p><span lang="de">Vernichtererlaubnis für zivile Sprengstoffe. Suche, Identifikation und Vernichtung unter Wasser.</span><span lang="en">Destruction permit for civil explosives. Search, identification and destruction underwater.</span></p></div>
-      <div class="sidebar-block"><p class="s-label"><span lang="de">Technisches Tauchen</span><span lang="en">Technical Diving</span></p><p><span lang="de">Erfahrung in anspruchsvollen Gewässern und komplexen Einsätzen. Heimgewässer: Vierwaldstättersee.</span><span lang="en">Experience in demanding waters and complex operations. Home waters: Lake Lucerne.</span></p></div>
-      <div class="sidebar-block"><p class="s-label"><span lang="de">Webentwicklung</span><span lang="en">Web Development</span></p><p><span lang="de">Websites die performen, gefunden werden und gut aussehen. Kein Template. Sie sehen gerade eine davon.</span><span lang="en">Websites that perform, get found and look good. No template. You're looking at one right now.</span></p></div>
-      <div class="sidebar-block"><p class="s-label">Luzern</p><p><span lang="de">Basiert in Luzern, schweizweit einsatzbereit. Webprojekte weltweit.</span><span lang="en">Based in Lucerne, deployable nationwide. Web projects worldwide.</span></p></div>
-    </div>
-  </div>
+</div>
+<p class="hero-cap">Matterhorn aus der FPV-Drohne: die erste Quad-Drohne, die das Matterhorn überfliegt.</p>
 </section>
-
-<section class="ventures" id="ventures">
-  <p class="sec-label">02 — <span lang="de">Unternehmen</span><span lang="en">Ventures</span></p>
-  <h2 class="sec-title"><span lang="de">Was ich betreibe</span><span lang="en">What I operate</span></h2>
-  <div class="ventures-grid">
-    <a class="venture" href="https://notfalltaucher.ch" target="_blank">
-      <div class="venture-num">01</div>
-      <div class="venture-tag"><span lang="de">Notfalldienst · 24/7</span><span lang="en">Emergency · 24/7</span></div>
-      <h3>Notfalltaucher.ch</h3>
-      <p><span lang="de">Unterwasser-Problemlösung für dringende Situationen. Bergung, Inspektion, Reparatur, Sprengmittel. Kein Rettungsdienst — ein Handwerker der weiss was er tut.</span><span lang="en">Underwater problem solving for urgent situations. Recovery, inspection, repair, explosives. Not a rescue service — a craftsman who knows what he's doing.</span></p>
-      <div class="venture-arrow">notfalltaucher.ch →</div>
-    </a>
-    <a class="venture" href="https://industrietaucher.ch" target="_blank">
-      <div class="venture-num">02</div>
-      <div class="venture-tag"><span lang="de">Industrie · Geplante Einsätze</span><span lang="en">Industrial · Planned ops</span></div>
-      <h3>Industrietaucher.ch</h3>
-      <p><span lang="de">Unterwasser-Dienstleistungen für Industrie, Gemeinden und Behörden. Inspektionen, Wartung, Installation, Abbruch. Gründlich, ohne Hektik.</span><span lang="en">Underwater services for industry, municipalities and authorities. Inspections, maintenance, installation, demolition. Thorough, unhurried.</span></p>
-      <div class="venture-arrow">industrietaucher.ch →</div>
-    </a>
-    <div class="venture" style="cursor:default;">
-      <div class="venture-num">03</div>
-      <div class="venture-tag"><span lang="de">Web · Auf Anfrage</span><span lang="en">Web · On request</span></div>
-      <h3><span lang="de">Ihre Website</span><span lang="en">Your Website</span></h3>
-      <p><span lang="de">Massgeschneiderte Websites ohne Baukastensystem und ohne Abogebühren. Schnell, sauber, bei Google sichtbar. Sie sehen gerade ein Beispiel.</span><span lang="en">Custom websites without drag-and-drop builders and without subscriptions. Fast, clean, visible on Google. You're looking at an example right now.</span></p>
-      <div class="venture-arrow" style="cursor:pointer;" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})"><span lang="de">Anfrage stellen →</span><span lang="en">Get in touch →</span></div>
-    </div>
-  </div>
+<section id="services" aria-labelledby="h-services">
+<div class="wrap">
+<div class="sec-head"><span class="sec-num" aria-hidden="true">01</span><h2 id="h-services">Software nach Mass für deinen Betrieb</h2></div>
+<p class="prose muted">Du brauchst eine Website, die für dich arbeitet, ein Portal, das Abläufe vereinfacht, oder ein Werkzeug, das es so nicht zu kaufen gibt? Ich baue es: von der Idee bis zum laufenden System. Ich programmiere aus dem Homeoffice und bin für dich direkt erreichbar.</p>
+<div class="cards three"><div class="card reveal"><h3>Websites</h3><p>Firmenauftritt, Visitenkarte oder mehrsprachige Seite. Schnell, barrierefrei, rechtlich sauber und ohne unnötige Dienste von Dritten.</p><a class="tag" href="/web.html#websites">Mehr dazu</a></div><div class="card reveal"><h3>Web-Apps und Portale</h3><p>Kundenportale, interne Werkzeuge, Logins und Rollen. Alles, was im Browser läuft und deinem Team Arbeit abnimmt.</p><a class="tag" href="/web.html#apps">Mehr dazu</a></div><div class="card reveal"><h3>Betriebssoftware</h3><p>Zeiterfassung, Dokumentenlenkung, Auswertungen und Exporte. Nach Mass statt Lizenz von der Stange.</p><a class="tag" href="/web.html#software">Mehr dazu</a></div><div class="card reveal"><h3>Hardware und Steuerungen</h3><p>Arduino, Mikrocontroller und CNC. Wenn Software etwas in der echten Welt bewegen soll.</p><a class="tag" href="/web.html#hardware">Mehr dazu</a></div><div class="card reveal"><h3>KI-Anwendungen</h3><p>Assistenten, Textverarbeitung und Automatisierung. KI als Werkzeug, dort wo sie wirklich etwas bringt.</p><a class="tag" href="/web.html#ki">Mehr dazu</a></div><div class="card reveal"><h3>FPV und Drohnen</h3><p>Aufnahmen mit Racing-Drohnen und Eigenbau samt Software. Seit über 10 Jahren.</p><a class="tag" href="/fpv.html">Mehr dazu</a></div></div>
+</div>
 </section>
+<section class="alt" id="why" aria-labelledby="h-why">
+<div class="wrap">
+<div class="sec-head"><span class="sec-num" aria-hidden="true">02</span><h2 id="h-why">Warum du mit mir arbeitest</h2></div>
 
-<section class="web" id="web">
-  <div class="web-intro">
-    <div>
-      <p class="sec-label">03 — <span lang="de">Webentwicklung</span><span lang="en">Web Dev</span></p>
-      <h2 class="sec-title"><span lang="de">Websites die funktionieren</span><span lang="en">Websites that work</span></h2>
-    </div>
-    <div>
-      <p><span lang="de">Keine monatlichen Gebühren. Keine Templates die jeder kennt. Eine saubere, schnelle Website die Ihre Kunden findet — und umgekehrt.</span><span lang="en">No monthly fees. No templates everyone recognises. A clean, fast website that finds your customers — and vice versa.</span></p>
-      <div class="web-proof">
-        <strong><span lang="de">Beweis:</span><span lang="en">Proof:</span></strong>
-        <span lang="de"> Diese Website und beide Tauchdienste wurden innert eines Tages gebaut. Fragen Sie mich wie.</span>
-        <span lang="en"> This website and both diving services were built within a day. Ask me how.</span>
-      </div>
-    </div>
-  </div>
-  <div class="web-grid">
-    <div class="web-card"><p class="wnum">01 — <span lang="de">Design & Dev</span><span lang="en">Design & Dev</span></p><h3><span lang="de">Massgeschneidert</span><span lang="en">Custom built</span></h3><p><span lang="de">Kein Template, kein Standard. Jede Website für Ihren spezifischen Zweck entwickelt.</span><span lang="en">No template, no standard. Every website developed for your specific purpose.</span></p></div>
-    <div class="web-card"><p class="wnum">02 — SEO</p><h3><span lang="de">Gefunden werden</span><span lang="en">Get found</span></h3><p><span lang="de">Eine schöne Website die niemand findet ist wie ein Taucher ohne Luft. Google wird Sie kennen.</span><span lang="en">A beautiful website nobody finds is like a diver without air. Google will know you.</span></p></div>
-    <div class="web-card"><p class="wnum">04 — <span lang="de">Zukunft</span><span lang="en">Future</span></p><h3><span lang="de">Komplett fertig</span><span lang="en">Fully complete</span></h3><p><span lang="de">Domain, Hosting, Einrichtung — alles inklusive. Sie bekommen eine fertige Website, keine Hausaufgaben.</span><span lang="en">Domain, hosting, setup — all included. You get a finished website, not homework.</span></p></div>
-  </div>
-  <div class="web-cta">
-    <p><span lang="de">Interessiert? Kurz beschreiben was Sie brauchen — ich antworte innert 24 Stunden.</span><span lang="en">Interested? Briefly describe what you need — I'll reply within 24 hours.</span></p>
-    <a href="mailto:info@industrietaucher.ch" class="btn-red"><span lang="de">Jetzt anfragen →</span><span lang="en">Enquire now →</span></a>
-  </div>
+<div class="cards four"><div class="card reveal"><h3>Direkt</h3><p>Du sprichst mit dem, der programmiert. Keine Agentur dazwischen, keine Weitergabe von Wünschen über drei Stationen.</p></div><div class="card reveal"><h3>Dokumentiert</h3><p>Zu jeder Lösung gibt es ein Handbuch. So kannst du sie selbst betreiben und weiterentwickeln, auch mit KI, ohne Service.</p></div><div class="card reveal"><h3>Ohne Folgekosten</h3><p>Alles auf Anfrage. Du bekommst eine Offerte, und danach läuft nichts im Hintergrund, das dich ohne dein Wissen Geld kostet.</p></div><div class="card reveal"><h3>Unter Druck am besten</h3><p>Ich arbeite gerne an Dingen mit einem klaren Ziel und einem Termin. Dort bin ich in meinem Element, wie beim Tauchen.</p></div></div>
+</div>
 </section>
-
-
-<!-- WHY -->
-<section class="why">
-  <p class="sec-label">05 — <span lang="de">Warum wir</span><span lang="en">Why us</span></p>
-  <h2 class="sec-title"><span lang="de">Was uns unterscheidet</span><span lang="en">What sets us apart</span></h2>
-  <div class="why-grid">
-    <div class="why-card">
-      <span class="icon">💥</span>
-      <h3><span lang="de">Sprengkompetenz</span><span lang="en">Explosives expertise</span></h3>
-      <p><span lang="de">Ausgebildeter Sprengmeister mit Vernichtererlaubnis für zivile Sprengstoffe — unter Wasser. Eine Kombination die es in der Schweiz so nicht gibt.</span><span lang="en">Trained demolition specialist with destruction permit for civil explosives — underwater. A combination that doesn't exist anywhere else in Switzerland.</span></p>
-    </div>
-    <div class="why-card">
-      <span class="icon">⚡</span>
-      <h3><span lang="de">Reaktionszeit</span><span lang="en">Response time</span></h3>
-      <p><span lang="de">24/7 alarmierbar. Notfalleinsätze werden prioritär behandelt. Wir sind dort wo wir gebraucht werden — nicht in einem Büro.</span><span lang="en">On call 24/7. Emergency operations are handled with priority. We're where we're needed — not in an office.</span></p>
-    </div>
-    <div class="why-card">
-      <span class="icon">🎯</span>
-      <h3><span lang="de">Technisches Equipment</span><span lang="en">Technical equipment</span></h3>
-      <p><span lang="de">Professionelles technisches Tauchequipment für Einsätze bis 40m und tiefer. Doppelflaschen, Stage-Flaschen, Trockentauchanzug — wir sind vorbereitet.</span><span lang="en">Professional technical diving equipment for operations to 40m and beyond. Twin tanks, stage bottles, drysuit — we come prepared.</span></p>
-    </div>
-    <div class="why-card">
-      <span class="icon">📋</span>
-      <h3><span lang="de">Dokumentation</span><span lang="en">Documentation</span></h3>
-      <p><span lang="de">Jeder Einsatz wird fotografisch und wenn gewünscht per Video dokumentiert. Berichte für Versicherungen, Behörden oder interne Nachweise auf Anfrage.</span><span lang="en">Every operation is documented photographically and on request via video. Reports for insurance, authorities or internal records available on request.</span></p>
-    </div>
-  </div>
+<section id="demos" aria-labelledby="h-demos">
+<div class="wrap">
+<div class="sec-head"><span class="sec-num" aria-hidden="true">03</span><h2 id="h-demos">Probier es aus, bevor du fragst</h2></div>
+<p class="prose muted">Drei Systeme, die ich gebaut habe, laufen hier als Demo in deinem Browser. Voll funktional, mit Beispieldaten. Du kannst alles anklicken, ändern und exportieren. Mit jeder Demo siehst du auch das Handbuch, das zu einer echten Lösung gehört.</p>
+<div class="cards three"><div class="card reveal"><h3>Zeiterfassung</h3><p>Arbeitszeit, Gleitzeit, Ferien und Spesen für ein Team. Genehmigungen durch die Leitung, Export für Excel.</p><a class="tag" href="/demos/zeiterfassung.html">Demo öffnen</a></div><div class="card reveal"><h3>Kundenportal</h3><p>Dateiaustausch pro Kunde mit Freigabe-Links, Ablaufdatum, Passwort und Aktivitätsprotokoll.</p><a class="tag" href="/demos/kundenportal.html">Demo öffnen</a></div><div class="card reveal"><h3>Dokumentenlenkung</h3><p>Freigabe-Workflow, Versionen, Online-QM-Handbuch pro Mandant und Auditbericht.</p><a class="tag" href="/demos/dokumentenlenkung.html">Demo öffnen</a></div></div>
+</div>
 </section>
-
-<!-- PROCESS -->
-<section class="process">
-  <p class="sec-label">06 — <span lang="de">Ablauf</span><span lang="en">Process</span></p>
-  <h2 class="sec-title"><span lang="de">Wie ein Auftrag läuft</span><span lang="en">How a project works</span></h2>
-  <div class="process-steps">
-    <div class="process-step">
-      <div class="step-num">01</div>
-      <h3><span lang="de">Anfrage</span><span lang="en">Enquiry</span></h3>
-      <p><span lang="de">Situation beschreiben — per E-Mail, Telefon oder WhatsApp. Standort, Tiefe und Art des Problems reichen für eine erste Einschätzung.</span><span lang="en">Describe the situation — by email, phone or WhatsApp. Location, depth and nature of the problem are enough for an initial assessment.</span></p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">02</div>
-      <h3><span lang="de">Offerte</span><span lang="en">Quote</span></h3>
-      <p><span lang="de">Wir erstellen innert 24 Stunden eine schriftliche Offerte. Keine versteckten Kosten, keine Überraschungen.</span><span lang="en">We provide a written quote within 24 hours. No hidden costs, no surprises.</span></p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">03</div>
-      <h3><span lang="de">Einsatz</span><span lang="en">Operation</span></h3>
-      <p><span lang="de">Termingerechter Einsatz mit professionellem Equipment. Sicherheit hat immer Vorrang — wir brechen ab wenn nötig und kommunizieren offen.</span><span lang="en">Punctual operation with professional equipment. Safety always comes first — we abort if necessary and communicate openly.</span></p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">04</div>
-      <h3><span lang="de">Dokumentation</span><span lang="en">Documentation</span></h3>
-      <p><span lang="de">Foto- und Videomaterial sowie Bericht werden nach dem Einsatz übergeben. Rechnung innert 14 Tagen fällig.</span><span lang="en">Photo and video material plus report are handed over after the operation. Invoice due within 14 days.</span></p>
-    </div>
-  </div>
+<section class="alt" id="me" aria-labelledby="h-me">
+<div class="wrap">
+<div class="sec-head"><span class="sec-num" aria-hidden="true">04</span><h2 id="h-me">Mehr als Code</h2></div>
+<div class="cols">
+<div class="prose reveal">
+<p>Um 4 Uhr morgens steige ich auf einen Berg und fliege mit rund 150 km/h wieder runter. Ich baue seit über 10 Jahren Racing-Drohnen, tauche technisch und bin Sprengmeister. Das ist nicht Dekoration. Es ist die gleiche Haltung, die ich in jedes Projekt mitbringe: genau arbeiten, auch wenn es eng wird.</p>
+<p><a class="btn" href="/ich.html">Wer ich bin</a></p>
+</div>
+<figure class="photo tall reveal"><img src="/assets/img/speedflying.webp" width="899" height="1599" alt="Selbstaufnahme beim Speedflying: ein Gleitschirm über einem Alpental, aufgenommen aus dem Fluggerät." loading="lazy"></figure>
+</div>
+</div>
 </section>
-
-<!-- PROJECTS -->
-<section class="projects">
-  <p class="sec-label">07 — <span lang="de">Referenzen</span><span lang="en">References</span></p>
-  <h2 class="sec-title"><span lang="de">Ausgewählte Einsätze</span><span lang="en">Selected operations</span></h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-tag"><span lang="de">Inspektion</span><span lang="en">Inspection</span></div>
-      <h3><span lang="de">Leitungsinspektion, Zentralschweiz</span><span lang="en">Pipeline inspection, Central Switzerland</span></h3>
-      <p><span lang="de">Visuelle Inspektion und Fotodokumentation einer Unterwasserleitung. Befunddokumentation für den Auftraggeber erstellt.</span><span lang="en">Visual inspection and photographic documentation of an underwater pipeline. Condition report prepared for the client.</span></p>
-      <div class="project-meta">15–20m · <span lang="de">Süsswasser</span><span lang="en">Freshwater</span> · 2025</div>
-    </div>
-    <div class="project-card">
-      <div class="project-tag"><span lang="de">Bergung</span><span lang="en">Recovery</span></div>
-      <h3><span lang="de">Objektbergung, Zentralschweiz</span><span lang="en">Object recovery, Central Switzerland</span></h3>
-      <p><span lang="de">Lokalisierung und Bergung eines versunkenen Objekts. Koordination mit dem Auftraggeber vor Ort.</span><span lang="en">Localisation and recovery of a submerged object. On-site coordination with the client.</span></p>
-      <div class="project-meta">20–30m · <span lang="de">Süsswasser</span><span lang="en">Freshwater</span> · 2025</div>
-    </div>
-    <div class="project-card">
-      <div class="project-tag"><span lang="de">Foto & Video</span><span lang="en">Photo & Video</span></div>
-      <h3><span lang="de">Strukturinspektion, Kanton Luzern</span><span lang="en">Structure inspection, Canton Lucerne</span></h3>
-      <p><span lang="de">Videodokumentation einer Unterwasserstruktur. Detaillierte Aufnahmen für technische Auswertung durch den Auftraggeber.</span><span lang="en">Video documentation of an underwater structure. Detailed footage for technical evaluation by the client.</span></p>
-      <div class="project-meta">5–10m · <span lang="de">Süsswasser</span><span lang="en">Freshwater</span> · 2025</div>
-    </div>
-  </div>
-  
-    <!-- NEW REFS -->
-    <div style="background:var(--surface);padding:2rem;">
-      <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--red2);margin-bottom:0.8rem;">
-        <span lang="de">Suche</span><span lang="en">Search</span>
-      </div>
-      <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:1.1rem;letter-spacing:0.08em;margin-bottom:0.8rem;">
-        <span lang="de">Schlüsselsuche, Harrissenbucht</span>
-        <span lang="en">Key search, Harrissenbucht</span>
-      </h3>
-      <p style="font-size:0.82rem;color:var(--muted);line-height:1.75;">
-        <span lang="de">Lokalisierung und Bergung verlorener Schlüssel auf dem Seegrund. Vierwaldstättersee, 6m Tiefe.</span>
-        <span lang="en">Localisation and recovery of lost keys from the lake bed. Lake Lucerne, 6m depth.</span>
-      </p>
-      <p style="font-size:0.7rem;color:var(--muted);margin-top:1rem;letter-spacing:0.1em;">6m · Vierwaldstättersee · 2026</p>
-    </div>
-    <div style="background:var(--surface);padding:2rem;">
-      <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--red2);margin-bottom:0.8rem;">
-        <span lang="de">Grosseinsatz</span><span lang="en">Major operation</span>
-      </div>
-      <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:1.1rem;letter-spacing:0.08em;margin-bottom:0.8rem;">
-        <span lang="de">Suchauftrag, Brienzersee</span>
-        <span lang="en">Search operation, Lake Brienz</span>
-      </h3>
-      <p style="font-size:0.82rem;color:var(--muted);line-height:1.75;">
-        <span lang="de">Systematische Suchrasterung eines definierten Gebiets mit Sonarunterstützung und Tauchinspektion. Koordination mit Auftraggeber.</span>
-        <span lang="en">Systematic grid search of a defined area with sonar support and dive inspection. Coordination with client.</span>
-      </p>
-      <p style="font-size:0.7rem;color:var(--muted);margin-top:1rem;letter-spacing:0.1em;">12–28m · Brienzersee · 2026</p>
-    </div>
-    <div style="background:var(--surface);padding:2rem;">
-      <div style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--red2);margin-bottom:0.8rem;">
-        <span lang="de">Tauchtraining</span><span lang="en">Dive training</span>
-      </div>
-      <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:1.1rem;letter-spacing:0.08em;margin-bottom:0.8rem;">
-        <span lang="de">Trainingsläufe, Lungernsee & Thunersee</span>
-        <span lang="en">Training dives, Lungernsee & Lake Thun</span>
-      </h3>
-      <p style="font-size:0.82rem;color:var(--muted);line-height:1.75;">
-        <span lang="de">Regelmässige Tauchgänge in verschiedenen Schweizer Seen zur Vorbereitung auf Einsätze in unterschiedlichen Bedingungen.</span>
-        <span lang="en">Regular dives in various Swiss lakes to prepare for operations under different conditions.</span>
-      </p>
-      <p style="font-size:0.7rem;color:var(--muted);margin-top:1rem;letter-spacing:0.1em;">bis 35m · 2025–2026</p>
-    </div>
-  </div>
-  <p style="font-size:0.72rem;color:var(--muted);margin-top:1.5rem;letter-spacing:0.08em;">
-    <span lang="de">* Alle Referenzen anonymisiert. Detaillierte Auskünfte auf Anfrage.</span>
-    <span lang="en">* All references anonymised. Detailed information available on request.</span>
-  </p>
+<section id="clients" aria-labelledby="h-clients">
+<div class="wrap">
+<div class="sec-head"><span class="sec-num" aria-hidden="true">05</span><h2 id="h-clients">Wer mir vertraut</h2></div>
+<p class="prose muted">Kunden und Partner aus Fahrzeugbau, Tourismus, Industrie und Drohnenszene.</p>
+<ul class="names reveal"><li>Alta Engineering AG</li><li>Porsche Zentrum Zug</li><li>LUEG AMG</li><li>Verkehrshaus</li><li>Red Bull</li><li>Engelberg Bahnen</li><li>Engelberg Tourismus</li><li>Pilatusbahnen</li><li>SBB</li><li>Lamborghini</li><li>Holcim</li><li>Hebushop</li><li>T-Motor</li><li>Team BlackSheep</li><li>Swaytronic</li><li>HeatRC</li><li>EliteGuard Hüneberg</li></ul><p class="muted">Dazu die Kundschaft von industrietaucher.ch.</p>
+</div>
 </section>
-
-<!-- CONTACT FORM -->
-<section class="up-contact" id="anfrage">
-  <p class="sec-label">08 — <span lang="de">Anfrage</span><span lang="en">Enquiry</span></p>
-  <h2 class="sec-title"><span lang="de">Projekt anfragen</span><span lang="en">Submit a project</span></h2>
-  <p style="color:#666;font-size:0.88rem;margin-top:0.5rem;">
-    <span lang="de">Kurz beschreiben was Sie brauchen — wir melden uns innert 24 Stunden.</span>
-    <span lang="en">Briefly describe what you need — we'll get back to you within 24 hours.</span>
-  </p>
-  <form class="up-form" onsubmit="sendFormUP(event)">
-    <div class="up-field">
-      <label><span lang="de">Name / Firma</span><span lang="en">Name / Company</span></label>
-      <input type="text" name="name" required placeholder="Muster AG">
-    </div>
-    <div class="up-field">
-      <label><span lang="de">Telefon / Email</span><span lang="en">Phone / Email</span></label>
-      <input type="text" name="contact" required placeholder="+41 79 000 00 00">
-    </div>
-    <div class="up-field full">
-      <label><span lang="de">Bereich</span><span lang="en">Area</span></label>
-      <select name="type">
-        <option value="">Bitte wählen...</option>
-        <option value="tauchen-notfall">Notfalltauchen</option>
-        <option value="tauchen-industrie">Industrietauchen</option>
-        <option value="web">Webentwicklung</option>
-        <option value="sonstiges">Sonstiges</option>
-      </select>
-    </div>
-    <div class="up-field full">
-      <label><span lang="de">Nachricht</span><span lang="en">Message</span></label>
-      <textarea name="message" required placeholder="Beschreibung des Projekts oder der Situation..."></textarea>
-    </div>
-    <button type="submit" class="up-submit">
-      <span lang="de">Anfrage senden →</span>
-      <span lang="en">Send enquiry →</span>
-    </button>
-    <div class="up-success" id="success-up">
-      <span lang="de">✓ Anfrage gesendet — wir melden uns innert 24 Stunden.</span>
-      <span lang="en">✓ Enquiry sent — we'll get back to you within 24 hours.</span>
-    </div>
-  </form>
+</main>
+<section class="cta-band" aria-labelledby="h-cta">
+<div class="wrap">
+<h2 id="h-cta">Reden wir über dein Projekt.</h2>
+<p>Erzähl mir kurz, worum es geht. Du bekommst eine ehrliche Einschätzung und eine Offerte ohne Folgekosten.</p>
+<div class="cta">
+<a class="btn primary" href="/kontakt.html">Projekt anfragen</a>
+<a class="btn" href="tel:+41779217136">+41 77 921 71 36</a>
+</div>
+</div>
 </section>
-
-<section class="contact" id="kontakt">
-  <p class="sec-label">04 — <span lang="de">Kontakt</span><span lang="en">Contact</span></p>
-  <h2 class="sec-title"><span lang="de">Sprechen wir.</span><span lang="en">Let's talk.</span></h2>
-  <div class="contact-grid">
-    <div>
-      <div class="c-block"><p class="c-label"><span lang="de">Inhaber</span><span lang="en">Owner</span></p><span>Michael Küng — Under Pressure Group</span><span>Erlenweg 10, 6010 Kriens</span></div>
-      <div class="c-block"><p class="c-label">Email</p><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></div>
-      <div class="c-block"><p class="c-label"><span lang="de">Telefon / WhatsApp</span><span lang="en">Phone / WhatsApp</span></p><a href="tel:+41779217136">+41 77 921 71 36</a></div>
-    </div>
-    <div class="link-list">
-      <a class="link-item" href="https://notfalltaucher.ch" target="_blank"><span>🤿 Notfalltaucher.ch</span><span><span lang="de">Notfalleinsätze</span><span lang="en">Emergency ops</span> →</span></a>
-      <a class="link-item" href="https://industrietaucher.ch" target="_blank"><span>⚙️ Industrietaucher.ch</span><span><span lang="de">Industriedienste</span><span lang="en">Industrial</span> →</span></a>
-      <a class="link-item" href="agb.html"><span>📄 AGB</span><span><span lang="de">Geschäftsbedingungen</span><span lang="en">Terms</span> →</span></a>
-      <a class="link-item" href="impressum.html"><span>ℹ️ Impressum</span><span><span lang="de">Rechtliches</span><span lang="en">Legal</span> →</span></a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span>© 2026 Under Pressure Group · Michael Küng · Kriens, Luzern</span>
-  <span>
-    <a href="https://notfalltaucher.ch">notfalltaucher.ch</a> ·
-    <a href="https://industrietaucher.ch">industrietaucher.ch</a> ·
-    <a href="impressum.html"><span lang="de">Impressum</span><span lang="en">Imprint</span></a> ·
-    <a href="agb.html">AGB</a>
-  </span>
+<footer class="site-footer">
+<div class="wrap foot-grid">
+<div>
+<p class="foot-brand">Under Pressure</p>
+<p>Websites, Web-Apps und Software nach Mass. Aus dem Homeoffice in der Zentralschweiz. Alles auf Anfrage, ohne Folgekosten.</p>
+</div>
+<div>
+<p class="foot-h">Seiten</p>
+<ul><li><a href="/">Start</a></li><li><a href="/web.html">Web und Software</a></li><li><a href="/demos/">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li></ul>
+</div>
+<div>
+<p class="foot-h">Kontakt</p>
+<ul>
+<li><a href="tel:+41779217136">+41 77 921 71 36</a></li>
+<li><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></li>
+</ul>
+</div>
+</div>
+<div class="wrap foot-base">
+<span>&copy; 2026 Under Pressure</span>
+<span><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a></span>
+</div>
 </footer>
-
-
-
-<script>
-function setLang(lang) {
-  document.body.classList.toggle('en', lang === 'en');
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
-  });
-}
-function sendFormUP(e) {
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  const subject = encodeURIComponent('Anfrage Under Pressure Group - ' + (data.get('type') || 'Allgemein'));
-  const body = encodeURIComponent(
-    'Name/Firma: ' + data.get('name') + '\n' +
-    'Kontakt: ' + data.get('contact') + '\n' +
-    'Bereich: ' + data.get('type') + '\n\n' +
-    'Nachricht:\n' + data.get('message')
-  );
-  window.location.href = 'mailto:info@industrietaucher.ch?subject=' + subject + '&body=' + body;
-  document.getElementById('success-up').style.display = 'block';
-  form.reset();
-}
-</script>
-
+<div class="alt-readout" aria-hidden="true">Höhe <b id="alt-value">0</b> m</div>
 </body>
 </html>
