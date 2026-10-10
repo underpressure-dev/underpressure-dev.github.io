@@ -3,96 +3,74 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Dokumentenlenkung (Demo) | Under Pressure</title>
-<meta name="description" content="Freigabe-Workflow, Versionen, Online-QM-Handbuch und Auditbericht. Lauffähige Demo mit Beispieldaten.">
-
+<title>Dokumentenlenkung (Live-Demo) | Under Pressure</title>
+<meta name="description" content="Freigabe-Workflow mit Rollen, Versionen, Prüffristen und einem Online-Handbuch pro Mandant.">
 <meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0b0e12">
 <link rel="canonical" href="https://underpressure.ch/demos/dokumentenlenkung.html">
 <link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/dokumentenlenkung.html">
 <link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/document-control.html">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dokumentenlenkung (Demo) | Under Pressure">
-<meta property="og:description" content="Freigabe-Workflow, Versionen, Online-QM-Handbuch und Auditbericht. Lauffähige Demo mit Beispieldaten.">
+<meta property="og:title" content="Dokumentenlenkung (Live-Demo) | Under Pressure">
+<meta property="og:description" content="Freigabe-Workflow mit Rollen, Versionen, Prüffristen und einem Online-Handbuch pro Mandant.">
 <meta property="og:url" content="https://underpressure.ch/demos/dokumentenlenkung.html">
 <meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
 <meta property="og:locale" content="de_CH">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/demo.css">
-<script src="/assets/js/main.js" defer></script>
-<script src="/assets/js/demo-common.js" defer></script>
-<script src="/assets/js/demo-docs.js" defer></script>
+<link rel="stylesheet" href="/assets/css/style.css?v=025c5d21">
+<link rel="stylesheet" href="/assets/css/demo.css?v=304763a6">
+<script src="/assets/js/main.js?v=0dfe0a1b" defer></script>
+<script src="/assets/js/demo-common.js?v=a6336182" defer></script>
+<script src="/assets/js/demo-docs.js?v=36a09d79" defer></script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 <a class="skip" href="#main">Zum Inhalt springen</a>
 <header class="site-header">
 <div class="wrap">
 <a class="brand" href="/" aria-label="Under Pressure, Startseite">Under Pressure</a>
 <nav class="nav-desktop" aria-label="Hauptnavigation">
-<ul><li><a href="/">Start</a></li><li><a href="/web.html">Web und Software</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a class="lang" href="/en/demos/document-control.html" hreflang="en" lang="en" title="English version">EN</a></li></ul>
+<ul><li><a href="/">Start</a></li><li><a href="/software.html">Software</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a class="lang" href="/en/demos/document-control.html" hreflang="en" lang="en" title="English version">EN</a></li></ul>
 </nav>
 <details class="nav-mobile">
 <summary>Menü</summary>
-<nav aria-label="Hauptnavigation"><ul><li><a href="/">Start</a></li><li><a href="/web.html">Web und Software</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a href="/en/demos/document-control.html" hreflang="en" lang="en">English version</a></li></ul></nav>
+<nav aria-label="Hauptnavigation"><ul><li><a href="/">Start</a></li><li><a href="/software.html">Software</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a href="/en/demos/document-control.html" hreflang="en" lang="en">English version</a></li></ul></nav>
 </details>
 </div>
 </header>
 <main id="main">
-<div class="page-head">
-<div class="wrap">
-<p class="kicker">Demo</p>
-<h1>Dokumentenlenkung (Demo)</h1>
-<p class="lead">Freigabe-Workflow, Versionen, Online-QM-Handbuch und Auditbericht. Lauffähige Demo mit Beispieldaten.</p>
-</div>
-</div>
-<div class="wrap demo-wrap">
-<div class="demo-note" role="note">
-<p><strong>Demo mit erfundenen Beispieldaten.</strong> Alles, was du eingibst, bleibt in deinem Browser.</p>
-<button type="button" class="btn small" id="demo-reset">Demo zurücksetzen</button>
-</div>
+<div class="page-head demo-head"><div class="wrap"><p class="eyebrow">Live-Demo &middot; <a href="/demos/">Alle Demos</a></p><h1>Dokumentenlenkung</h1><p class="lead">Freigabe-Workflow mit Rollen, Versionen, Prüffristen und einem Online-Handbuch pro Mandant.</p></div></div>
+<div class="demo-wrap">
+<div class="wrap demo-bar">
 <div class="tabs" role="tablist" aria-label="Demo oder Handbuch">
 <button role="tab" id="tab-demo" aria-controls="panel-demo" aria-selected="true" type="button">Demo</button>
 <button role="tab" id="tab-man" aria-controls="panel-man" aria-selected="false" type="button" tabindex="-1">Handbuch</button>
 </div>
-<div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel">
-<div id="app" data-lang="de"><p class="muted">Die Demo benötigt JavaScript.</p></div>
+<p class="demo-note"><span>Erfundene Beispieldaten. Alles bleibt in deinem Browser.</span> <button type="button" class="linkish" id="demo-reset">Demo zurücksetzen</button></p>
 </div>
-<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel prose manual" hidden>
-<h2>Handbuch: Dokumentenlenkung</h2>
-<h3>Zweck</h3><p>Die Dokumentenlenkung stellt sicher, dass nur geprüfte und freigegebene Dokumente gelten. Sie führt Versionen, zeigt den Freigabestand und erzeugt daraus ein Online-Handbuch und einen Auditbericht.</p><h3>Bedienung</h3><p>Mit «Ansicht als» wählst du eine Person mit Rolle (Ersteller, Prüfer, Freigeber). Der Mandant trennt die Dokumente verschiedener Kunden.</p><ul class="ticks"><li>Entwurf: der Ersteller bearbeitet den Text und gibt ihn zur Prüfung.</li><li>Prüfung: der Prüfer gibt zur Freigabe weiter oder weist mit Kommentar zurück.</li><li>Freigabe: der Freigeber setzt die Version in Kraft. Die bisherige Version gilt dann als ersetzt.</li><li>Handbuch: alle freigegebenen Dokumente als lesbares Handbuch mit Inhaltsverzeichnis, druckbar.</li><li>Auditbericht: Stand aller Dokumente mit überfälligen Prüfungen.</li></ul><h3>Typischer Aufbau einer echten Lösung</h3><p>Webanwendung mit Datenbank und Benutzerverwaltung. Jede Version bleibt nachvollziehbar gespeichert. Das Handbuch zur echten Lösung beschreibt Rollen, Prüffristen und Sicherung.</p>
-</div>
+<div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel"><div class="wrap wide"><div id="app" class="appframe" data-lang="de"><p class="noscript">Die Demo benötigt JavaScript.</p></div></div></div>
+<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Handbuch: Dokumentenlenkung</h2><h3>Zweck</h3><p>Die Dokumentenlenkung stellt sicher, dass nur geprüfte und freigegebene Dokumente gelten. Sie führt Versionen, zeigt Aufgaben und erzeugt daraus ein Online-Handbuch und einen Auditbericht.</p><h3>Bedienung</h3><p>Oben rechts wählst du Person und Mandant. Jede Rolle sieht ihre Aufgaben auf dem Dashboard.</p><ul class="ticks"><li>Dashboard: Kennzahlen, deine Aufgaben und fällige Prüfungen.</li><li>Dokumente: Liste mit Filtern und Suche. Ein Klick öffnet die Schublade mit Text, Versionen und Verlauf.</li><li>Entwurf: der Ersteller bearbeitet und gibt zur Prüfung.</li><li>Prüfung: der Prüfer gibt weiter oder weist mit Kommentar zurück.</li><li>Freigabe: der Freigeber setzt die Version in Kraft, die alte gilt als ersetzt.</li><li>Handbuch und Auditbericht: druckbar und als CSV exportierbar.</li></ul><h3>Echte Lösung</h3><p>Webanwendung mit Datenbank, Benutzerverwaltung, Mandanten und Vorlagen. Jede Version bleibt nachvollziehbar gespeichert. Das Handbuch beschreibt Rollen, Prüffristen und Sicherung.</p></div></div></div>
 </div>
 </main>
 <section class="cta-band" aria-labelledby="h-cta">
 <div class="wrap">
-<h2 id="h-cta">Reden wir über dein Projekt.</h2>
-<p>Erzähl mir kurz, worum es geht. Du bekommst eine ehrliche Einschätzung und eine Offerte ohne Folgekosten.</p>
-<div class="cta">
-<a class="btn primary" href="/kontakt.html">Projekt anfragen</a>
-<a class="btn" href="tel:+41779217136">+41 77 921 71 36</a>
-</div>
+<p class="eyebrow">Nächster Schritt</p>
+<h2 id="h-cta">Soll so etwas bei dir laufen?</h2>
+<p>Erzähl mir in ein paar Sätzen, worum es geht. Du bekommst eine ehrliche Einschätzung und eine Offerte, ohne Folgekosten.</p>
+<div class="cta"><a class="btn primary" href="/kontakt.html">Projekt anfragen</a><a class="btn" href="tel:+41779217136">+41 77 921 71 36</a></div>
 </div>
 </section>
 <footer class="site-footer">
 <div class="wrap foot-grid">
 <div>
 <p class="foot-brand">Under Pressure</p>
-<p>Websites, Web-Apps und Software nach Mass. Aus dem Homeoffice in der Zentralschweiz. Alles auf Anfrage, ohne Folgekosten.</p>
+<p>Websites, Web-Apps und Software nach Mass. Programmiert von Mike, aus dem Homeoffice in der Zentralschweiz. Alles auf Anfrage, ohne Folgekosten.</p>
 </div>
-<div>
-<p class="foot-h">Seiten</p>
-<ul><li><a href="/">Start</a></li><li><a href="/web.html">Web und Software</a></li><li><a href="/demos/">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li></ul>
-</div>
-<div>
-<p class="foot-h">Kontakt</p>
-<ul>
-<li><a href="tel:+41779217136">+41 77 921 71 36</a></li>
-<li><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></li>
-</ul>
-</div>
+<div><p class="foot-h">Seiten</p><ul><li><a href="/">Start</a></li><li><a href="/software.html">Software</a></li><li><a href="/demos/">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li></ul></div>
+<div><p class="foot-h">Kontakt</p><ul><li><a href="tel:+41779217136">+41 77 921 71 36</a></li><li><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></li><li>Luzern, Schweiz</li></ul></div>
 </div>
 <div class="wrap foot-base">
 <span>&copy; 2026 Under Pressure</span>
