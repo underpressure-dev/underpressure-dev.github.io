@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'; manifest-src 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<title>Geschützter Bereich | Under Pressure</title>
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css?v=6ae3892e">
+<script src="/intern/login.js?v=3a1bac64" defer></script>
+</head>
+<body class="intern-body">
+<main id="main" class="intern">
+<div class="intern-card">
+<a class="brand" href="/">Under Pressure</a>
+<p class="eyebrow">Geschützter Bereich</p>
+<h1>Bitte anmelden.</h1>
+<p class="muted">Die Inhalte sind verschlüsselt und werden erst in deinem Browser mit dem Passwort lesbar. Das Passwort wird nirgends hin gesendet.</p>
+<div id="state" class="intern-state" hidden><p>Du bist angemeldet bis <b id="until"></b> Uhr.</p><p><button type="button" class="btn primary small" id="open">Öffnen</button> <button type="button" class="btn small" id="logout">Abmelden</button></p></div>
+<form id="login" class="brief" novalidate>
+<label>Passwort<input type="password" id="pw" autocomplete="current-password" required></label>
+<div><button class="btn primary" type="submit" id="go">Anmelden</button></div>
+</form>
+<p id="msg" class="msg" role="status" hidden></p>
+<p class="muted small-print">Kein Zugang? <a href="/kontakt.html">Kontakt</a> &middot; <a href="/datenschutz.html">Datenschutz</a></p>
+</div>
+</main>
+</body>
+</html>

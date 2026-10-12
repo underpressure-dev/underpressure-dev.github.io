@@ -363,3 +363,32 @@ dialog.lightbox button { position: fixed; right: 18px; top: 14px; font: inherit;
 .stat span { overflow-wrap: anywhere; hyphens: auto; }
 .cols { grid-template-columns: minmax(0, 1fr); } .cols > * { min-width: 0; }
 @media (min-width: 900px) { .cols { grid-template-columns: 1.1fr 0.9fr; } .cols.rev { grid-template-columns: 0.9fr 1.1fr; } .cols.even { grid-template-columns: 1fr 1fr; } }
+
+/* Geschützter Bereich: Anmeldung */
+.intern-body { min-height: 100vh; display: grid; place-items: center; background: var(--ink); position: relative; isolation: isolate; }
+.intern-body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: var(--ink-accent); opacity: 0.14; -webkit-mask: url(/assets/img/contours.svg) center / cover no-repeat; mask: url(/assets/img/contours.svg) center / cover no-repeat; }
+.intern { width: 100%; padding: 24px 16px; }
+.intern-card { max-width: 440px; margin: 0 auto; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 12px; padding: clamp(24px, 5vw, 40px); box-shadow: 0 30px 80px rgba(0,0,0,0.4); display: grid; gap: 14px; }
+.intern-card h1 { font-size: 2rem; }
+.intern-card .brand { margin-bottom: 8px; }
+.intern-card p { margin: 0; }
+.intern-state { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 10px; background: var(--bg-2); }
+.msg { padding: 10px 12px; border-radius: 6px; background: var(--bg-2); border: 1px solid var(--line); }
+.msg.err { border-color: #c62828; color: #c62828; }
+@media (prefers-color-scheme: dark) { .msg.err { border-color: #ef6b6b; color: #ef6b6b; } }
+.small-print { font-size: 0.85rem; }
+.login { font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.78rem !important; border: 1px solid var(--accent); color: var(--accent); padding: 4px 10px !important; border-radius: var(--r); }
+.login:hover { background: var(--accent); color: var(--on-accent) !important; text-decoration: none !important; }
+/* Login immer hell und klar */
+.intern-body { background: #f4f5f7; color-scheme: light; }
+.intern-body::before { background: #c8102e; opacity: 0.06; }
+.intern-body .intern-card { background: #fff; color: #111820; border-color: #dde1e7; box-shadow: 0 20px 60px rgba(17, 24, 32, 0.12); --fg: #111820; --muted: #4a5562; --line: #dde1e7; --bg-2: #f4f5f7; --surface: #fff; --accent: #c8102e; --on-accent: #fff; }
+.intern-body .brand { color: #111820; }
+.intern-body .brand::before { background: #111820; }
+.intern-body .eyebrow { color: #c8102e; }
+.intern-body .muted { color: #4a5562; }
+.intern-body input { background: #fff; color: #111820; border-color: #c9ced6; }
+.intern-body .btn { color: #111820; }
+.intern-body .btn.primary { background: #c8102e; border-color: #c8102e; color: #fff; }
+.intern-body a { color: #111820; }
+[hidden] { display: none !important; }
