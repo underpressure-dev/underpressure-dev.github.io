@@ -36,9 +36,9 @@
     });
   }
 
-  if (params.has('logout')) { del().then(function () { say('Du bist abgemeldet.'); showState(); history.replaceState(null, '', BASE); }); }
+  if (params.has('logout')) { del().then(function () { say('Sie sind abgemeldet.'); showState(); history.replaceState(null, '', BASE); }); }
   else showState();
-  document.getElementById('logout').addEventListener('click', function () { del().then(function () { say('Du bist abgemeldet.'); showState(); }); });
+  document.getElementById('logout').addEventListener('click', function () { del().then(function () { say('Sie sind abgemeldet.'); showState(); }); });
   document.getElementById('open').addEventListener('click', function () { navigator.serviceWorker.register(BASE + 'sw.js', { scope: BASE }).then(function () { return navigator.serviceWorker.ready; }).then(function () { window.location.href = target(); }); });
 
   form.addEventListener('submit', function (ev) {

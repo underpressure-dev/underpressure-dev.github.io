@@ -110,7 +110,7 @@
       h('div', { class: 'a-tw' }, h('table', null, h('caption', { class: 'sr', text: t('Monatsblatt ', 'Month sheet ') + monthLabel(ui.month) }),
         h('thead', null, h('tr', null, [t('Datum', 'Date'), t('Tag', 'Day'), t('Buchungen', 'Bookings'), t('Kommentar', 'Comment'), t('Ist', 'Actual'), t('Soll', 'Target'), 'Diff'].map(function (x, i) { return h('th', { scope: 'col', class: i > 3 ? 'r' : '', text: x }); }))),
         h('tbody', null, rows))),
-      h('p', { class: 'a-sub', style: null, text: t('Tipp: Klick auf einen Tag öffnet die Erfassung.', 'Tip: click a day to open time entry.') })];
+      h('p', { class: 'a-sub', style: null, text: t('Tipp: Ein Klick auf einen Tag öffnet die Erfassung.', 'Tip: click a day to open time entry.') })];
   }
 
   // ---------- Erfassen
@@ -241,7 +241,7 @@
       var name = h('input', { type: 'text', required: true });
       UP.dialog(app, t('Neues Projekt', 'New project'), field(t('Name', 'Name'), name), function () { if (!name.value.trim()) return false; var cols = ['#1f4e8c', '#2e8b57', '#8a5a00', '#7b3fa0', '#b23a2f', '#00708a']; D.projects.push({ id: UP.uid(), name: name.value.trim(), color: cols[D.projects.length % cols.length], active: true }); st.save(); render(); });
     }, text: '+ ' + t('Projekt', 'Project') }) : null;
-    return [h('h1', { text: t('Projekte', 'Projects') }), h('p', { class: 'a-sub', text: (admin() ? t('Stunden des Teams', 'Team hours') : t('Deine Stunden', 'Your hours')) + ' · ' + monthLabel(ui.month) }),
+    return [h('h1', { text: t('Projekte', 'Projects') }), h('p', { class: 'a-sub', text: (admin() ? t('Stunden des Teams', 'Team hours') : t('Ihre Stunden', 'Your hours')) + ' · ' + monthLabel(ui.month) }),
       h('div', { class: 'a-h2' }, monthNav(), add), h('div', { class: 'a-projects' }, cards)];
   }
 
@@ -275,7 +275,7 @@
       h('div', { class: 'a-tw' }, h('table', null, h('caption', { class: 'sr', text: t('Team-Übersicht', 'Team overview') }),
         h('thead', null, h('tr', null, [t('Mitarbeitende', 'Employee'), t('Ist', 'Actual'), t('Soll', 'Target'), 'Diff', t('Gleitzeit', 'Flextime'), t('Ferien-Rest', 'Holidays left'), t('Anträge', 'Requests')].map(function (x, i) { return h('th', { scope: 'col', class: i && i < 6 ? 'r' : '', text: x }); }))),
         h('tbody', null, rows))),
-      h('p', { class: 'a-sub', style: null, text: t('Der Export ist eine CSV-Datei, die Excel direkt öffnet. In einer echten Lösung entspricht das Layout deinem bisherigen Excel-Format. Klick auf eine Person öffnet ihr Monatsblatt.', 'The export is a CSV file that Excel opens directly. In a real solution the layout matches your existing Excel format. Click a person to open their month sheet.') })];
+      h('p', { class: 'a-sub', style: null, text: t('Der Export ist eine CSV-Datei, die Excel direkt öffnet. In einer echten Lösung entspricht das Layout Ihrem bisherigen Excel-Format. Ein Klick auf eine Person öffnet ihr Monatsblatt.', 'The export is a CSV file that Excel opens directly. In a real solution the layout matches your existing Excel format. Click a person to open their month sheet.') })];
   }
 
   function render() {

@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/assets/css/demo.css?v=79901f75">
 <script src="/assets/js/main.js?v=78a8e4cc" defer></script>
 <script src="/assets/js/demo-common.js?v=a6336182" defer></script>
-<script src="/assets/js/demo-time.js?v=51af2b45" defer></script>
+<script src="/assets/js/demo-time.js?v=d07367ab" defer></script>
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
@@ -33,11 +33,11 @@
 <div class="wrap">
 <a class="brand" href="/" aria-label="Under Pressure, Startseite">Under Pressure</a>
 <nav class="nav-desktop" aria-label="Hauptnavigation">
-<ul><li><a href="/">Start</a></li><li><a href="/software.html">Software</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a class="login" href="/intern/" title="Geschützter Kundenbereich">Login</a></li><li><a class="lang" href="/en/demos/time-tracking.html" hreflang="en" lang="en" title="English version">EN</a></li></ul>
+<ul><li><a href="/">Start</a></li><li><a href="/software.html">Software</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/unternehmen.html">Unternehmen</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a class="login" href="/intern/" title="Geschützter Kundenbereich">Login</a></li><li><a class="lang" href="/en/demos/time-tracking.html" hreflang="en" lang="en" title="English version">EN</a></li></ul>
 </nav>
 <details class="nav-mobile">
 <summary>Menü</summary>
-<nav aria-label="Hauptnavigation"><ul><li><a href="/">Start</a></li><li><a href="/software.html">Software</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a href="/intern/">Kunden-Login</a></li><li><a href="/en/demos/time-tracking.html" hreflang="en" lang="en">English version</a></li></ul></nav>
+<nav aria-label="Hauptnavigation"><ul><li><a href="/">Start</a></li><li><a href="/software.html">Software</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/unternehmen.html">Unternehmen</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a href="/intern/">Kunden-Login</a></li><li><a href="/en/demos/time-tracking.html" hreflang="en" lang="en">English version</a></li></ul></nav>
 </details>
 </div>
 </header>
@@ -49,17 +49,17 @@
 <button role="tab" id="tab-demo" aria-controls="panel-demo" aria-selected="true" type="button">Demo</button>
 <button role="tab" id="tab-man" aria-controls="panel-man" aria-selected="false" type="button" tabindex="-1">Handbuch</button>
 </div>
-<p class="demo-note"><span>Erfundene Beispieldaten. Alles bleibt in deinem Browser.</span> <button type="button" class="linkish" id="demo-reset">Demo zurücksetzen</button></p>
+<p class="demo-note"><span>Erfundene Beispieldaten. Alles bleibt in Ihrem Browser.</span> <button type="button" class="linkish" id="demo-reset">Demo zurücksetzen</button></p>
 </div>
 <div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel"><div class="wrap wide"><div id="app" class="appframe" data-lang="de"><p class="noscript">Die Demo benötigt JavaScript.</p></div></div></div>
-<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Handbuch: Zeiterfassung</h2><h3>Zweck</h3><p>Die Zeiterfassung erfasst Arbeitszeit pro Projekt, berechnet das Gleitzeitsaldo, verwaltet Ferien und Absenzen und sammelt Spesen. Die Leitung genehmigt, die Auswertung geht nach Excel.</p><h3>Bedienung</h3><p>Oben rechts wählst du die Person. Mitarbeitende sehen nur ihre eigenen Daten, die Leitung sieht alle und genehmigt Anträge.</p><ul class="ticks"><li>Übersicht: Kennzahlen und Monatsblatt mit Ist, Soll und Differenz pro Tag.</li><li>Erfassen: Zeitblöcke mit Von, Bis, Pause, Projekt und Kommentar.</li><li>Kalender: Monatsansicht mit Arbeitstagen, Ferien und Absenzen.</li><li>Ferien: Antrag stellen, die Leitung genehmigt oder lehnt ab.</li><li>Spesen: Betrag, Kategorie und Zweck erfassen.</li><li>Auswertung: Team-Übersicht und Export als CSV-Datei, die Excel direkt öffnet.</li></ul><h3>Berechnung</h3><p>Das Soll beträgt in der Demo 8.4 Stunden pro Arbeitstag (Montag bis Freitag). Genehmigte Ferien und Absenzen zählen als erfüllt. Das Gleitzeitsaldo ist die Summe aus Ist minus Soll seit dem ersten Eintrag.</p><h3>Echte Lösung</h3><p>Webanwendung mit Datenbank, Anmeldung und Rollen, betrieben bei einem Anbieter deiner Wahl. Der Export folgt deinem bisherigen Excel-Format. Das Handbuch beschreibt dann auch Sicherung, Wiederherstellung und Anpassung.</p></div></div></div>
+<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Handbuch: Zeiterfassung</h2><h3>Zweck</h3><p>Die Zeiterfassung erfasst Arbeitszeit pro Projekt, berechnet das Gleitzeitsaldo, verwaltet Ferien und Absenzen und sammelt Spesen. Die Leitung genehmigt, die Auswertung geht nach Excel.</p><h3>Bedienung</h3><p>Oben rechts wählen Sie die Person. Mitarbeitende sehen nur ihre eigenen Daten, die Leitung sieht alle und genehmigt Anträge.</p><ul class="ticks"><li>Übersicht: Kennzahlen und Monatsblatt mit Ist, Soll und Differenz pro Tag.</li><li>Erfassen: Zeitblöcke mit Von, Bis, Pause, Projekt und Kommentar.</li><li>Kalender: Monatsansicht mit Arbeitstagen, Ferien und Absenzen.</li><li>Ferien: Antrag stellen, die Leitung genehmigt oder lehnt ab.</li><li>Spesen: Betrag, Kategorie und Zweck erfassen.</li><li>Auswertung: Team-Übersicht und Export als CSV-Datei, die Excel direkt öffnet.</li></ul><h3>Berechnung</h3><p>Das Soll beträgt in der Demo 8.4 Stunden pro Arbeitstag (Montag bis Freitag). Genehmigte Ferien und Absenzen zählen als erfüllt. Das Gleitzeitsaldo ist die Summe aus Ist minus Soll seit dem ersten Eintrag.</p><h3>Echte Lösung</h3><p>Webanwendung mit Datenbank, Anmeldung und Rollen, betrieben bei einem Anbieter Ihrer Wahl. Der Export folgt Ihrem bisherigen Excel-Format. Das Handbuch beschreibt dann auch Sicherung, Wiederherstellung und Anpassung.</p></div></div></div>
 </div>
 </main>
 <section class="cta-band" aria-labelledby="h-cta">
 <div class="wrap">
 <p class="eyebrow">Nächster Schritt</p>
-<h2 id="h-cta">Soll so etwas bei dir laufen?</h2>
-<p>Erzähl mir in ein paar Sätzen, worum es geht. Du bekommst eine ehrliche Einschätzung und eine Offerte, ohne Folgekosten.</p>
+<h2 id="h-cta">Soll so etwas bei Ihnen laufen?</h2>
+<p>Beschreiben Sie uns in ein paar Sätzen, worum es geht. Sie erhalten eine ehrliche Einschätzung und eine Offerte, ohne Folgekosten.</p>
 <div class="cta"><a class="btn primary" href="/kontakt.html">Projekt anfragen</a><a class="btn" href="tel:+41779217136">+41 77 921 71 36</a></div>
 </div>
 </section>
@@ -67,9 +67,9 @@
 <div class="wrap foot-grid">
 <div>
 <p class="foot-brand">Under Pressure</p>
-<p>Websites, Web-Apps und Software nach Mass. Von Mike, Unternehmer und Problemlöser aus Luzern. Alles auf Anfrage, ohne Folgekosten.</p>
+<p>Websites, Web-Apps und Betriebssoftware für Unternehmen in der Schweiz. Sitz in Luzern. Alles auf Anfrage, ohne Folgekosten.</p>
 </div>
-<div><p class="foot-h">Seiten</p><ul><li><a href="/">Start</a></li><li><a href="/software.html">Software</a></li><li><a href="/demos/">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/ich.html">Wer ich bin</a></li><li><a href="/kontakt.html">Kontakt</a></li></ul></div>
+<div><p class="foot-h">Seiten</p><ul><li><a href="/">Start</a></li><li><a href="/software.html">Software</a></li><li><a href="/demos/">Demos</a></li><li><a href="/fpv.html">FPV und Drohnen</a></li><li><a href="/unternehmen.html">Unternehmen</a></li><li><a href="/kontakt.html">Kontakt</a></li></ul></div>
 <div><p class="foot-h">Kontakt</p><ul><li><a href="tel:+41779217136">+41 77 921 71 36</a></li><li><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></li><li>Luzern, Schweiz</li><li><a href="/intern/">Kunden-Login</a></li></ul></div>
 </div>
 <div class="wrap foot-base">

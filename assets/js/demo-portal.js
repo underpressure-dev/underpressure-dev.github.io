@@ -80,7 +80,7 @@
     UP.dialog(app, t('Freigabe-Link erstellen', 'Create sharing link'), [h('p', { class: 'a-sub', text: f.name }),
       h('div', { class: 'a-form' }, h('label', { class: 'a-field' }, t('Gültigkeit', 'Validity'), days), h('label', { class: 'a-field' }, t('Passwort', 'Password'), pw))], function () {
       var l = { id: UP.uid(), fileId: f.id, cust: f.cust, token: UP.token(), created: Date.now(), expires: Date.now() + (+days.value) * DAY, pw: pw.value.trim(), downloads: 0, revoked: false };
-      D.links.push(l); logIt(f.cust, who(), 'link', f.name); st.save(); ui.shown = l.id; say(t('Link erstellt. Du kannst ihn jetzt kopieren.', 'Link created. You can copy it now.')); render();
+      D.links.push(l); logIt(f.cust, who(), 'link', f.name); st.save(); ui.shown = l.id; say(t('Link erstellt. Sie können ihn jetzt kopieren.', 'Link created. You can copy it now.')); render();
     }, t('Erstellen', 'Create'));
   }
 
@@ -135,7 +135,7 @@
           h('div', { class: 'a-form', style: null }, h('button', { type: 'button', class: 'a-btn s', onclick: function () { ui.shown = ui.shown === l.id ? null : l.id; render(); }, text: ui.shown === l.id ? t('Link verbergen', 'Hide link') : t('Link anzeigen', 'Show link') }),
             h('button', { type: 'button', class: 'a-btn s', onclick: function () { window.location.hash = '#/share/' + l.token; }, text: t('Als Empfänger öffnen', 'Open as recipient') }),
             lstate(l) === 'ok' ? h('button', { type: 'button', class: 'a-btn s d', onclick: function () { l.revoked = true; logIt(c.id, who(), 'revoke', f ? f.name : ''); st.save(); render(); }, text: t('Widerrufen', 'Revoke') }) : null)));
-      })) : h('p', { class: 'a-sub', text: t('Noch keine Links. Klick bei einer Datei auf «Teilen».', 'No links yet. Click "Share" on a file.') })));
+      })) : h('p', { class: 'a-sub', text: t('Noch keine Links. Wählen Sie bei einer Datei «Teilen».', 'No links yet. Click "Share" on a file.') })));
     }
     right.push(h('div', { class: 'a-panel' }, h('h2', { text: t('Aktivität', 'Activity') }), logList(D.log.filter(function (e) { return e.cust === c.id; }).slice(0, 8), false)));
     var back = intern() ? h('button', { type: 'button', class: 'a-btn s', onclick: function () { ui.cust = null; ui.msg = ''; render(); }, text: '‹ ' + t('Alle Kunden', 'All clients') }) : null;
@@ -148,7 +148,7 @@
     var l = D.links.filter(function (x) { return x.token === token; })[0];
     var box = h('div', { class: 'a-panel a-share' });
     var back = h('p', { class: 'a-sub' }, h('a', { href: '#', onclick: function (ev) { ev.preventDefault(); window.location.hash = ''; } , text: '‹ ' + t('Zurück zur Verwaltung (Demo)', 'Back to administration (demo)') }));
-    var note = h('p', { class: 'a-msg', text: t('So sieht dein Gegenüber den Link: ohne Konto, ohne Anmeldung.', 'This is how your counterpart sees the link: no account, no sign-in.') });
+    var note = h('p', { class: 'a-msg', text: t('So sieht Ihr Gegenüber den Link: ohne Konto, ohne Anmeldung.', 'This is how your counterpart sees the link: no account, no sign-in.') });
     if (!l || l.revoked) { box.appendChild(h('h2', { text: t('Link ungültig', 'Invalid link') })); box.appendChild(h('p', { text: t('Dieser Freigabe-Link existiert nicht oder wurde widerrufen.', 'This sharing link does not exist or has been revoked.') })); }
     else if (Date.now() > l.expires) { box.appendChild(h('h2', { text: t('Link abgelaufen', 'Link expired') })); box.appendChild(h('p', { text: t('Dieser Link war gültig bis ', 'This link was valid until ') + UP.fmtDT(l.expires) + '.' })); }
     else {
@@ -166,7 +166,7 @@
         box.appendChild(err); box.appendChild(h('p', { class: 'a-sub', text: t('Demo-Hinweis: Das Passwort lautet «' + l.pw + '».', 'Demo hint: the password is "' + l.pw + '".') }));
       } else showFile();
     }
-    return [hero(t('Freigabe', 'Shared file'), t('Eine Datei wurde mit dir geteilt', 'A file has been shared with you')), h('div', { class: 'a-main' }, note, msg(), box, back)];
+    return [hero(t('Freigabe', 'Shared file'), t('Eine Datei wurde mit Ihnen geteilt', 'A file has been shared with you')), h('div', { class: 'a-main' }, note, msg(), box, back)];
   }
 
   function render() {
