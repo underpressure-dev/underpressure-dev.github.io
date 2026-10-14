@@ -34,7 +34,7 @@ function toLogin(url, req) {
 function load(keys, rel) {
   var enc = new TextEncoder();
   return crypto.subtle.sign('HMAC', keys.mac, enc.encode(rel)).then(function (sig) {
-    return fetch(BASE + 'd/' + hex(sig).slice(0, 32) + '.bin', { cache: 'no-cache' });
+    return fetch(BASE + (keys.dir || 'd') + '/' + hex(sig).slice(0, 32) + '.bin', { cache: 'no-cache' });
   }).then(function (r) {
     if (!r.ok) return null;
     return r.arrayBuffer().then(function (buf) {

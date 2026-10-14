@@ -45,24 +45,28 @@
     ev.preventDefault();
     if (!pw.value) { say('Bitte das Passwort eingeben.', true); pw.focus(); return; }
     btn.disabled = true; say('Prüfe Passwort …');
-    var enc = new TextEncoder(), cfg;
+    var enc = new TextEncoder(), password = pw.value.normalize('NFC');
+    // Jede Fassung (Tresor) hat ein eigenes Salz. Das Passwort wird gegen jede geprüft, nur die passende öffnet sich.
+    function tryVault(v) {
+      return crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveBits']).then(function (base) {
+        return crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: b64(v.salt), iterations: v.iter }, base, 512);
+      }).then(function (bits) {
+        return Promise.all([
+          crypto.subtle.importKey('raw', bits.slice(0, 32), { name: 'AES-GCM' }, false, ['decrypt']),
+          crypto.subtle.importKey('raw', bits.slice(32, 64), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'])
+        ]);
+      }).then(function (keys) {
+        return fetch(BASE + v.dir + '/check.bin', { cache: 'no-cache' }).then(function (r) { return r.arrayBuffer(); }).then(function (buf) {
+          return crypto.subtle.decrypt({ name: 'AES-GCM', iv: new Uint8Array(buf, 0, 12) }, keys[0], new Uint8Array(buf, 12));
+        }).then(function () { return { aes: keys[0], mac: keys[1], dir: v.dir }; });
+      });
+    }
     fetch(BASE + 'config.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (c) {
-      cfg = c;
-      return crypto.subtle.importKey('raw', enc.encode(pw.value.normalize('NFC')), 'PBKDF2', false, ['deriveBits']);
-    }).then(function (base) {
-      return crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: b64(cfg.salt), iterations: cfg.iter }, base, 512);
-    }).then(function (bits) {
-      return Promise.all([
-        crypto.subtle.importKey('raw', bits.slice(0, 32), { name: 'AES-GCM' }, false, ['decrypt']),
-        crypto.subtle.importKey('raw', bits.slice(32, 64), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'])
-      ]);
-    }).then(function (keys) {
-      return fetch(BASE + 'd/check.bin', { cache: 'no-cache' }).then(function (r) { return r.arrayBuffer(); }).then(function (buf) {
-        return crypto.subtle.decrypt({ name: 'AES-GCM', iv: new Uint8Array(buf, 0, 12) }, keys[0], new Uint8Array(buf, 12));
-      }).then(function () { return keys; });
-    }).then(function (keys) {
+      var vaults = c.v === 2 ? c.vaults.map(function (v) { return { salt: v.salt, dir: v.dir, iter: c.iter }; }) : [{ salt: c.salt, dir: 'd', iter: c.iter }];
+      return vaults.reduce(function (p, v) { return p.catch(function () { return tryVault(v); }); }, Promise.reject(new Error('start')));
+    }).then(function (k) {
       pw.value = '';
-      return put({ aes: keys[0], mac: keys[1], exp: Date.now() + HOURS * 3600000 });
+      return put({ aes: k.aes, mac: k.mac, dir: k.dir, exp: Date.now() + HOURS * 3600000 });
     }).then(function () {
       return navigator.serviceWorker.register(BASE + 'sw.js', { scope: BASE });
     }).then(function () { return navigator.serviceWorker.ready; }).then(function () {
