@@ -80,7 +80,8 @@ h3 { font-size: 1.35rem; line-height: 1.2; }
 .nav-mobile[open] ul { position: absolute; left: 0; right: 0; top: 64px; flex-direction: column; align-items: flex-start; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 8px var(--gutter) 16px; }
 .nav-mobile[open] li { width: 100%; }
 .nav-mobile[open] a { display: block; padding: 13px 0; font-size: 1.1rem; border-bottom: 1px solid var(--line); }
-@media (min-width: 960px) { .nav-desktop { display: block; } .nav-mobile { display: none; } }
+@media (min-width: 1140px) { .nav-desktop { display: block; } .nav-mobile { display: none; } }
+.nav-desktop a, .brand { white-space: nowrap; }
 
 /* Hero (immer hell auf dunklem Foto) */
 .hero { position: relative; isolation: isolate; color: #f2f0eb; min-height: min(94svh, 900px); display: flex; align-items: flex-end; background: var(--ink); overflow: hidden; }
@@ -392,3 +393,7 @@ dialog.lightbox button { position: fixed; right: 18px; top: 14px; font: inherit;
 .intern-body .btn.primary { background: #c8102e; border-color: #c8102e; color: #fff; }
 .intern-body a { color: #111820; }
 [hidden] { display: none !important; }
+.band-cap { margin: 14px 0 0; font-size: 0.85rem; opacity: 0.85; max-width: 60ch; }
+@media (min-width: 900px) { .stats.four { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.stats.four .stat strong { font-size: clamp(1.6rem, 2.6vw, 2.6rem); }
+.mt-l { margin-top: clamp(32px, 5vw, 56px); }
