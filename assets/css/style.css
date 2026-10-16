@@ -407,3 +407,31 @@ dialog.lightbox button { position: fixed; right: 18px; top: 14px; font: inherit;
 .flat-t span { color: #ffa58c; margin-left: 6px; }
 @media (max-width: 899px) { .flat { position: static; order: 3; align-self: flex-start; margin: -10px var(--gutter) 24px; } }
 @media (prefers-reduced-motion: reduce) { .flat { transition: none; } }
+
+/* Produkte ARGUS und KAIROS */
+.prod-grid { display: grid; gap: 18px; }
+@media (min-width: 900px) { .prod-grid { grid-template-columns: 1fr 1fr; } }
+.prod { --prod: var(--accent); position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(24px, 3.4vw, 40px); display: flex; flex-direction: column; gap: 14px; overflow: hidden; }
+.prod::before { content: ""; position: absolute; left: 0; top: 0; right: 0; height: 4px; background: var(--prod); }
+.prod.argus { --prod: #1d5f74; }
+.prod.kairos { --prod: #2f6a50; }
+@media (prefers-color-scheme: dark) { .prod.argus { --prod: #5bb6cf; } .prod.kairos { --prod: #62c194; } }
+.prod-head { display: flex; align-items: center; gap: 16px; }
+.prod-head .eyebrow { margin: 0 0 4px; color: var(--prod); }
+.prod-mark { flex: none; width: 54px; height: 54px; border-radius: 10px; display: grid; place-items: center; font: 700 1.35rem var(--mono); color: var(--surface); background: var(--prod); }
+.prod h3 { font-size: clamp(1.45rem, 2.6vw, 2rem); margin: 0; }
+.prod .prod-claim { font-family: var(--display); font-size: 1.2rem; color: var(--fg); margin: 0; }
+.prod p { margin: 0; color: var(--muted); }
+.prod .ticks { margin: 4px 0 0; }
+.prod .cta { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; padding-top: 10px; }
+.head-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.page-head .eyebrow a { color: inherit; }
+.prod-head-argus::before { background: #1d5f74; }
+.prod-head-kairos::before { background: #2f6a50; }
+.table-scroll { overflow-x: auto; }
+.spec { width: 100%; border-collapse: collapse; font-size: 0.98rem; min-width: 520px; }
+.spec caption { text-align: left; font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-bottom: 10px; }
+.spec th, .spec td { text-align: left; padding: 12px 16px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.spec th { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 500; border-bottom-color: var(--fg); }
+.spec td:first-child { font-weight: 600; width: 42%; }
+@media print { .head-cta { display: none; } }
