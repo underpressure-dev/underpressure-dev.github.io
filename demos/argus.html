@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>ARGUS (Live-Demo) | Under Pressure</title>
-<meta name="description" content="ARGUS bedient das bestehende ERP wie ein guter Mitarbeiter, von der E-Mail bis zum Werkstatt-Tablet. Mit Modulen, Freigaben und Notfallschalter.">
+<meta name="description" content="ARGUS bedient das bestehende ERP wie ein guter Mitarbeiter und führt den ganzen Betrieb: Aufträge, Plantafel, Maschinen, Personal, Lager und Qualität. Mit Modulen, Freigaben und Notfallschalter.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#0b0e12">
 <link rel="canonical" href="https://underpressure.ch/demos/argus.html">
@@ -15,16 +15,17 @@
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ARGUS (Live-Demo) | Under Pressure">
-<meta property="og:description" content="ARGUS bedient das bestehende ERP wie ein guter Mitarbeiter, von der E-Mail bis zum Werkstatt-Tablet. Mit Modulen, Freigaben und Notfallschalter.">
+<meta property="og:description" content="ARGUS bedient das bestehende ERP wie ein guter Mitarbeiter und führt den ganzen Betrieb: Aufträge, Plantafel, Maschinen, Personal, Lager und Qualität. Mit Modulen, Freigaben und Notfallschalter.">
 <meta property="og:url" content="https://underpressure.ch/demos/argus.html">
 <meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
 <meta property="og:locale" content="de_CH">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/css/style.css?v=380051ce">
-<link rel="stylesheet" href="/assets/css/demo.css?v=bca2cbab">
+<link rel="stylesheet" href="/assets/css/demo.css?v=0a3ec87d">
 <script src="/assets/js/main.js?v=78a8e4cc" defer></script>
 <script src="/assets/js/demo-common.js?v=a6336182" defer></script>
-<script src="/assets/js/demo-argus.js?v=85866f6d" defer></script>
+<script src="/assets/js/demo-argus-ops.js?v=f3155f24" defer></script>
+<script src="/assets/js/demo-argus.js?v=005f301d" defer></script>
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
@@ -42,7 +43,7 @@
 </div>
 </header>
 <main id="main">
-<div class="page-head demo-head"><div class="wrap"><p class="eyebrow">Live-Demo &middot; <a href="/demos/">Alle Demos</a> &middot; <a href="/argus.html">Produktseite</a></p><h1>ARGUS</h1><p class="lead">ARGUS bedient das bestehende ERP wie ein guter Mitarbeiter, von der E-Mail bis zum Werkstatt-Tablet. Mit Modulen, Freigaben und Notfallschalter.</p></div></div>
+<div class="page-head demo-head"><div class="wrap"><p class="eyebrow">Live-Demo &middot; <a href="/demos/">Alle Demos</a> &middot; <a href="/argus.html">Produktseite</a></p><h1>ARGUS</h1><p class="lead">ARGUS bedient das bestehende ERP wie ein guter Mitarbeiter und führt den ganzen Betrieb: Aufträge, Plantafel, Maschinen, Personal, Lager und Qualität. Mit Modulen, Freigaben und Notfallschalter.</p></div></div>
 <div class="demo-wrap">
 <div class="wrap demo-bar">
 <div class="tabs" role="tablist" aria-label="Demo oder Handbuch">
@@ -52,7 +53,7 @@
 <p class="demo-note"><span>Erfundene Beispieldaten. Alles bleibt in Ihrem Browser.</span> <button type="button" class="linkish" id="demo-reset">Demo zurücksetzen</button></p>
 </div>
 <div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel"><div class="wrap wide"><div id="app" class="appframe" data-lang="de"><p class="noscript">Die Demo benötigt JavaScript.</p></div></div></div>
-<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Handbuch: ARGUS</h2><h3>Zweck</h3><p>ARGUS ist der digitale Mitarbeiter für Betriebe mit einem bestehenden ERP. Die Demo zeigt die Musterfirma Beispiel Metall AG mit einem simulierten ERP, das aussieht wie viele ERP-Oberflächen heute.</p><h3>Bedienung</h3><p>Oben wählen Sie den Bereich. Auf grossen Bildschirmen sehen Sie rechts immer das ERP und links ARGUS.</p><ul class="ticks"><li>Ablauf: Verfolgen Sie eine Anfrage Schritt für Schritt oder mit «Alles abspielen». Die Kalkulation geben Sie selbst frei.</li><li>Cockpit: offene Offerten, Trefferquote, Auslastung, Verzug und Nachkalkulation.</li><li>Eingang: E-Mails und Anfragen aus KAIROS. Eine Anfrage aus der KAIROS-Demo machen Sie hier zur Offerte.</li><li>Werkstatt: das Tablet an der Maschine. Sprache wählen, Schutzausrüstung bestätigen, Auftrag starten.</li><li>Assistent: Fragen in normaler Sprache an die Beispieldaten.</li><li>Module: Module ein- und ausschalten und den Weg ans ERP wählen. Spielen Sie den Ablauf danach nochmals ab.</li><li>Protokoll: jede Aktion mit Zeit und Weg.</li><li>Notfallschalter: pausiert ARGUS. Das ERP bleibt bedienbar.</li></ul><h3>Hinweis zur Demo</h3><p>Das ERP ist simuliert. Firmen, Preise und Zahlen sind erfunden. Der Assistent antwortet aus den Beispieldaten dieser Seite, ohne KI-Dienst.</p><h3>Echte Lösung</h3><p>ARGUS läuft auf einem Rechner oder einer virtuellen Maschine im Betrieb und verbindet sich über die offizielle Schnittstelle mit dem ERP, bei Navision und Business Central zum Beispiel über Web-Services. Vor jedem Projekt prüfen wir Version, Lizenz und Schnittstelle.</p></div></div></div>
+<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Handbuch: ARGUS</h2><h3>Zweck</h3><p>ARGUS ist der digitale Mitarbeiter für Betriebe mit einem bestehenden ERP. Die Demo zeigt die Musterfirma Beispiel Metall AG mit einem simulierten ERP, das aussieht wie viele ERP-Oberflächen heute.</p><h3>Bedienung</h3><p>Links wählen Sie den Bereich, auf dem Handy oben. Mit «ERP einblenden» sehen Sie daneben das ERP, so wie es heute aussieht.</p><ul class="ticks"><li>Cockpit: was ARGUS gerade sieht, Kennzahlen zu Betrieb, Verkauf und Nachkalkulation.</li><li>Auftragsablauf: eine Anfrage Schritt für Schritt bis zur Maschine. Die Kalkulation geben Sie selbst frei.</li><li>Eingang: E-Mails und Anfragen aus KAIROS. Eine Anfrage aus der KAIROS-Demo machen Sie hier zur Offerte.</li><li>Plantafel: Arbeitsgänge auf Maschinen und Tage verteilen, mit der Maus ziehen oder mit Knöpfen verschieben. ARGUS prüft Reihenfolge, Personal, Material und Liefertermine und löst Konflikte auf Knopfdruck.</li><li>Maschinen: Live-Zustand, OEE, Zeitstrahl, Stillstandsgründe und Wartung. Eine Störung lässt sich melden und beheben.</li><li>Werkstatt-Tablet: Sprache wählen, Schutzausrüstung bestätigen, Auftrag starten.</li><li>Personal: Anwesenheit, Einsatz, Qualifikationen, Schichtplan mit Ferienantrag und Arbeitssicherheit.</li><li>Lager und Versand: Bestand mit Bestellvorschlag, Restbleche, Wareneingang und Versand.</li><li>Qualität: Erstteilprüfung mit Messwerten, Reklamationen nach 8D und Rückverfolgung.</li><li>Module: Module ein- und ausschalten und den Weg ans ERP wählen.</li><li>Notfallschalter: pausiert ARGUS. Das ERP bleibt bedienbar.</li></ul><h3>Hinweis zur Demo</h3><p>Das ERP und die Maschinendaten sind simuliert. Firmen, Personen, Preise und Zahlen sind erfunden. Die Werkstattzeit beginnt beim Öffnen der Demo um 10:30. Der Assistent antwortet aus den Beispieldaten dieser Seite, ohne KI-Dienst.</p><h3>Echte Lösung</h3><p>ARGUS läuft auf einem Rechner oder einer virtuellen Maschine im Betrieb und verbindet sich über die offizielle Schnittstelle mit dem ERP, bei Navision und Business Central zum Beispiel über Web-Services. Vor jedem Projekt prüfen wir Version, Lizenz und Schnittstelle.</p></div></div></div>
 </div>
 </main>
 <section class="cta-band" aria-labelledby="h-cta">

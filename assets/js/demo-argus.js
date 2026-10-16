@@ -40,14 +40,19 @@
     ['einkauf', t('Einkauf und Material', 'Purchasing and material'), t('Reserviert Material, erkennt Bedarf und schlägt Bestellungen vor.', 'Reserves material, detects demand and proposes orders.')],
     ['werkstatt', t('Werkstatt-Tablet', 'Workshop tablet'), t('Auftrag, Schutzausrüstung und Zeiten an der Maschine, in der Sprache des Mitarbeiters.', 'Job, protective equipment and times at the machine, in the worker\'s language.')],
     ['cockpit', t('Chef-Cockpit', 'Management cockpit'), t('Auslastung, Trefferquote, Verzug und Nachkalkulation, immer aktuell.', 'Utilisation, hit rate, delays and post-calculation, always current.')],
-    ['assistent', t('Assistent', 'Assistant'), t('Fragen in normaler Sprache an die Daten des Betriebs.', 'Questions in plain language to the company\'s data.')]
+    ['assistent', t('Assistent', 'Assistant'), t('Fragen in normaler Sprache an die Daten des Betriebs.', 'Questions in plain language to the company\'s data.')],
+    ['plantafel', t('Plantafel', 'Planning board'), t('Feinplanung auf Maschinen und Personen, mit Prüfung von Reihenfolge, Material und Lieferterminen.', 'Detailed scheduling on machines and people, checking sequence, material and delivery dates.')],
+    ['maschinen', t('Maschinen und OEE', 'Machines and OEE'), t('Live-Zustand, OEE, Stillstandsgründe und Wartung jeder Maschine.', 'Live state, OEE, downtime reasons and maintenance for every machine.')],
+    ['personal', t('Personal und Einsatz', 'Staff and assignment'), t('Anwesenheit, Einsatz, Qualifikationen, Schichtplan, Ferien und Unterweisungen.', 'Attendance, assignment, skills, shift plan, holidays and safety instructions.')],
+    ['lager', t('Lager und Versand', 'Stock and dispatch'), t('Bestand, Restbleche, Wareneingang mit Zeugnis und Versand mit Rechnung.', 'Stock, remnants, goods receipt with certificate and dispatch with invoice.')],
+    ['qualitaet', t('Qualität', 'Quality'), t('Erstteilprüfung, Reklamationen nach 8D, Prüfmittel und Rückverfolgung.', 'First article inspection, 8D complaints, gauges and traceability.')]
   ];
   function modName(id) { return MODS.filter(function (m) { return m[0] === id; })[0][1]; }
 
   function seed() {
     var now = Date.now();
     return {
-      mods: { eingang: true, offerte: true, avor: true, einkauf: true, werkstatt: true, cockpit: true, assistent: true },
+      mods: { eingang: true, offerte: true, avor: true, einkauf: true, werkstatt: true, cockpit: true, assistent: true, plantafel: true, maschinen: true, personal: true, lager: true, qualitaet: true },
       mode: 'api', paused: false, step: 0, manual: {}, taken: {}, fields: 0, saved: 0, done: {},
       seq: { va: 142, au: 388, fa: 1022, ek: 216 },
       erp: {
@@ -65,11 +70,16 @@
           { nr: 'FA-26-1020', order: 'AU-26-0385', text: t('Laser, Abkanten, Schweissen', 'Laser, bending, welding'), status: 'run' },
           { nr: 'FA-26-1021', order: 'AU-26-0386', text: t('Laser, Abkanten', 'Laser, bending'), status: 'late' }
         ],
-        purchase: [{ nr: 'EK-26-0215', vendor: VENDOR, text: t('Blech S235, 5 mm, 20 Tafeln', 'Sheet S235, 5 mm, 20 sheets'), status: 'ordered' }],
+        purchase: [{ nr: 'EK-26-0215', vendor: VENDOR, text: t('Blech S235, 8 mm, 10 Tafeln', 'Sheet S235, 8 mm, 10 sheets'), status: 'ordered' }],
         items: [
-          { nr: 'BL-14301-3', text: t('Blech 1.4301, 3 mm, 1500 × 3000', 'Sheet 1.4301, 3 mm, 1500 × 3000'), stock: 1, min: 3, res: 0 },
-          { nr: 'BL-S235-5', text: t('Blech S235, 5 mm, 1500 × 3000', 'Sheet S235, 5 mm, 1500 × 3000'), stock: 24, min: 10, res: 6 },
-          { nr: 'BL-ALMG3-2', text: t('Blech AlMg3, 2 mm, 1250 × 2500', 'Sheet AlMg3, 2 mm, 1250 × 2500'), stock: 14, min: 6, res: 2 }
+          { nr: 'BL-14301-3', text: t('Blech 1.4301, 3 mm, 1500 × 3000', 'Sheet 1.4301, 3 mm, 1500 × 3000'), stock: 1, min: 3, res: 0, unit: t('Tafeln', 'sheets'), loc: 'A-01', price: 680, use: 0.6 },
+          { nr: 'BL-S235-5', text: t('Blech S235, 5 mm, 1500 × 3000', 'Sheet S235, 5 mm, 1500 × 3000'), stock: 24, min: 10, res: 6, unit: t('Tafeln', 'sheets'), loc: 'A-04', price: 283, use: 2.1 },
+          { nr: 'BL-S235-8', text: t('Blech S235, 8 mm, 1500 × 3000', 'Sheet S235, 8 mm, 1500 × 3000'), stock: 0, min: 4, res: 0, unit: t('Tafeln', 'sheets'), loc: 'A-05', price: 452, use: 0.8, ordered: 'EK-26-0215' },
+          { nr: 'BL-ALMG3-2', text: t('Blech AlMg3, 2 mm, 1250 × 2500', 'Sheet AlMg3, 2 mm, 1250 × 2500'), stock: 14, min: 6, res: 2, unit: t('Tafeln', 'sheets'), loc: 'B-02', price: 86, use: 0.9 },
+          { nr: 'RO-S235-40', text: t('Rohr 40 × 40 × 3 S235, 6 m', 'Tube 40 × 40 × 3 S235, 6 m'), stock: 38, min: 20, res: 12, unit: t('Stangen', 'bars'), loc: 'C-01', price: 38, use: 3 },
+          { nr: 'NT-M8-A2', text: t('Sechskantschraube M8 × 20 A2', 'Hex bolt M8 × 20 A2'), stock: 850, min: 1000, res: 0, unit: t('Stk.', 'pcs'), loc: 'D-12', price: 0.18, use: 60 },
+          { nr: 'PL-7016', text: t('Pulverlack RAL 7016 matt', 'Powder coating RAL 7016 matt'), stock: 42, min: 25, res: 8, unit: 'kg', loc: 'E-03', price: 14, use: 3.5 },
+          { nr: 'SD-G3SI1-10', text: t('Schweissdraht G3Si1, 1.0 mm', 'Welding wire G3Si1, 1.0 mm'), stock: 4, min: 6, res: 0, unit: t('Spulen', 'reels'), loc: 'E-07', price: 46, use: 0.3 }
         ]
       },
       log: [
@@ -82,12 +92,14 @@
         { nr: 'AU-26-0379', text: t('Winkel S235', 'Angles S235'), soll: 14.5, ist: 13.8, db: 31 },
         { nr: 'AU-26-0381', text: t('Lochbleche 1.4301', 'Perforated sheets 1.4301'), soll: 22.0, ist: 26.5, db: 12 },
         { nr: 'AU-26-0383', text: t('Gehäusedeckel AlMg3', 'Housing covers AlMg3'), soll: 9.0, ist: 8.6, db: 29 }
-      ]
+      ],
+      ops: window.ARGUS_OPS.seed(t)
     };
   }
 
-  var st = UP.store('argus', seed, 1), D = st.data;
-  var ui = { view: 'flow', busy: false, auto: false, sel: null, chat: [], tlang: 'pt', psa: {}, run: 0, doneShop: false, erpView: 'quotes', card: null, msg: '' };
+  var st = UP.store('argus', seed, 2), D = st.data;
+  if (!D.ops || Date.now() - D.ops.clock0 > 8 * 3600000) { D.ops = window.ARGUS_OPS.seed(t); st.save(); }
+  var ui = { view: 'cockpit', erp: { flow: true, inbox: true }, busy: false, auto: false, sel: null, chat: [], tlang: 'pt', psa: {}, run: 0, doneShop: false, erpView: 'quotes', card: null, msg: '' };
   UP.initTheme(app); app.classList.add('t-argus');
 
   var STEPS = [
@@ -118,7 +130,7 @@
   var QS = { open: t('Offen', 'Open'), won: t('Angenommen', 'Accepted') };
   var OS = { prod: t('In Fertigung', 'In production'), plan: t('Geplant', 'Planned'), done: t('Geliefert', 'Delivered') };
   var PS = { run: t('Läuft', 'Running'), late: t('Verzug', 'Late'), plan: t('Freigegeben', 'Released') };
-  var ES = { ordered: t('Bestellt', 'Ordered'), draft: t('Entwurf', 'Draft') };
+  var ES = { ordered: t('Bestellt', 'Ordered'), draft: t('Entwurf', 'Draft'), received: t('Geliefert', 'Received') };
 
   // ---------------------------------------------------------------- ERP schreiben (mit Schreibanimation)
   function erpWrite(title, fields, view, instant, cb) {
@@ -208,7 +220,7 @@
         [t('Menge', 'Quantity'), t('5 Tafeln', '5 sheets')], [t('Status', 'Status'), t('Entwurf', 'Draft')]
       ], 'purchase', instant, function () {
         D.erp.purchase.push({ nr: e, vendor: VENDOR, text: it.text + t(', 5 Tafeln', ', 5 sheets'), status: 'draft', fresh: true });
-        D.seq.ek++; D.done.buy = e;
+        D.seq.ek++; D.done.buy = e; it.ordered = e;
         log(t('Bestellvorschlag ', 'Purchase proposal ') + e + t(' im ERP, wartet auf Freigabe durch den Einkauf', ' in the ERP, awaiting approval by purchasing'), w);
         done();
       });
@@ -247,7 +259,7 @@
       ui.card = null; D.saved += s.save; D.step++;
     }
   }
-  function restart() { var mods = D.mods, mode = D.mode; st.reset(); st = UP.store('argus', seed, 1); D = st.data; D.mods = mods; D.mode = mode; st.save(); ui.sel = null; ui.auto = false; ui.run = 0; ui.psa = {}; render(); }
+  function restart() { var mods = D.mods, mode = D.mode; st.reset(); st = UP.store('argus', seed, 2); D = st.data; D.mods = mods; D.mode = mode; st.save(); ui.sel = null; ui.auto = false; ui.run = 0; ui.psa = {}; render(); }
 
   // ---------------------------------------------------------------- Zeichnung des Teils
   var SVGNS = 'http://www.w3.org/2000/svg';
@@ -382,9 +394,10 @@
   // ---------------------------------------------------------------- Cockpit
   function vCockpit() {
     var late = lateOrders(), oq = openQuotes(), oqSum = oq.reduce(function (a, q) { return a + q.amount; }, 0);
+    var top = h('div', null, D.step === 0 ? h('div', { class: 'g-start' }, h('div', null, h('b', { text: t('Erleben Sie ARGUS bei der Arbeit', 'See ARGUS at work') }), h('p', { text: t('Verfolgen Sie eine Anfrage von der E-Mail bis zur Maschine, Schritt für Schritt.', 'Follow an enquiry from the email to the machine, step by step.') })), h('button', { type: 'button', class: 'a-btn p', onclick: function () { go('flow'); }, text: t('Auftragsablauf starten', 'Start the order process') })) : null, OPS.cockpitTop(), h('h2', { class: 'a-h2', text: t('Verkauf und Zahlen', 'Sales and figures') }));
     var weeks = [[t('Diese Woche', 'This week'), D.kpi.laser, D.kpi.bend], [t('Nächste Woche', 'Next week'), 64, 58], [t('In 2 Wochen', 'In 2 weeks'), 48, 41], [t('In 3 Wochen', 'In 3 weeks'), 30, 22]];
     function bar(v, cls) { return h('div', { class: 'g-bar' }, h('div', { class: 'g-track' }, h('span', { class: cls, 'data-w': String(v) })), h('b', { text: v + ' %' })); }
-    return h('div', null,
+    return h('div', null, top,
       h('div', { class: 'a-row' }, card(t('Offene Offerten', 'Open quotes'), String(oq.length), money(oqSum)), card(t('Trefferquote', 'Hit rate'), D.kpi.hit + ' %', t('letzte 90 Tage', 'last 90 days')),
         card(t('Auslastung Laser', 'Laser utilisation'), D.kpi.laser + ' %', t('diese Woche', 'this week')), card(t('Aufträge im Verzug', 'Late orders'), String(late.length), late.length ? late.map(function (o) { return o.nr; }).join(', ') : t('keine', 'none'), late.length ? 'warn' : ''),
         card(t('Zeit gespart heute', 'Time saved today'), UP.hm(D.saved + 45) + ' h', t('Beispielwerte', 'sample values'), 'amber')),
@@ -478,7 +491,8 @@
 
   // ---------------------------------------------------------------- Assistent
   function answer(q) {
-    var s = q.toLowerCase();
+    var s = q.toLowerCase(), oa = OPS.answer(q);
+    if (oa) return oa;
     if (/verzug|spät|late|overdue|delay/.test(s)) { var l = lateOrders(); return l.length ? t('Im Verzug ist ', 'Late: ') + l.map(function (o) { return o.nr + ' (' + o.cust + ', ' + t('fällig ', 'due ') + UP.fmtD(o.due) + ')'; }).join(', ') + t('. Ich habe die Produktion bereits informiert.', '. I have already informed production.') : t('Kein Auftrag ist im Verzug.', 'No order is late.'); }
     if (/offert|angebot|quote/.test(s)) { var o = openQuotes(); return o.length + t(' Offerten sind offen, zusammen ', ' quotes are open, totalling ') + money(o.reduce(function (a, x) { return a + x.amount; }, 0)) + ': ' + o.map(function (x) { return x.nr + ' ' + x.cust; }).join(', ') + t('. Wo nach 3 Tagen keine Antwort kommt, fasse ich nach.', '. Where there is no reply after 3 days, I follow up.'); }
     if (/auslast|kapazit|utili|capacity|laser/.test(s)) return t('Diese Woche ist der Laser zu ', 'This week the laser is at ') + D.kpi.laser + t(' % ausgelastet, das Abkanten zu ', '% and bending at ') + D.kpi.bend + t(' %. Nächste Woche hat es noch Platz für etwa 2 Aufträge dieser Grösse.', '%. Next week there is still room for about 2 orders of this size.');
@@ -490,7 +504,7 @@
   function ask(q) { if (!q) return; ui.chat.push({ me: true, text: q }); ui.chat.push({ me: false, text: answer(q) }); render(); var c = app.querySelector('.g-chat'); if (c) c.scrollTop = c.scrollHeight; }
   function vAssist() {
     if (!D.mods.assistent) return h('div', { class: 'a-empty', text: t('Das Modul Assistent ist ausgeschaltet.', 'The assistant module is switched off.') });
-    var chips = [t('Welche Aufträge sind im Verzug?', 'Which orders are late?'), t('Welche Offerten sind offen?', 'Which quotes are open?'), t('Wie ist die Auslastung?', 'How is the utilisation?'), t('Welches Material wird knapp?', 'Which material is running low?'), t('Was hast du heute erledigt?', 'What have you done today?')];
+    var chips = [t('Welche Aufträge sind im Verzug?', 'Which orders are late?'), t('Welche Maschine steht?', 'Which machine is down?'), t('Wer ist heute da?', 'Who is here today?'), t('Wie viel Kapazität ist frei?', 'How much capacity is free?'), t('Welches Material wird knapp?', 'Which material is running low?'), t('Gibt es Qualitätsprobleme?', 'Are there quality problems?'), t('Was hast du heute erledigt?', 'What have you done today?')];
     var inp = h('input', { type: 'text', 'aria-label': t('Frage an ARGUS', 'Question to ARGUS'), placeholder: t('Fragen Sie ARGUS …', 'Ask ARGUS …') });
     return h('div', { class: 'g-assist' },
       h('div', { class: 'g-chat', 'aria-live': 'polite' }, ui.chat.length ? ui.chat.map(function (m) { return h('div', { class: 'g-msg' + (m.me ? ' g-me' : '') }, h('span', { class: 'g-who', text: m.me ? t('Sie', 'You') : 'ARGUS' }), h('p', { text: m.text })); })
@@ -559,36 +573,71 @@
       h('div', { class: 'g-erp-status' + (D.paused ? ' g-off' : ui.card ? ' g-busy' : '') }, h('i', { 'aria-hidden': 'true' }), status));
   }
 
+  // ---------------------------------------------------------------- Betrieb: Plantafel, Maschinen, Personal, Lager, Qualität
+  var OPS = window.ARGUS_OPS.create({ h: h, t: t, UP: UP, ui: ui, D: function () { return D; }, save: function () { st.save(); }, log: log, render: function () { render(); }, way: way, CUST: CUST, PART: PART, VENDOR: VENDOR });
+
   // ---------------------------------------------------------------- Gerüst
-  function go(v) { ui.view = v; ui.msg = ''; render(); }
+  var NAV = [
+    [t('Übersicht', 'Overview'), [['cockpit', 'Cockpit', 'cockpit']]],
+    [t('Verkauf und Büro', 'Sales and office'), [['flow', t('Auftragsablauf', 'Order process'), null], ['inbox', t('Eingang', 'Inbox'), 'eingang']]],
+    [t('Produktion', 'Production'), [['plan', t('Plantafel', 'Planning board'), 'plantafel'], ['machines', t('Maschinen', 'Machines'), 'maschinen'], ['shop', t('Werkstatt-Tablet', 'Workshop tablet'), 'werkstatt']]],
+    [t('Betrieb', 'Operations'), [['people', t('Personal', 'Staff'), 'personal'], ['stock', t('Lager und Versand', 'Stock and dispatch'), 'lager'], ['quality', t('Qualität', 'Quality'), 'qualitaet']]],
+    ['ARGUS', [['assist', t('Assistent', 'Assistant'), 'assistent'], ['mods', t('Module', 'Modules'), null], ['log', t('Protokoll', 'Log'), null]]]
+  ];
+  var PATHS = { flow: 'ablauf', cockpit: 'cockpit', inbox: 'eingang', shop: 'werkstatt', assist: 'assistent', mods: 'module', log: 'protokoll', plan: 'plantafel', machines: 'maschinen', people: 'personal', stock: 'lager', quality: 'qualitaet' };
+  var TITLES = { flow: t('Vom ersten Mail bis zur Maschine', 'From the first email to the machine'), cockpit: t('Betrieb auf einen Blick', 'The business at a glance'), inbox: t('Eingang', 'Inbox'), shop: t('Werkstatt-Tablet', 'Workshop tablet'), assist: t('Assistent', 'Assistant'), mods: t('Module', 'Modules'), log: t('Protokoll', 'Log'), plan: t('Plantafel', 'Planning board'), machines: t('Maschinen und OEE', 'Machines and OEE'), people: t('Personal und Einsatz', 'Staff and assignment'), stock: t('Lager und Versand', 'Stock and dispatch'), quality: t('Qualität', 'Quality') };
+  function go(v) { ui.view = v; ui.msg = ''; render(); var m = app.querySelector('.g-body'); if (m && m.getBoundingClientRect().top < 0) m.scrollIntoView({ block: 'start' }); }
+  function modOf(v) { var r = null; NAV.forEach(function (g) { g[1].forEach(function (n) { if (n[0] === v) r = n[2]; }); }); return r; }
+  function off(name) { return h('div', { class: 'a-empty', text: t('Das Modul «', 'The module «') + name + t('» ist ausgeschaltet. Sie können es unter «Module» aktivieren.', '» is switched off. You can activate it under «Modules».') }); }
   function render() {
-    var nav = [['flow', t('Ablauf', 'Process')], ['cockpit', 'Cockpit'], ['inbox', t('Eingang', 'Inbox')], ['shop', t('Werkstatt', 'Workshop')], ['assist', t('Assistent', 'Assistant')], ['mods', t('Module', 'Modules')], ['log', t('Protokoll', 'Log')]];
-    var paths = { flow: 'ablauf', cockpit: 'cockpit', inbox: 'eingang', shop: 'werkstatt', assist: 'assistent', mods: 'module', log: 'protokoll' };
+    OPS.sync();
     var kill = h('button', { type: 'button', class: 'g-kill' + (D.paused ? ' on' : ''), 'aria-pressed': D.paused ? 'true' : 'false', disabled: ui.busy, onclick: function () { D.paused = !D.paused; ui.auto = false; log(D.paused ? t('Notfallschalter: ARGUS pausiert', 'Emergency switch: ARGUS paused') : t('ARGUS wieder gestartet', 'ARGUS restarted'), 'user'); st.save(); render(); } },
       h('i', { 'aria-hidden': 'true' }), D.paused ? t('ARGUS starten', 'Start ARGUS') : t('Notfallschalter', 'Emergency switch'));
     var right = [kill, UP.themeButton(app, 'a-icon-btn')];
-    var view;
+    var badge = OPS.badges(), kq = kairosReqs().filter(function (r) { return !D.taken[r.id]; }).length;
+    badge.inbox = kq;
+    var side = h('nav', { class: 'g-side', 'aria-label': t('Bereiche von ARGUS', 'ARGUS areas') }, NAV.map(function (g) {
+      return h('div', { class: 'g-side-g' }, h('h2', { text: g[0] }), g[1].map(function (n) {
+        var cnt = badge[n[0]] || 0, isOff = n[2] && D.mods[n[2]] === false;
+        return h('button', { type: 'button', 'aria-current': ui.view === n[0] ? 'page' : null, class: isOff ? 'off' : null, onclick: function () { go(n[0]); } }, h('span', { text: n[1] }), cnt ? h('span', { class: 'g-n', 'aria-label': cnt + t(' offen', ' open'), text: String(cnt) }) : null);
+      }));
+    }));
+    var view, mod = modOf(ui.view);
     if (D.paused) view = h('div', { class: 'g-paused' }, h('h2', { text: t('ARGUS ist pausiert.', 'ARGUS is paused.') }),
       h('p', { text: t('Nichts geht verloren. Ihr ERP läuft weiter wie bisher, Ihr Team arbeitet direkt darin. Sobald ARGUS wieder läuft, macht es dort weiter, wo es aufgehört hat.', 'Nothing is lost. Your ERP keeps running as before, your team works in it directly. As soon as ARGUS runs again, it continues where it left off.') }),
       h('button', { type: 'button', class: 'a-btn p', onclick: function () { D.paused = false; log(t('ARGUS wieder gestartet', 'ARGUS restarted'), 'user'); st.save(); render(); }, text: t('ARGUS wieder starten', 'Restart ARGUS') }));
-    else view = ui.view === 'flow' ? vFlow() : ui.view === 'cockpit' ? (D.mods.cockpit ? vCockpit() : h('div', { class: 'a-empty', text: t('Das Modul Chef-Cockpit ist ausgeschaltet.', 'The management cockpit module is switched off.') })) : ui.view === 'inbox' ? vInbox() : ui.view === 'shop' ? (D.mods.werkstatt ? vShop() : h('div', { class: 'a-empty', text: t('Das Modul Werkstatt-Tablet ist ausgeschaltet.', 'The workshop tablet module is switched off.') })) : ui.view === 'assist' ? vAssist() : ui.view === 'mods' ? vMods() : vLog();
-    var titles = { flow: t('Vom ersten Mail bis zur Maschine', 'From the first email to the machine'), cockpit: t('Chef-Cockpit', 'Management cockpit'), inbox: t('Eingang', 'Inbox'), shop: t('Werkstatt-Tablet', 'Workshop tablet'), assist: t('Assistent', 'Assistant'), mods: t('Module', 'Modules'), log: t('Protokoll', 'Log') };
+    else if (mod && D.mods[mod] === false) view = off(modName(mod));
+    else view = ui.view === 'flow' ? vFlow() : ui.view === 'cockpit' ? vCockpit() : ui.view === 'inbox' ? vInbox() : ui.view === 'shop' ? vShop() : ui.view === 'assist' ? vAssist() : ui.view === 'mods' ? vMods() : ui.view === 'log' ? vLog() : OPS.views[ui.view]();
+    var erpOn = !!ui.erp[ui.view] && !D.paused;
     var main = h('main', { class: 'a-main g-main' },
-      h('div', { class: 'g-head' }, h('div', null, h('h1', { text: D.paused ? 'ARGUS' : titles[ui.view] }), h('p', { class: 'a-sub', text: t('Musterfirma Beispiel Metall AG · erfundene Daten · ERP simuliert', 'Model company Beispiel Metall AG · made-up data · ERP simulated') })),
-        h('span', { class: 'a-badge ' + (D.paused ? 'no' : 'ok'), text: D.paused ? t('pausiert', 'paused') : (D.mode === 'ui' ? t('aktiv · bedient Oberfläche', 'active · UI automation') : t('aktiv · Schnittstelle', 'active · interface')) })),
-      h('div', { class: 'g-grid' }, h('div', { class: 'g-argus' }, view), vErp()));
+      h('div', { class: 'g-head' }, h('div', null, h('h1', { text: D.paused ? 'ARGUS' : TITLES[ui.view] }), h('p', { class: 'a-sub', text: t('Musterfirma Beispiel Metall AG · erfundene Daten · ERP simuliert', 'Model company Beispiel Metall AG · made-up data · ERP simulated') })),
+        h('div', { class: 'g-head-r' }, h('span', { class: 'a-badge ' + (D.paused ? 'no' : 'ok'), text: D.paused ? t('pausiert', 'paused') : (D.mode === 'ui' ? t('aktiv · bedient Oberfläche', 'active · UI automation') : t('aktiv · Schnittstelle', 'active · interface')) }),
+          D.paused ? null : h('button', { type: 'button', class: 'a-btn s', 'aria-pressed': erpOn ? 'true' : 'false', onclick: function () { ui.erp[ui.view] = !erpOn; render(); }, text: erpOn ? t('ERP ausblenden', 'Hide ERP') : t('ERP einblenden', 'Show ERP') }))),
+      h('div', { class: 'g-grid' + (erpOn ? ' with-erp' : '') }, h('div', { class: 'g-argus' }, view), erpOn ? vErp() : null));
     var bg = h('div', { class: 'app-bg', 'aria-hidden': 'true' }); bg.appendChild(UP.traces('pcb'));
     UP.clear(app);
-    app.appendChild(UP.chrome('argus.beispiel-metall.ch/' + paths[ui.view]));
-    app.appendChild(h('div', { class: 'app-shell' }, bg, UP.topbar({ logo: 'A', brand: 'ARGUS', sub: 'Beispiel Metall AG', nav: nav, cur: ui.view, onNav: go, right: right }), main));
+    app.appendChild(UP.chrome('argus.beispiel-metall.ch/' + PATHS[ui.view]));
+    app.appendChild(h('div', { class: 'app-shell' }, bg, UP.topbar({ logo: 'A', brand: 'ARGUS', sub: 'Beispiel Metall AG', nav: [], cur: ui.view, onNav: go, right: right }), h('div', { class: 'g-body' }, side, main)));
     app.querySelectorAll('[data-w]').forEach(function (el) { el.style.width = el.getAttribute('data-w') + '%'; });
+    OPS.post(app);
   }
+
+  // Live-Werte (Maschinen, Cockpit) regelmässig auffrischen, aber nie während einer Eingabe oder beim Ziehen
+  window.setInterval(function () {
+    if (SHOT || ui.drag || ui.busy || D.paused) return;
+    if (ui.view !== 'machines' && ui.view !== 'cockpit') return;
+    var a = document.activeElement;
+    if (a && app.contains(a) && /INPUT|SELECT|TEXTAREA/.test(a.tagName)) return;
+    var key = a && app.contains(a) ? (a.getAttribute('aria-label') || a.textContent) : null;
+    var y = window.scrollY; render(); window.scrollTo(0, y);
+    if (key) { var same = Array.prototype.filter.call(app.querySelectorAll('button'), function (x) { return (x.getAttribute('aria-label') || x.textContent) === key; })[0]; if (same) same.focus({ preventScroll: true }); }
+  }, 5000);
 
   // Laufende Uhr auf dem Tablet, ohne die ganze Ansicht neu zu zeichnen
   window.setInterval(function () { if (ui.run > 0 && ui.view === 'shop') { var el = document.getElementById('g-timer'); if (el) { var s = Math.floor((Date.now() - ui.run) / 1000); el.textContent = UP.pad(Math.floor(s / 3600)) + ':' + UP.pad(Math.floor(s / 60) % 60) + ':' + UP.pad(s % 60); } } }, 1000);
 
   // Bildschirmfoto-Modus: ?shot&step=4&view=flow
-  if (SHOT) { var n = parseInt(UP.params.get('step') || '0', 10); if (n > 0) fastForward(n); if (UP.params.get('view')) ui.view = UP.params.get('view'); if (UP.params.get('sel')) ui.sel = parseInt(UP.params.get('sel'), 10); }
+  if (SHOT) { var n = parseInt(UP.params.get('step') || '0', 10); if (n > 0) fastForward(n); if (UP.params.get('view')) ui.view = UP.params.get('view'); if (UP.params.get('sel')) ui.sel = parseInt(UP.params.get('sel'), 10); if (UP.params.get('msel')) ui.msel = UP.params.get('msel'); if (UP.params.get('tab')) { ui.ptab = ui.stab = ui.qtab = UP.params.get('tab'); } }
   if (UP.params.get('view') && !SHOT) ui.view = UP.params.get('view');
   render();
   UP.init(function () { st.reset(); window.location.reload(); });
