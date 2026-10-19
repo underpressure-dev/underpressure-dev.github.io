@@ -37,7 +37,7 @@
   function partName(c) { return TYPES[c.type][0]; }
 
   // ---------------------------------------------------------------- Zielfirmen (erfunden)
-  var SRC = { job: t('Stellenportal', 'Job portal'), build: t('Baugesuche, Amtsblatt', 'Building applications, gazette'), hr: t('Handelsregister, SHAB', 'Commercial register, SHAB'), web: t('Firmenwebsite', 'Company website'), news: t('Medienmitteilung', 'Press release') };
+  var SRC = { job: t('Stelleninserat', 'Job ad'), build: t('Baugesuche, Amtsblatt', 'Building applications, gazette'), hr: t('Handelsregister, SHAB', 'Commercial register, SHAB'), web: t('Firmenwebsite', 'Company website'), news: t('Medienmitteilung', 'Press release') };
   function lead(id, firm, place, km, branche, emp, f, sig, need, hook, offer) { return { id: id, firm: firm, place: place, km: km, branche: branche, emp: emp, f: f, sig: sig, need: need, hook: hook, offer: offer }; }
   var LEADS = [
     lead('l1', 'Muster Fassaden AG', 'Sursee', 21, t('Fassadenbau', 'Facade construction'), 45, [95, 90, 95, 85],
@@ -239,7 +239,7 @@
   }
 
   // ---------------------------------------------------------------- Radar: Kunden finden
-  var SOURCES = [[t('Handelsregister, SHAB', 'Commercial register, SHAB'), 214], [t('Stellenportale', 'Job portals'), 1380], [t('Baugesuche, Amtsblätter', 'Building applications, gazettes'), 96], [t('Firmenwebsites', 'Company websites'), 2410], [t('Medienmitteilungen', 'Press releases'), 158], [t('Branchenverzeichnisse', 'Industry directories'), 640]];
+  var SOURCES = [[t('Handelsregister, SHAB', 'Commercial register, SHAB'), 214], [t('Stelleninserate auf Firmenwebsites', 'Job ads on company websites'), 1380], [t('Baugesuche, Amtsblätter', 'Building applications, gazettes'), 96], [t('Firmenwebsites', 'Company websites'), 2410], [t('Medienmitteilungen', 'Press releases'), 158], [t('Branchenverzeichnisse', 'Industry directories'), 640]];
   var STAGE = { new: [t('Neu', 'New'), 'info'], draft: [t('Entwurf', 'Draft'), 'wait'], sent: [t('Kontaktiert', 'Contacted'), 'grey'], reply: [t('Im Gespräch', 'In talks'), 'ok'] };
   function runScan() {
     if (ui.scan) return;

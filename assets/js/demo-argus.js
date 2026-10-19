@@ -120,7 +120,7 @@
   function nr(p, n) { return p + '-26-' + ('0000' + n).slice(-4); }
   function money(n) { return UP.chf(n); }
   function num(n, d) { return n.toFixed(d === undefined ? 2 : d); }
-  var WAY = { api: t('Schnittstelle', 'Interface'), read: t('Lesen', 'Read'), ui: t('Bedienen', 'UI automation'), user: t('Freigabe', 'Approval'), manual: t('Manuell', 'Manual') };
+  var WAY = { api: t('Schnittstelle', 'Interface'), read: t('Lesen', 'Read'), ui: t('Importmodul', 'Import module'), user: t('Freigabe', 'Approval'), manual: t('Manuell', 'Manual') };
   function wayBadge(w) { return h('span', { class: 'a-badge g-way-' + w, text: WAY[w] || w }); }
   function card(l, v, s, cls) { return h('div', { class: 'a-card ' + (cls || '') }, h('div', { class: 'l', text: l }), h('div', { class: 'v', text: v }), s ? h('div', { class: 's', text: s }) : null); }
   function dueTs() { return Date.now() + PART.weeks * 7 * DAY; }
@@ -517,15 +517,16 @@
   // ---------------------------------------------------------------- Module
   function vMods() {
     return h('div', null,
-      h('p', { class: 'a-sub', text: t('Aktivieren Sie nur, was Ihr Betrieb braucht. Ausgeschaltete Schritte erledigt Ihr Team wie bisher im ERP. Spielen Sie den Ablauf danach nochmals ab.', 'Activate only what your business needs. Switched-off steps are done by your team in the ERP as before. Then play the process again.') }),
+      h('p', { class: 'a-sub', text: t('Aktivieren Sie nur, was Ihr Betrieb braucht. Ausgeschaltete Schritte erledigt Ihr Team wie bisher im ERP. Ausbaumodule prüfen wir pro Betrieb und offerieren sie separat.', 'Activate only what your business needs. Switched-off steps are done by your team in the ERP as before. Extension modules are checked per business and quoted separately.') }),
       h('ul', { class: 'g-mods' }, MODS.map(function (m) {
         var on = D.mods[m[0]];
-        return h('li', null, h('div', null, h('b', { text: m[1] }), h('p', { class: 'a-sub', text: m[2] })),
+        var ausbau = ['plantafel', 'maschinen', 'personal', 'lager', 'qualitaet', 'assistent'].indexOf(m[0]) >= 0;
+        return h('li', null, h('div', null, h('b', null, m[1], ausbau ? h('span', { class: 'a-badge grey g-ext', text: t('Ausbau', 'Extension') }) : null), h('p', { class: 'a-sub', text: m[2] })),
           h('button', { type: 'button', role: 'switch', class: 'g-switch', 'aria-checked': on ? 'true' : 'false', 'aria-label': m[1], onclick: function () { D.mods[m[0]] = !on; log(t('Modul «', 'Module «') + m[1] + (on ? t('» ausgeschaltet', '» switched off') : t('» aktiviert', '» activated')), 'user'); st.save(); render(); } }, h('span')));
       })),
       h('div', { class: 'a-panel' }, h('h3', { text: t('Weg ans ERP', 'Route to the ERP') }),
         h('div', { class: 'g-radio' }, [['api', t('Offizielle Schnittstelle (empfohlen)', 'Official interface (recommended)'), t('Web-Services, REST oder OData. Der sauberste und stabilste Weg.', 'Web services, REST or OData. The cleanest and most stable route.')],
-          ['ui', t('Bedienen wie ein Mensch (Rückfallebene)', 'Operate like a person (fallback)'), t('Wo es keine Schnittstelle gibt, bedient ARGUS die Oberfläche des ERP, mit Protokoll jeder Aktion.', 'Where there is no interface, ARGUS operates the ERP\'s user interface, logging every action.')]].map(function (o) {
+          ['ui', t('Lesen und Importmodul (ältere ERP)', 'Read and import module (older ERP)'), t('Bei älteren Versionen liest ARGUS über die Datenbank und schreibt über ein kleines Importmodul, das Ihr ERP-Partner einspielt.', 'With older versions ARGUS reads via the database and writes via a small import module that your ERP partner installs.')]].map(function (o) {
           return h('label', { class: 'g-opt' }, h('input', { type: 'radio', name: 'g-mode', value: o[0], checked: D.mode === o[0], onchange: function () { D.mode = o[0]; log(t('Weg ans ERP: ', 'Route to the ERP: ') + o[1], 'user'); st.save(); render(); } }), h('span', null, h('b', { text: o[1] }), h('small', { text: o[2] })));
         })),
         h('p', { class: 'g-note', text: t('In die Datenbank des ERP schreibt ARGUS nie direkt.', 'ARGUS never writes directly into the ERP database.') })));
@@ -544,7 +545,7 @@
     var tabs = [['quotes', t('Verkaufsangebote', 'Sales quotes')], ['orders', t('Verkaufsaufträge', 'Sales orders')], ['prod', t('Fertigungsaufträge', 'Production orders')], ['purchase', t('Einkauf', 'Purchasing')], ['items', t('Artikel', 'Items')]];
     var body;
     if (ui.card) {
-      body = h('div', { class: 'g-card' + (D.mode === 'ui' ? ' g-ui' : '') }, h('div', { class: 'g-card-h', text: ui.card.title }),
+      body = h('div', { class: 'g-card' }, h('div', { class: 'g-card-h', text: ui.card.title }),
         h('div', { class: 'g-form' }, ui.card.fields.map(function (f, i) { return h('label', { class: 'g-fld' }, h('span', { text: f[0] }), h('input', { type: 'text', readonly: 'readonly', 'data-f': String(i), tabindex: '-1' }), h('i', { class: 'g-cursor', 'aria-hidden': 'true' })); })));
     } else {
       var v = ui.erpView, list = D.erp[v], cols;
@@ -563,8 +564,8 @@
         h('tbody', null, list.slice().reverse().map(function (r) { return h('tr', { class: r.fresh ? 'g-new' : null }, cols.map(function (c) { return h('td', { class: c[1] === 'amount' || c[1] === 'stock' || c[1] === 'res' || c[1] === 'min' ? 'r' : null, text: cell(r, c[1]) }); })); }))));
     }
     var status = D.paused ? t('ARGUS pausiert. Ihr Team arbeitet direkt im ERP.', 'ARGUS paused. Your team works directly in the ERP.')
-      : ui.card ? (D.mode === 'ui' ? t('ARGUS bedient die Oberfläche …', 'ARGUS is operating the interface …') : t('ARGUS schreibt über die Schnittstelle …', 'ARGUS is writing via the interface …'))
-        : (D.mode === 'ui' ? t('Verbunden: ARGUS bedient die Oberfläche', 'Connected: ARGUS operates the interface') : t('Verbunden: ARGUS über Web-Services', 'Connected: ARGUS via web services'));
+      : ui.card ? (D.mode === 'ui' ? t('ARGUS übergibt über das Importmodul …', 'ARGUS is handing over via the import module …') : t('ARGUS schreibt über die Schnittstelle …', 'ARGUS is writing via the interface …'))
+        : (D.mode === 'ui' ? t('Verbunden: Lesen und Importmodul', 'Connected: read and import module') : t('Verbunden: ARGUS über Web-Services', 'Connected: ARGUS via web services'));
     return h('aside', { class: 'g-erp', 'aria-label': t('ERP der Musterfirma (simuliert)', 'ERP of the model company (simulated)') },
       h('div', { class: 'g-erp-title' }, h('span', { text: t('ERP · Beispiel Metall AG', 'ERP · Beispiel Metall AG') }), h('small', { text: t('wie heute, simuliert', 'as today, simulated') })),
       h('div', { class: 'g-erp-menu' }, ['Datei', 'Bearbeiten', 'Ansicht', 'Extras', '?'].map(function (x) { return h('span', { text: lang === 'de' ? x : ({ Datei: 'File', Bearbeiten: 'Edit', Ansicht: 'View', Extras: 'Tools', '?': '?' })[x] }); })),
@@ -611,7 +612,7 @@
     var erpOn = !!ui.erp[ui.view] && !D.paused;
     var main = h('main', { class: 'a-main g-main' },
       h('div', { class: 'g-head' }, h('div', null, h('h1', { text: D.paused ? 'ARGUS' : TITLES[ui.view] }), h('p', { class: 'a-sub', text: t('Musterfirma Beispiel Metall AG · erfundene Daten · ERP simuliert', 'Model company Beispiel Metall AG · made-up data · ERP simulated') })),
-        h('div', { class: 'g-head-r' }, h('span', { class: 'a-badge ' + (D.paused ? 'no' : 'ok'), text: D.paused ? t('pausiert', 'paused') : (D.mode === 'ui' ? t('aktiv · bedient Oberfläche', 'active · UI automation') : t('aktiv · Schnittstelle', 'active · interface')) }),
+        h('div', { class: 'g-head-r' }, h('span', { class: 'a-badge ' + (D.paused ? 'no' : 'ok'), text: D.paused ? t('pausiert', 'paused') : (D.mode === 'ui' ? t('aktiv · Importmodul', 'active · import module') : t('aktiv · Schnittstelle', 'active · interface')) }),
           D.paused ? null : h('button', { type: 'button', class: 'a-btn s', 'aria-pressed': erpOn ? 'true' : 'false', onclick: function () { ui.erp[ui.view] = !erpOn; render(); }, text: erpOn ? t('ERP ausblenden', 'Hide ERP') : t('ERP einblenden', 'Show ERP') }))),
       h('div', { class: 'g-grid' + (erpOn ? ' with-erp' : '') }, h('div', { class: 'g-argus' }, view), erpOn ? vErp() : null));
     var bg = h('div', { class: 'app-bg', 'aria-hidden': 'true' }); bg.appendChild(UP.traces('pcb'));

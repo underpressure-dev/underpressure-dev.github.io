@@ -157,7 +157,7 @@
 
     var MST = { run: t('Läuft', 'Running'), setup: t('Rüsten', 'Setup'), idle: t('Steht', 'Idle'), down: t('Störung', 'Fault'), maint: t('Wartung', 'Maintenance') };
     var REASON = { mat: t('Material fehlt', 'Material missing'), crane: t('Warten auf Kran', 'Waiting for crane'), prog: t('Programm fehlt', 'Program missing'), staff: t('Kein Personal', 'No staff'), qual: t('Qualität klären', 'Quality check'), belt: t('Schleifband gerissen', 'Abrasive belt torn'), other: t('Sonstige Störung', 'Other fault') };
-    var CONN = { opc: 'OPC UA', sig: t('Signal-Nachrüstung', 'Signal retrofit'), tab: t('Tablet-Erfassung', 'Tablet entry') };
+    var CONN = { opc: 'OPC UA', sig: t('Nachrüstmodul', 'Retrofit module'), tab: t('Tablet-Erfassung', 'Tablet entry') };
     var SK = [['L', t('Laser', 'Laser')], ['B', t('Abkanten', 'Bending')], ['E', t('Entgraten', 'Deburring')], ['S', t('Schweissen', 'Welding')], ['Q', t('Prüfen', 'Inspection')], ['F', t('Stapler', 'Forklift')]];
     var OPN = { L: t('Laser', 'Laser'), B: t('Abkanten', 'Bending'), E: t('Entgraten', 'Deburring'), S: t('Schweissen', 'Welding') };
     var LV = [t('nicht geschult', 'not trained'), t('mit Begleitung', 'with supervision'), t('selbständig', 'independent'), t('Experte, bildet aus', 'expert, trains others')];
@@ -434,7 +434,7 @@
       var ls = losses(), lmax = ls.length ? ls[0][1] : 1, sel = ui.msel && mach(ui.msel);
       var maint = O().maint.filter(function (w) { return !w.done; }).sort(function (a, b) { return a.due - b.due; });
       return h('div', null,
-        h('p', { class: 'a-sub', text: t('Jede Maschine live: läuft, rüstet, steht oder hat eine Störung. Neuere Maschinen liefern ihre Daten über OPC UA, ältere über ein kleines Nachrüstmodul am Signal der Maschinenleuchte, Handarbeitsplätze über das Tablet.', 'Every machine live: running, setting up, idle or faulty. Newer machines send their data via OPC UA, older ones via a small retrofit module on the machine signal light, manual workstations via the tablet.') }),
+        h('p', { class: 'a-sub', text: t('Jede Maschine live: läuft, rüstet, steht oder hat eine Störung. Neuere Maschinen liefern ihre Daten über OPC UA, ältere über ein kleines, berührungsloses Nachrüstmodul, Handarbeitsplätze über das Tablet.', 'Every machine live: running, setting up, idle or faulty. Newer machines send their data via OPC UA, older ones via a small contactless retrofit module, manual workstations via the tablet.') }),
         h('div', { class: 'a-row' }, card(t('OEE gesamt heute', 'Overall OEE today'), pct(avgOee()), t('Weltklasse liegt bei rund 85 %', 'world class is around 85%')), card(t('In Betrieb', 'Running'), run + ' / ' + ms.length, t('Werkstattzeit ', 'shop time ') + hhmm(clock())), card(t('Störungen', 'Faults'), String(down), down ? t('Entgratmaschine', 'Deburring machine') : t('keine', 'none'), down ? 'warn' : ''), card(t('Teile heute', 'Parts today'), String(ms.reduce(function (a, m) { return a + parts(m); }, 0))), card(t('Energie heute', 'Energy today'), ms.reduce(function (a, m) { return a + m.kwh; }, 0) + ' kWh', '', 'amber')),
         h('div', { class: 'g-mgrid' }, ms.map(machineCard)),
         sel ? machineDetail(sel) : null,

@@ -818,3 +818,4 @@ html.shot .app-shell { min-height: 100vh; }
 .g-chain li::before { content: ""; position: absolute; left: -25px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--a-accent); border: 2px solid var(--a-surface); }
 .g-chain b { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--a-muted); }
 @media (prefers-reduced-motion: reduce) { .g-pb.fresh, .g-ms i { animation: none; } }
+.g-ext { margin-left: 8px; vertical-align: 2px; }

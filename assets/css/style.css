@@ -435,3 +435,5 @@ dialog.lightbox button { position: fixed; right: 18px; top: 14px; font: inherit;
 .spec th { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 500; border-bottom-color: var(--fg); }
 .spec td:first-child { font-weight: 600; width: 42%; }
 @media print { .head-cta { display: none; } }
+.mod-h { font-size: 1.15rem; margin: 0 0 14px; }
+.mod-h.mt { margin-top: 36px; }
