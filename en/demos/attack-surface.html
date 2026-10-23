@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src https://underpressure-tools.example.workers.dev; manifest-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Attack surface (live demo) | Under Pressure</title>
+<meta name="description" content="Enter your domain. From public sources (certificate logs, DNS) we build a picture of your visible attack surface. Passive only, no scan.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0b0e12">
+<link rel="canonical" href="https://underpressure.ch/en/demos/attack-surface.html">
+<link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/attack-surface.html">
+<link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/angriffsflaeche.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Attack surface (live demo) | Under Pressure">
+<meta property="og:description" content="Enter your domain. From public sources (certificate logs, DNS) we build a picture of your visible attack surface. Passive only, no scan.">
+<meta property="og:url" content="https://underpressure.ch/en/demos/attack-surface.html">
+<meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/style.css?v=f360351c">
+<link rel="stylesheet" href="/assets/css/demo.css?v=28536f73">
+<script src="/assets/js/main.js?v=78a8e4cc" defer></script>
+<script src="/assets/js/demo-common.js?v=a6336182" defer></script>
+<script src="/assets/js/demo-expo.js?v=7a1300da" defer></script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="/en/" aria-label="Under Pressure, Home">Under Pressure</a>
+<nav class="nav-desktop" aria-label="Main navigation">
+<ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/" aria-current="page">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li><li><a class="login" href="/intern/" title="Protected client area">Login</a></li><li><a class="lang" href="/demos/angriffsflaeche.html" hreflang="de" lang="de" title="Deutsche Version">DE</a></li></ul>
+</nav>
+<details class="nav-mobile">
+<summary>Menu</summary>
+<nav aria-label="Main navigation"><ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/" aria-current="page">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li><li><a href="/intern/">Client login</a></li><li><a href="/demos/angriffsflaeche.html" hreflang="de" lang="de">Deutsche Version</a></li></ul></nav>
+</details>
+</div>
+</header>
+<main id="main">
+<div class="page-head demo-head"><div class="wrap"><p class="eyebrow">Live demo &middot; <a href="/en/demos/">All demos</a></p><h1>Attack surface</h1><p class="lead">Enter your domain. From public sources (certificate logs, DNS) we build a picture of your visible attack surface. Passive only, no scan.</p></div></div>
+<div class="demo-wrap">
+<div class="wrap demo-bar">
+<div class="tabs" role="tablist" aria-label="Demo or manual">
+<button role="tab" id="tab-demo" aria-controls="panel-demo" aria-selected="true" type="button">Demo</button>
+<button role="tab" id="tab-man" aria-controls="panel-man" aria-selected="false" type="button" tabindex="-1">Manual</button>
+</div>
+<p class="demo-note"><span>Passive only, from public sources. No attacks, no scans.</span> <button type="button" class="linkish" id="demo-reset">Reset demo</button></p>
+</div>
+<div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel"><div class="wrap wide"><div id="app" class="appframe t-sec t-tool" data-lang="en" data-api="https://underpressure-tools.example.workers.dev">
+<div class="sc-bar-top" id="exBar"><b>Attack surface</b></div>
+<div class="sc">
+<form class="sc-form" id="exForm" novalidate>
+<label for="exDomain">Your domain</label>
+<div class="sc-row"><input id="exDomain" type="text" inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="your-company.ch" required><button class="a-btn p" type="submit" id="exGo">Show attack surface</button></div>
+<div class="sc-hp" aria-hidden="true"><label for="exWebsite">Website</label><input id="exWebsite" type="text" tabindex="-1" autocomplete="off"></div>
+<p class="sc-note">Passive only, from public sources (certificate logs, DNS). No attacks, no scans. Please only check domains you are responsible for or are allowed to check. <a href="/en/privacy.html#angriffsflaeche">Privacy</a></p>
+<p class="sc-err" id="exErr" role="alert" hidden></p>
+</form>
+<div class="sc-progress" id="exProg" hidden aria-live="polite"><div class="sc-spin" aria-hidden="true"></div><span>Querying public sources …</span></div>
+<div id="exResult" hidden></div>
+</div>
+</div></div></div>
+<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Manual: Attack surface</h2><h3>Purpose</h3><p>The tool shows the externally visible attack surface of a domain: subdomains from public certificate logs, the protection of the home page and the protection of the email domain. It helps you see and reduce your own exposure.</p><h3>Passive only</h3><p>Only publicly available sources are queried: Certificate Transparency (a public log of issued certificates) and DNS. No attacks and no scans are carried out. Please only check domains you are responsible for.</p><ul class="ticks"><li>Summary: number of subdomains, conspicuous names, home page and email protection</li><li>Conspicuous are names like dev, test, vpn, admin, mail: often infrastructure or non-production systems</li><li>The list of hostnames appears only once you prove the domain is yours via a DNS record</li></ul><h3>Proof of ownership</h3><p>For the detail list you add a TXT record with the value shown. Only someone who can set the DNS record controls the domain. This keeps the tool from becoming a convenient means to scout other businesses.</p><h3>Limits</h3><p>Certificate logs show which names were ever issued, not whether they still run today. The check does not replace a pentest. What is really reachable and vulnerable is examined by a pentest with your written permission.</p></div></div></div>
+</div>
+</main>
+<section class="cta-band" aria-labelledby="h-cta">
+<div class="wrap">
+<p class="eyebrow">Next step</p>
+<h2 id="h-cta">Should something like this run at your company?</h2>
+<p>Tell us in a few sentences what it is about. You get an honest assessment and a quote, with no follow-up costs.</p>
+<div class="cta"><a class="btn primary" href="/en/contact.html">Request a project</a><a class="btn" href="tel:+41779217136">+41 77 921 71 36</a></div>
+</div>
+</section>
+<footer class="site-footer">
+<div class="wrap foot-grid">
+<div>
+<p class="foot-brand">Under Pressure</p>
+<p>Software for companies in Switzerland: the products ARGUS and KAIROS, websites, web apps and business software. Based in Lucerne.</p>
+</div>
+<div><p class="foot-h">Pages</p><ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li></ul></div>
+<div><p class="foot-h">Contact</p><ul><li><a href="tel:+41779217136">+41 77 921 71 36</a></li><li><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></li><li>Lucerne, Switzerland</li><li><a href="/intern/">Client login</a></li></ul></div>
+</div>
+<div class="wrap foot-base">
+<span>&copy; 2026 Under Pressure</span>
+<span><a href="/en/imprint.html">Imprint</a> &middot; <a href="/en/privacy.html">Privacy</a></span>
+</div>
+</footer>
+<div class="alt-readout" aria-hidden="true">Alt <b id="alt-value">0</b> m</div>
+</body>
+</html>

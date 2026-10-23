@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src https://underpressure-tools.example.workers.dev; manifest-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Drawing to quote (live demo) | Under Pressure</title>
+<meta name="description" content="Upload a technical drawing. The AI reads material, dimensions, tolerances and processes, asks the questions a calculator would, and gives a ballpark figure.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0b0e12">
+<link rel="canonical" href="https://underpressure.ch/en/demos/drawing-to-quote.html">
+<link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/drawing-to-quote.html">
+<link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/zeichnung-offerte.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Drawing to quote (live demo) | Under Pressure">
+<meta property="og:description" content="Upload a technical drawing. The AI reads material, dimensions, tolerances and processes, asks the questions a calculator would, and gives a ballpark figure.">
+<meta property="og:url" content="https://underpressure.ch/en/demos/drawing-to-quote.html">
+<meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/style.css?v=f360351c">
+<link rel="stylesheet" href="/assets/css/demo.css?v=28536f73">
+<script src="/assets/js/main.js?v=78a8e4cc" defer></script>
+<script src="/assets/js/demo-common.js?v=a6336182" defer></script>
+<script src="/assets/js/demo-draw.js?v=fbd4b046" defer></script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="/en/" aria-label="Under Pressure, Home">Under Pressure</a>
+<nav class="nav-desktop" aria-label="Main navigation">
+<ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/" aria-current="page">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li><li><a class="login" href="/intern/" title="Protected client area">Login</a></li><li><a class="lang" href="/demos/zeichnung-offerte.html" hreflang="de" lang="de" title="Deutsche Version">DE</a></li></ul>
+</nav>
+<details class="nav-mobile">
+<summary>Menu</summary>
+<nav aria-label="Main navigation"><ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/" aria-current="page">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li><li><a href="/intern/">Client login</a></li><li><a href="/demos/zeichnung-offerte.html" hreflang="de" lang="de">Deutsche Version</a></li></ul></nav>
+</details>
+</div>
+</header>
+<main id="main">
+<div class="page-head demo-head"><div class="wrap"><p class="eyebrow">Live demo &middot; <a href="/en/demos/">All demos</a></p><h1>Drawing to quote</h1><p class="lead">Upload a technical drawing. The AI reads material, dimensions, tolerances and processes, asks the questions a calculator would, and gives a ballpark figure.</p></div></div>
+<div class="demo-wrap">
+<div class="wrap demo-bar">
+<div class="tabs" role="tablist" aria-label="Demo or manual">
+<button role="tab" id="tab-demo" aria-controls="panel-demo" aria-selected="true" type="button">Demo</button>
+<button role="tab" id="tab-man" aria-controls="panel-man" aria-selected="false" type="button" tabindex="-1">Manual</button>
+</div>
+<p class="demo-note"><span>Your file is sent only for analysis and is not stored.</span> <button type="button" class="linkish" id="demo-reset">Reset demo</button></p>
+</div>
+<div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel"><div class="wrap wide"><div id="app" class="appframe t-tool" data-lang="en" data-api="https://underpressure-tools.example.workers.dev">
+<div class="sc-bar-top" id="dwBar"><b>Drawing to quote</b></div>
+<div class="tool">
+<form id="dwForm">
+<label class="dw-drop" id="dwDrop" for="dwFile" tabindex="0">
+<input id="dwFile" type="file" accept=".png,.jpg,.jpeg,.webp,.pdf,image/png,image/jpeg,image/webp,application/pdf" hidden>
+<span class="dw-icon" aria-hidden="true">&uarr;</span>
+<span class="dw-big" id="dwLabel">Drag a drawing here or choose one</span>
+<span class="dw-small">PNG, JPG, WebP or PDF. The file is sent only for analysis and is not stored.</span>
+</label>
+<div class="dw-hp" aria-hidden="true"><label for="dwWebsite">Website</label><input id="dwWebsite" type="text" tabindex="-1" autocomplete="off"></div>
+<p class="sc-err" id="dwErr" role="alert" hidden></p>
+</form>
+<div class="dw-prog" id="dwProg" hidden aria-live="polite"><div class="sc-spin" aria-hidden="true"></div><span>Reading the drawing …</span></div>
+<div class="dw-result" id="dwResult" hidden></div>
+</div>
+</div></div></div>
+<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Manual: Drawing to quote</h2><h3>Purpose</h3><p>The tool reads a technical drawing and does the groundwork of a quote: material, dimensions, tolerances, processes, open questions and a rough ballpark. This is how the customer machine KAIROS works in practice.</p><h3>Usage</h3><p>Drag a drawing into the field or choose a file (PNG, JPG, WebP or PDF). The file is sent to the server only for analysis and is not stored there.</p><ul class="ticks"><li>Material, dimensions and detected processes</li><li>Tolerances, surface finish and features such as threads or fits</li><li>Questions a calculator would ask</li><li>Assumptions and a rough ballpark per piece</li></ul><h3>Important</h3><p>The ballpark is an example, not a quote. It is based on what the AI reads from the drawing and on simple assumptions. A binding quote follows, as always, after review by a person.</p><h3>Technology</h3><p>The drawing is read by a language model from Anthropic (Claude). The call runs through a small Under Pressure server, not in the browser. No files and no results are stored.</p></div></div></div>
+</div>
+</main>
+<section class="cta-band" aria-labelledby="h-cta">
+<div class="wrap">
+<p class="eyebrow">Next step</p>
+<h2 id="h-cta">Should something like this run at your company?</h2>
+<p>Tell us in a few sentences what it is about. You get an honest assessment and a quote, with no follow-up costs.</p>
+<div class="cta"><a class="btn primary" href="/en/contact.html">Request a project</a><a class="btn" href="tel:+41779217136">+41 77 921 71 36</a></div>
+</div>
+</section>
+<footer class="site-footer">
+<div class="wrap foot-grid">
+<div>
+<p class="foot-brand">Under Pressure</p>
+<p>Software for companies in Switzerland: the products ARGUS and KAIROS, websites, web apps and business software. Based in Lucerne.</p>
+</div>
+<div><p class="foot-h">Pages</p><ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li></ul></div>
+<div><p class="foot-h">Contact</p><ul><li><a href="tel:+41779217136">+41 77 921 71 36</a></li><li><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></li><li>Lucerne, Switzerland</li><li><a href="/intern/">Client login</a></li></ul></div>
+</div>
+<div class="wrap foot-base">
+<span>&copy; 2026 Under Pressure</span>
+<span><a href="/en/imprint.html">Imprint</a> &middot; <a href="/en/privacy.html">Privacy</a></span>
+</div>
+</footer>
+<div class="alt-readout" aria-hidden="true">Alt <b id="alt-value">0</b> m</div>
+</body>
+</html>
