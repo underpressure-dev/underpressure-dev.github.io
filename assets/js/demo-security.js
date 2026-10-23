@@ -81,7 +81,7 @@
     (d.limitations || (d.meta && d.meta.limitations) || []).forEach(function (t) { ul.appendChild(el('li', '', t)); });
     var src = $('scSource');
     src.textContent = d.example ? L('Beispiel: unsere eigene Website. Geben Sie oben eine andere Domain ein, um sie live zu prüfen.', 'Example: our own website. Enter another domain above to check it live.')
-      : (de ? '' : 'Live result. The findings are currently provided in German.');
+      : '';
     src.hidden = !src.textContent;
     lim.appendChild(ul);
   }
@@ -125,7 +125,7 @@
     setError('');
     btn.disabled = true; result.hidden = true; progress.hidden = false; clear(steps);
     var items = STEPS.map(function (t) { var li = el('li', '', t); steps.appendChild(li); return li; });
-    var fetched = fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ domain: domain, website: $('scWebsite').value }) })
+    var fetched = fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ domain: domain, website: $('scWebsite').value, lang: de ? 'de' : 'en' }) })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, status: r.status, json: j }; }); });
     try {
       for (var i = 0; i < items.length; i++) {
