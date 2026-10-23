@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'; worker-src 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>CAD-Viewer (Live-Demo) | Under Pressure</title>
+<meta name="description" content="Ein 3D-Viewer im Browser für STEP, IGES, STL und OBJ: drehen, schneiden, messen, Gewicht schätzen und Kommentare direkt am Modell setzen.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0b0e12">
+<link rel="canonical" href="https://underpressure.ch/demos/cad-viewer.html">
+<link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/cad-viewer.html">
+<link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/cad-viewer.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CAD-Viewer (Live-Demo) | Under Pressure">
+<meta property="og:description" content="Ein 3D-Viewer im Browser für STEP, IGES, STL und OBJ: drehen, schneiden, messen, Gewicht schätzen und Kommentare direkt am Modell setzen.">
+<meta property="og:url" content="https://underpressure.ch/demos/cad-viewer.html">
+<meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
+<meta property="og:locale" content="de_CH">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/style.css?v=f360351c">
+<link rel="stylesheet" href="/assets/css/demo.css?v=1e17e2ca">
+<link rel="stylesheet" href="/assets/css/cad-viewer.css?v=43dac753">
+<script type="module" src="/assets/js/cad-viewer.js?v=04372c5e"></script>
+<script src="/assets/js/main.js?v=78a8e4cc" defer></script>
+<script src="/assets/js/demo-common.js?v=a6336182" defer></script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="/" aria-label="Under Pressure, Startseite">Under Pressure</a>
+<nav class="nav-desktop" aria-label="Hauptnavigation">
+<ul><li><a href="/">Start</a></li><li><a href="/produkte.html">Produkte</a></li><li><a href="/software.html">Software</a></li><li><a href="/pentesting.html">Pentesting</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">Drohnen</a></li><li><a href="/aerospace.html">Aerospace</a></li><li><a href="/unternehmen.html">Unternehmen</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a class="login" href="/intern/" title="Geschützter Kundenbereich">Login</a></li><li><a class="lang" href="/en/demos/cad-viewer.html" hreflang="en" lang="en" title="English version">EN</a></li></ul>
+</nav>
+<details class="nav-mobile">
+<summary>Menü</summary>
+<nav aria-label="Hauptnavigation"><ul><li><a href="/">Start</a></li><li><a href="/produkte.html">Produkte</a></li><li><a href="/software.html">Software</a></li><li><a href="/pentesting.html">Pentesting</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">Drohnen</a></li><li><a href="/aerospace.html">Aerospace</a></li><li><a href="/unternehmen.html">Unternehmen</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a href="/intern/">Kunden-Login</a></li><li><a href="/en/demos/cad-viewer.html" hreflang="en" lang="en">English version</a></li></ul></nav>
+</details>
+</div>
+</header>
+<main id="main">
+<div class="page-head demo-head"><div class="wrap"><p class="eyebrow">Live-Demo &middot; <a href="/demos/">Alle Demos</a></p><h1>CAD-Viewer</h1><p class="lead">Ein 3D-Viewer im Browser für STEP, IGES, STL und OBJ: drehen, schneiden, messen, Gewicht schätzen und Kommentare direkt am Modell setzen.</p></div></div>
+<div class="demo-wrap">
+<div class="wrap demo-bar">
+<div class="tabs" role="tablist" aria-label="Demo oder Handbuch">
+<button role="tab" id="tab-demo" aria-controls="panel-demo" aria-selected="true" type="button">Demo</button>
+<button role="tab" id="tab-man" aria-controls="panel-man" aria-selected="false" type="button" tabindex="-1">Handbuch</button>
+</div>
+<p class="demo-note"><span>Ihre Dateien werden nur in Ihrem Browser gelesen und nicht hochgeladen.</span> <button type="button" class="linkish" id="demo-reset">Demo zurücksetzen</button></p>
+</div>
+<div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel"><div class="wrap wide"><div id="app" class="appframe cadv" data-lang="de">
+<header class="vbar">
+<div class="vtitle"><b>CAD-Viewer</b><span id="vFile">Kein Modell geladen</span></div>
+<div class="vbar-r">
+<label class="vbtn" for="vOpen">Datei öffnen</label>
+<input id="vOpen" type="file" accept=".step,.stp,.iges,.igs,.brep,.stl,.obj" hidden>
+<button class="vbtn" type="button" id="vDemo">Beispielmodell</button>
+<button class="vbtn" type="button" id="vShot">Bild speichern</button>
+</div>
+</header>
+<div class="vapp">
+<div class="vstage" id="vStage">
+<canvas id="vCanvas" aria-label="3D-Ansicht des Modells"></canvas>
+<div id="vOverlay" class="voverlay"></div>
+<div class="vtools" role="toolbar" aria-label="Ansichten"><button type="button" data-view="iso" class="active">Iso</button><button type="button" data-view="front">Vorne</button><button type="button" data-view="top">Oben</button><button type="button" data-view="right">Rechts</button><button type="button" data-view="fit">Einpassen</button></div>
+<div class="vhint" id="vHint" role="status"></div>
+<div class="vdrop" id="vDrop"><div><h2>3D-Modell ansehen</h2><p>Ziehen Sie eine Datei hierher (STEP, STP, IGES, STL, OBJ) oder wählen Sie oben «Datei öffnen». Das Modell wird nur in Ihrem Browser gelesen und nicht hochgeladen.</p></div></div>
+<div class="vload" id="vLoad" hidden><div class="vload-box"><div id="vLoadText">Modell wird geladen</div><div class="vprog"><span id="vProgBar"></span></div></div></div>
+</div>
+<aside class="vside" id="vSide" aria-label="Werkzeuge">
+<section class="vsec"><h3>Modell</h3>
+<dl class="vkv"><dt>Abmessungen</dt><dd id="mDims">–</dd><dt>Volumen</dt><dd id="mVol">–</dd><dt>Oberfläche</dt><dd id="mArea">–</dd>
+<dt><label for="mMat">Material</label></dt><dd><select id="mMat"><option value="7.85">Stahl (7,85 g/cm³)</option><option value="7.90">Edelstahl (7,90)</option><option value="2.70">Aluminium (2,70)</option><option value="8.96">Kupfer (8,96)</option><option value="8.50">Messing (8,50)</option><option value="4.51">Titan (4,51)</option><option value="7.20">Gusseisen (7,20)</option><option value="1.14">Kunststoff PA (1,14)</option></select></dd>
+<dt>Gewicht</dt><dd id="mMass" class="vbig">–</dd><dt>Dreiecke</dt><dd id="mTris">–</dd></dl>
+<p class="vsmall">Gewicht und Volumen sind Schätzwerte aus dem Netz, Einheit Millimeter angenommen.</p></section>
+<section class="vsec"><h3>Darstellung</h3><div class="vseg" id="vMode"><button type="button" data-mode="shaded" class="active">Schattiert</button><button type="button" data-mode="edges">Kanten</button><button type="button" data-mode="wire">Gitter</button><button type="button" data-mode="xray">Röntgen</button></div>
+<label class="vchk"><input type="checkbox" id="vGrid" checked> Raster anzeigen</label></section>
+<section class="vsec"><h3>Schnitt</h3>
+<div class="vseg" id="vCutAxis"><button type="button" data-axis="off" class="active">Aus</button><button type="button" data-axis="x">X</button><button type="button" data-axis="y">Y</button><button type="button" data-axis="z">Z</button></div>
+<input type="range" id="vCutPos" min="0" max="1000" value="500" disabled aria-label="Schnittposition">
+<label class="vchk"><input type="checkbox" id="vCutFlip" disabled> Seite umkehren</label></section>
+<section class="vsec"><h3>Messen</h3>
+<div class="vrow"><button type="button" class="vbtn" id="vMeasure">Abstand messen</button><button type="button" class="vbtn ghost" id="vMeasureClear">Löschen</button></div>
+<ul class="vlist" id="vMeasList"></ul></section>
+<section class="vsec" id="vPartsSec" hidden><h3>Teile <span class="vcount" id="vPartCount"></span></h3><ul class="vlist parts" id="vParts"></ul></section>
+<section class="vsec"><h3>Kommentare <span class="vcount" id="vNoteCount"></span></h3>
+<div class="vrow"><button type="button" class="vbtn" id="vNoteTool">Kommentar setzen</button></div>
+<form class="vnoteform" id="vNoteForm" hidden><textarea id="vNoteText" rows="3" maxlength="1000" aria-label="Kommentar" placeholder="Was soll an dieser Stelle geändert oder beachtet werden?" required></textarea>
+<div class="vrow"><button class="vbtn primary" type="submit">Speichern</button><button class="vbtn ghost" type="button" id="vNoteCancel">Abbrechen</button></div></form>
+<ul class="vlist notes" id="vNotes"></ul><p class="vsmall" id="vNoteInfo"></p></section>
+<section class="vsec" id="vApproveSec"><h3>Freigabe</h3><div class="vapproval" id="vApproval">Noch nicht freigegeben.</div>
+<div class="vrow"><button type="button" class="vbtn primary" id="vApprove" disabled>Diese Fassung freigeben</button></div>
+<ul class="vlist" id="vApprovals"></ul><p class="vsmall" id="vApproveInfo"></p></section>
+</aside>
+</div>
+</div></div></div>
+<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Handbuch: CAD-Viewer</h2><h3>Zweck</h3><p>Der CAD-Viewer zeigt 3D-Modelle direkt im Browser, ohne CAD-Programm. Er gehört zum Kundenportal: Kunden sehen dort ihre Modelle, setzen Kommentare und geben eine Fassung frei.</p><h3>Bedienung</h3><p>Die Demo startet mit einem Beispiel-Flansch. Mit «Datei öffnen» oder per Ziehen und Ablegen laden Sie ein eigenes Modell. Die Datei wird nur in Ihrem Browser gelesen und nicht hochgeladen.</p><ul class="ticks"><li>Ansichten: Iso, Vorne, Oben, Rechts und Einpassen. Mit der Maus drehen, mit dem Rad zoomen, mit der rechten Taste verschieben.</li><li>Modell: Abmessungen, Volumen, Oberfläche und Gewicht nach gewähltem Material.</li><li>Darstellung: schattiert, mit Kanten, als Gitter oder als Röntgenansicht.</li><li>Schnitt: Schnittebene in X, Y oder Z, Position mit dem Schieber.</li><li>Messen: zwei Punkte anklicken, Ecken rasten ein. Abstand mit Delta X, Y und Z.</li><li>Kommentare: Stelle anklicken und Text eingeben. Ein Klick auf den Kommentar stellt die Ansicht wieder her.</li><li>Bild speichern: aktuelle Ansicht als PNG.</li></ul><h3>Hinweis zur Demo</h3><p>Kommentare gelten nur für diese Sitzung. Die Freigabe ist in der Demo nicht aktiv. Gewicht und Volumen sind Schätzwerte aus dem Netz, als Einheit gilt Millimeter.</p><h3>Echte Lösung</h3><p>Im Kundenportal liegen die Modelle im Dateispeicher. Kommentare werden gespeichert und sind für alle Beteiligten sichtbar. Eine Freigabe hält Name, Zeitpunkt und Prüfsumme der Datei fest. Ändert sich die Datei später, zeigt der Viewer das an.</p><h3>Drittsoftware</h3><p>three.js (Lizenz MIT) für die Darstellung, occt-import-js und Open CASCADE (Lizenz LGPL 2.1) zum Lesen von STEP, IGES und BREP. Die Lizenztexte liegen bei den Dateien unter /assets/vendor/.</p></div></div></div>
+</div>
+</main>
+<section class="cta-band" aria-labelledby="h-cta">
+<div class="wrap">
+<p class="eyebrow">Nächster Schritt</p>
+<h2 id="h-cta">Soll so etwas bei Ihnen laufen?</h2>
+<p>Beschreiben Sie uns in ein paar Sätzen, worum es geht. Sie erhalten eine ehrliche Einschätzung und eine Offerte, ohne Folgekosten.</p>
+<div class="cta"><a class="btn primary" href="/kontakt.html">Projekt anfragen</a><a class="btn" href="tel:+41779217136">+41 77 921 71 36</a></div>
+</div>
+</section>
+<footer class="site-footer">
+<div class="wrap foot-grid">
+<div>
+<p class="foot-brand">Under Pressure</p>
+<p>Software für Unternehmen in der Schweiz: die Produkte ARGUS und KAIROS, Websites, Web-Apps und Betriebssoftware. Sitz in Luzern.</p>
+</div>
+<div><p class="foot-h">Seiten</p><ul><li><a href="/">Start</a></li><li><a href="/produkte.html">Produkte</a></li><li><a href="/software.html">Software</a></li><li><a href="/pentesting.html">Pentesting</a></li><li><a href="/demos/">Demos</a></li><li><a href="/fpv.html">Drohnen</a></li><li><a href="/aerospace.html">Aerospace</a></li><li><a href="/unternehmen.html">Unternehmen</a></li><li><a href="/kontakt.html">Kontakt</a></li></ul></div>
+<div><p class="foot-h">Kontakt</p><ul><li><a href="tel:+41779217136">+41 77 921 71 36</a></li><li><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></li><li>Luzern, Schweiz</li><li><a href="/intern/">Kunden-Login</a></li></ul></div>
+</div>
+<div class="wrap foot-base">
+<span>&copy; 2026 Under Pressure</span>
+<span><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a></span>
+</div>
+</footer>
+<div class="alt-readout" aria-hidden="true">Höhe <b id="alt-value">0</b> m</div>
+</body>
+</html>

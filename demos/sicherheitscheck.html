@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Sicherheitscheck (Live-Demo) | Under Pressure</title>
+<meta name="description" content="Eine passive Prüfung von aussen: Verschlüsselung, Sicherheits-Header, E-Mail-Schutz, Datenschutz und DNS, mit Note, Begründung und Anleitung zur Behebung.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0b0e12">
+<link rel="canonical" href="https://underpressure.ch/demos/sicherheitscheck.html">
+<link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/sicherheitscheck.html">
+<link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/security-check.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sicherheitscheck (Live-Demo) | Under Pressure">
+<meta property="og:description" content="Eine passive Prüfung von aussen: Verschlüsselung, Sicherheits-Header, E-Mail-Schutz, Datenschutz und DNS, mit Note, Begründung und Anleitung zur Behebung.">
+<meta property="og:url" content="https://underpressure.ch/demos/sicherheitscheck.html">
+<meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
+<meta property="og:locale" content="de_CH">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/style.css?v=f360351c">
+<link rel="stylesheet" href="/assets/css/demo.css?v=1e17e2ca">
+<script src="/assets/js/main.js?v=78a8e4cc" defer></script>
+<script src="/assets/js/demo-common.js?v=a6336182" defer></script>
+<script src="/assets/js/demo-security-data.js?v=fb5e3ae4" defer></script>
+<script src="/assets/js/demo-security.js?v=506483d0" defer></script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="/" aria-label="Under Pressure, Startseite">Under Pressure</a>
+<nav class="nav-desktop" aria-label="Hauptnavigation">
+<ul><li><a href="/">Start</a></li><li><a href="/produkte.html">Produkte</a></li><li><a href="/software.html">Software</a></li><li><a href="/pentesting.html">Pentesting</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">Drohnen</a></li><li><a href="/aerospace.html">Aerospace</a></li><li><a href="/unternehmen.html">Unternehmen</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a class="login" href="/intern/" title="Geschützter Kundenbereich">Login</a></li><li><a class="lang" href="/en/demos/security-check.html" hreflang="en" lang="en" title="English version">EN</a></li></ul>
+</nav>
+<details class="nav-mobile">
+<summary>Menü</summary>
+<nav aria-label="Hauptnavigation"><ul><li><a href="/">Start</a></li><li><a href="/produkte.html">Produkte</a></li><li><a href="/software.html">Software</a></li><li><a href="/pentesting.html">Pentesting</a></li><li><a href="/demos/" aria-current="page">Demos</a></li><li><a href="/fpv.html">Drohnen</a></li><li><a href="/aerospace.html">Aerospace</a></li><li><a href="/unternehmen.html">Unternehmen</a></li><li><a href="/kontakt.html">Kontakt</a></li><li><a href="/intern/">Kunden-Login</a></li><li><a href="/en/demos/security-check.html" hreflang="en" lang="en">English version</a></li></ul></nav>
+</details>
+</div>
+</header>
+<main id="main">
+<div class="page-head demo-head"><div class="wrap"><p class="eyebrow">Live-Demo &middot; <a href="/demos/">Alle Demos</a></p><h1>Sicherheitscheck</h1><p class="lead">Eine passive Prüfung von aussen: Verschlüsselung, Sicherheits-Header, E-Mail-Schutz, Datenschutz und DNS, mit Note, Begründung und Anleitung zur Behebung.</p></div></div>
+<div class="demo-wrap">
+<div class="wrap demo-bar">
+<div class="tabs" role="tablist" aria-label="Demo oder Handbuch">
+<button role="tab" id="tab-demo" aria-controls="panel-demo" aria-selected="true" type="button">Demo</button>
+<button role="tab" id="tab-man" aria-controls="panel-man" aria-selected="false" type="button" tabindex="-1">Handbuch</button>
+</div>
+<p class="demo-note"><span>Echter Bericht für underpressure.ch, keine erfundenen Daten.</span> <button type="button" class="linkish" id="demo-reset">Demo zurücksetzen</button></p>
+</div>
+<div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel"><div class="wrap wide"><div id="app" class="appframe t-sec" data-lang="de">
+<div class="sc-bar-top" id="scBar"><b>Sicherheitscheck</b></div>
+<div class="sc">
+<form class="sc-form" id="scForm" novalidate>
+<label for="scDomain">Geprüfte Domain</label>
+<div class="sc-row"><input id="scDomain" type="text" value="underpressure.ch" readonly><button class="a-btn p" type="submit" id="scGo">Check abspielen</button></div>
+<p class="sc-note">Die Demo zeigt den echten Bericht für unsere eigene Website. Der Check läuft auf einem Server und prüft nur, was jeder Browser ohnehin sieht. Ihre Domain prüfen wir gerne für Sie.</p>
+</form>
+<div class="sc-progress" id="scProgress" hidden aria-live="polite"><div class="sc-spin" aria-hidden="true"></div><ol id="scSteps"></ol></div>
+<div class="sc-result" id="scResult">
+<div class="sc-head">
+<div class="sc-ring" id="scRing" aria-hidden="true"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" id="scRingFg" cx="60" cy="60" r="52"/></svg><div class="sc-grade" id="scGrade">–</div></div>
+<div class="sc-head-text"><div class="sc-domain" id="scDomainOut"></div><h2 id="scVerdict"></h2><p id="scSummary"></p><div class="sc-counts" id="scCounts"></div>
+<div class="sc-actions"><button class="a-btn" type="button" id="scPrint">Bericht drucken oder als PDF sichern</button></div></div>
+</div>
+<div class="sc-cats" id="scCats"></div>
+<div class="sc-list-head"><h3>Befunde</h3><label class="sc-toggle"><input type="checkbox" id="scAll"> Auch erfüllte Punkte zeigen</label></div>
+<div class="sc-list" id="scList"></div>
+<div class="sc-limits" id="scLimits"></div>
+<div class="sc-cta"><div><h3>Das war die Sicht von aussen. Was steckt dahinter?</h3>
+<p>Ein Pentest prüft mit Ihrer schriftlichen Erlaubnis Anmeldung, Zugriffsrechte, Eingabefelder und Server und liefert einen Bericht mit nach Dringlichkeit geordneten Massnahmen.</p></div>
+<a class="a-btn p" href="/pentesting.html">Zum Pentesting</a></div>
+</div>
+</div>
+</div></div></div>
+<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Handbuch: Sicherheitscheck</h2><h3>Zweck</h3><p>Der Sicherheitscheck prüft eine Website von aussen, so wie sie jeder Browser sieht, und vergibt eine Note von A bis F. Zu jedem Befund gibt es eine Begründung und eine Anleitung zur Behebung.</p><h3>Was geprüft wird</h3><p>Nur Öffentliches: die Startseite, die Weiterleitung auf HTTPS, öffentliche DNS-Einträge und die Datei security.txt. Es werden keine Angriffe ausgeführt.</p><ul class="ticks"><li>Verschlüsselung: HTTPS, Weiterleitung und HSTS.</li><li>Schutz im Browser: Content-Security-Policy, Schutz vor Einbettung, weitere Sicherheits-Header und Cookies.</li><li>E-Mail-Schutz: SPF, DMARC und DKIM gegen gefälschte Absender.</li><li>Datenschutz und Drittanbieter: bekannte Tracking-Dienste und Link zur Datenschutzerklärung.</li><li>Namensdienst: DNSSEC, CAA und IPv6.</li><li>Offengelegte Informationen: Versionsangaben und security.txt.</li></ul><h3>Hinweis zur Demo</h3><p>Der Check läuft auf einem Server, diese Website ist statisch. Die Demo zeigt darum den echten Bericht für underpressure.ch. Die offenen Punkte betreffen vor allem HTTP-Header, die unser heutiger Hoster nicht setzen lässt. Ihre Domain prüfen wir gerne für Sie.</p><h3>Grenzen</h3><p>Der Check ersetzt keinen Pentest. Anwendungslogik, Zugriffsrechte und Schwachstellen in der Software prüft erst ein Pentest mit Ihrer schriftlichen Erlaubnis.</p></div></div></div>
+</div>
+</main>
+<section class="cta-band" aria-labelledby="h-cta">
+<div class="wrap">
+<p class="eyebrow">Nächster Schritt</p>
+<h2 id="h-cta">Soll so etwas bei Ihnen laufen?</h2>
+<p>Beschreiben Sie uns in ein paar Sätzen, worum es geht. Sie erhalten eine ehrliche Einschätzung und eine Offerte, ohne Folgekosten.</p>
+<div class="cta"><a class="btn primary" href="/kontakt.html">Projekt anfragen</a><a class="btn" href="tel:+41779217136">+41 77 921 71 36</a></div>
+</div>
+</section>
+<footer class="site-footer">
+<div class="wrap foot-grid">
+<div>
+<p class="foot-brand">Under Pressure</p>
+<p>Software für Unternehmen in der Schweiz: die Produkte ARGUS und KAIROS, Websites, Web-Apps und Betriebssoftware. Sitz in Luzern.</p>
+</div>
+<div><p class="foot-h">Seiten</p><ul><li><a href="/">Start</a></li><li><a href="/produkte.html">Produkte</a></li><li><a href="/software.html">Software</a></li><li><a href="/pentesting.html">Pentesting</a></li><li><a href="/demos/">Demos</a></li><li><a href="/fpv.html">Drohnen</a></li><li><a href="/aerospace.html">Aerospace</a></li><li><a href="/unternehmen.html">Unternehmen</a></li><li><a href="/kontakt.html">Kontakt</a></li></ul></div>
+<div><p class="foot-h">Kontakt</p><ul><li><a href="tel:+41779217136">+41 77 921 71 36</a></li><li><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></li><li>Luzern, Schweiz</li><li><a href="/intern/">Kunden-Login</a></li></ul></div>
+</div>
+<div class="wrap foot-base">
+<span>&copy; 2026 Under Pressure</span>
+<span><a href="/impressum.html">Impressum</a> &middot; <a href="/datenschutz.html">Datenschutz</a></span>
+</div>
+</footer>
+<div class="alt-readout" aria-hidden="true">Höhe <b id="alt-value">0</b> m</div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'; worker-src 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>CAD viewer (live demo) | Under Pressure</title>
+<meta name="description" content="A 3D viewer in the browser for STEP, IGES, STL and OBJ: rotate, section, measure, estimate weight and place comments directly on the model.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0b0e12">
+<link rel="canonical" href="https://underpressure.ch/en/demos/cad-viewer.html">
+<link rel="alternate" hreflang="en" href="https://underpressure.ch/en/demos/cad-viewer.html">
+<link rel="alternate" hreflang="de" href="https://underpressure.ch/demos/cad-viewer.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CAD viewer (live demo) | Under Pressure">
+<meta property="og:description" content="A 3D viewer in the browser for STEP, IGES, STL and OBJ: rotate, section, measure, estimate weight and place comments directly on the model.">
+<meta property="og:url" content="https://underpressure.ch/en/demos/cad-viewer.html">
+<meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/style.css?v=f360351c">
+<link rel="stylesheet" href="/assets/css/demo.css?v=1e17e2ca">
+<link rel="stylesheet" href="/assets/css/cad-viewer.css?v=43dac753">
+<script type="module" src="/assets/js/cad-viewer.js?v=04372c5e"></script>
+<script src="/assets/js/main.js?v=78a8e4cc" defer></script>
+<script src="/assets/js/demo-common.js?v=a6336182" defer></script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="/en/" aria-label="Under Pressure, Home">Under Pressure</a>
+<nav class="nav-desktop" aria-label="Main navigation">
+<ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/" aria-current="page">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li><li><a class="login" href="/intern/" title="Protected client area">Login</a></li><li><a class="lang" href="/demos/cad-viewer.html" hreflang="de" lang="de" title="Deutsche Version">DE</a></li></ul>
+</nav>
+<details class="nav-mobile">
+<summary>Menu</summary>
+<nav aria-label="Main navigation"><ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/" aria-current="page">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li><li><a href="/intern/">Client login</a></li><li><a href="/demos/cad-viewer.html" hreflang="de" lang="de">Deutsche Version</a></li></ul></nav>
+</details>
+</div>
+</header>
+<main id="main">
+<div class="page-head demo-head"><div class="wrap"><p class="eyebrow">Live demo &middot; <a href="/en/demos/">All demos</a></p><h1>CAD viewer</h1><p class="lead">A 3D viewer in the browser for STEP, IGES, STL and OBJ: rotate, section, measure, estimate weight and place comments directly on the model.</p></div></div>
+<div class="demo-wrap">
+<div class="wrap demo-bar">
+<div class="tabs" role="tablist" aria-label="Demo or manual">
+<button role="tab" id="tab-demo" aria-controls="panel-demo" aria-selected="true" type="button">Demo</button>
+<button role="tab" id="tab-man" aria-controls="panel-man" aria-selected="false" type="button" tabindex="-1">Manual</button>
+</div>
+<p class="demo-note"><span>Your files are only read in your browser and are not uploaded.</span> <button type="button" class="linkish" id="demo-reset">Reset demo</button></p>
+</div>
+<div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel"><div class="wrap wide"><div id="app" class="appframe cadv" data-lang="en">
+<header class="vbar">
+<div class="vtitle"><b>CAD-Viewer</b><span id="vFile">No model loaded</span></div>
+<div class="vbar-r">
+<label class="vbtn" for="vOpen">Open file</label>
+<input id="vOpen" type="file" accept=".step,.stp,.iges,.igs,.brep,.stl,.obj" hidden>
+<button class="vbtn" type="button" id="vDemo">Sample model</button>
+<button class="vbtn" type="button" id="vShot">Save image</button>
+</div>
+</header>
+<div class="vapp">
+<div class="vstage" id="vStage">
+<canvas id="vCanvas" aria-label="3D view of the model"></canvas>
+<div id="vOverlay" class="voverlay"></div>
+<div class="vtools" role="toolbar" aria-label="Views"><button type="button" data-view="iso" class="active">Iso</button><button type="button" data-view="front">Front</button><button type="button" data-view="top">Top</button><button type="button" data-view="right">Right</button><button type="button" data-view="fit">Fit</button></div>
+<div class="vhint" id="vHint" role="status"></div>
+<div class="vdrop" id="vDrop"><div><h2>View a 3D model</h2><p>Drag a file here (STEP, STP, IGES, STL, OBJ) or choose «Open file» above. The model is only read in your browser and is not uploaded.</p></div></div>
+<div class="vload" id="vLoad" hidden><div class="vload-box"><div id="vLoadText">Loading the model</div><div class="vprog"><span id="vProgBar"></span></div></div></div>
+</div>
+<aside class="vside" id="vSide" aria-label="Tools">
+<section class="vsec"><h3>Model</h3>
+<dl class="vkv"><dt>Dimensions</dt><dd id="mDims">–</dd><dt>Volume</dt><dd id="mVol">–</dd><dt>Surface area</dt><dd id="mArea">–</dd>
+<dt><label for="mMat">Material</label></dt><dd><select id="mMat"><option value="7.85">Steel (7.85 g/cm³)</option><option value="7.90">Stainless steel (7.90)</option><option value="2.70">Aluminium (2.70)</option><option value="8.96">Copper (8.96)</option><option value="8.50">Brass (8.50)</option><option value="4.51">Titanium (4.51)</option><option value="7.20">Cast iron (7.20)</option><option value="1.14">Plastic PA (1.14)</option></select></dd>
+<dt>Weight</dt><dd id="mMass" class="vbig">–</dd><dt>Triangles</dt><dd id="mTris">–</dd></dl>
+<p class="vsmall">Weight and volume are estimates from the mesh, unit assumed to be millimetres.</p></section>
+<section class="vsec"><h3>Display</h3><div class="vseg" id="vMode"><button type="button" data-mode="shaded" class="active">Shaded</button><button type="button" data-mode="edges">Edges</button><button type="button" data-mode="wire">Wireframe</button><button type="button" data-mode="xray">X-ray</button></div>
+<label class="vchk"><input type="checkbox" id="vGrid" checked> Show grid</label></section>
+<section class="vsec"><h3>Section</h3>
+<div class="vseg" id="vCutAxis"><button type="button" data-axis="off" class="active">Off</button><button type="button" data-axis="x">X</button><button type="button" data-axis="y">Y</button><button type="button" data-axis="z">Z</button></div>
+<input type="range" id="vCutPos" min="0" max="1000" value="500" disabled aria-label="Section position">
+<label class="vchk"><input type="checkbox" id="vCutFlip" disabled> Flip side</label></section>
+<section class="vsec"><h3>Measure</h3>
+<div class="vrow"><button type="button" class="vbtn" id="vMeasure">Measure distance</button><button type="button" class="vbtn ghost" id="vMeasureClear">Clear</button></div>
+<ul class="vlist" id="vMeasList"></ul></section>
+<section class="vsec" id="vPartsSec" hidden><h3>Parts <span class="vcount" id="vPartCount"></span></h3><ul class="vlist parts" id="vParts"></ul></section>
+<section class="vsec"><h3>Comments <span class="vcount" id="vNoteCount"></span></h3>
+<div class="vrow"><button type="button" class="vbtn" id="vNoteTool">Add comment</button></div>
+<form class="vnoteform" id="vNoteForm" hidden><textarea id="vNoteText" rows="3" maxlength="1000" aria-label="Comment" placeholder="What should be changed or noted here?" required></textarea>
+<div class="vrow"><button class="vbtn primary" type="submit">Save</button><button class="vbtn ghost" type="button" id="vNoteCancel">Cancel</button></div></form>
+<ul class="vlist notes" id="vNotes"></ul><p class="vsmall" id="vNoteInfo"></p></section>
+<section class="vsec" id="vApproveSec"><h3>Approval</h3><div class="vapproval" id="vApproval">Not approved yet.</div>
+<div class="vrow"><button type="button" class="vbtn primary" id="vApprove" disabled>Approve this version</button></div>
+<ul class="vlist" id="vApprovals"></ul><p class="vsmall" id="vApproveInfo"></p></section>
+</aside>
+</div>
+</div></div></div>
+<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Manual: CAD viewer</h2><h3>Purpose</h3><p>The CAD viewer shows 3D models directly in the browser, without a CAD program. It is part of the client portal: customers see their models there, add comments and approve a version.</p><h3>Usage</h3><p>The demo starts with a sample flange. With «Open file» or by drag and drop you load your own model. The file is only read in your browser and is not uploaded.</p><ul class="ticks"><li>Views: iso, front, top, right and fit. Rotate with the mouse, zoom with the wheel, pan with the right button.</li><li>Model: dimensions, volume, surface area and weight for the chosen material.</li><li>Display: shaded, with edges, as wireframe or as x-ray view.</li><li>Section: section plane in X, Y or Z, position with the slider.</li><li>Measure: click two points, corners snap. Distance with delta X, Y and Z.</li><li>Comments: click a spot and enter text. Clicking the comment restores the view.</li><li>Save image: current view as PNG.</li></ul><h3>Note on the demo</h3><p>Comments only last for this session. Approval is not active in the demo. Weight and volume are estimates from the mesh, the unit is millimetres.</p><h3>Real solution</h3><p>In the client portal the models are kept in file storage. Comments are saved and visible to everyone involved. An approval records name, time and checksum of the file. If the file changes later, the viewer shows it.</p><h3>Third-party software</h3><p>three.js (MIT licence) for rendering, occt-import-js and Open CASCADE (LGPL 2.1 licence) to read STEP, IGES and BREP. The licence texts are kept with the files under /assets/vendor/.</p></div></div></div>
+</div>
+</main>
+<section class="cta-band" aria-labelledby="h-cta">
+<div class="wrap">
+<p class="eyebrow">Next step</p>
+<h2 id="h-cta">Should something like this run at your company?</h2>
+<p>Tell us in a few sentences what it is about. You get an honest assessment and a quote, with no follow-up costs.</p>
+<div class="cta"><a class="btn primary" href="/en/contact.html">Request a project</a><a class="btn" href="tel:+41779217136">+41 77 921 71 36</a></div>
+</div>
+</section>
+<footer class="site-footer">
+<div class="wrap foot-grid">
+<div>
+<p class="foot-brand">Under Pressure</p>
+<p>Software for companies in Switzerland: the products ARGUS and KAIROS, websites, web apps and business software. Based in Lucerne.</p>
+</div>
+<div><p class="foot-h">Pages</p><ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li></ul></div>
+<div><p class="foot-h">Contact</p><ul><li><a href="tel:+41779217136">+41 77 921 71 36</a></li><li><a href="mailto:info@industrietaucher.ch">info@industrietaucher.ch</a></li><li>Lucerne, Switzerland</li><li><a href="/intern/">Client login</a></li></ul></div>
+</div>
+<div class="wrap foot-base">
+<span>&copy; 2026 Under Pressure</span>
+<span><a href="/en/imprint.html">Imprint</a> &middot; <a href="/en/privacy.html">Privacy</a></span>
+</div>
+</footer>
+<div class="alt-readout" aria-hidden="true">Alt <b id="alt-value">0</b> m</div>
+</body>
+</html>
