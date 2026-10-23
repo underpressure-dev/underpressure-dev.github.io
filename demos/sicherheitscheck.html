@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src https://alta-kundenportal.alta-engineering.workers.dev; manifest-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Sicherheitscheck (Live-Demo) | Under Pressure</title>
 <meta name="description" content="Eine passive Prüfung von aussen: Verschlüsselung, Sicherheits-Header, E-Mail-Schutz, Datenschutz und DNS, mit Note, Begründung und Anleitung zur Behebung.">
@@ -21,11 +21,11 @@
 <meta property="og:locale" content="de_CH">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/css/style.css?v=f360351c">
-<link rel="stylesheet" href="/assets/css/demo.css?v=1e17e2ca">
+<link rel="stylesheet" href="/assets/css/demo.css?v=d5b5dbe1">
 <script src="/assets/js/main.js?v=78a8e4cc" defer></script>
 <script src="/assets/js/demo-common.js?v=a6336182" defer></script>
-<script src="/assets/js/demo-security-data.js?v=fb5e3ae4" defer></script>
-<script src="/assets/js/demo-security.js?v=506483d0" defer></script>
+<script src="/assets/js/demo-security-data.js?v=be846dc2" defer></script>
+<script src="/assets/js/demo-security.js?v=d8af216e" defer></script>
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
@@ -50,15 +50,17 @@
 <button role="tab" id="tab-demo" aria-controls="panel-demo" aria-selected="true" type="button">Demo</button>
 <button role="tab" id="tab-man" aria-controls="panel-man" aria-selected="false" type="button" tabindex="-1">Handbuch</button>
 </div>
-<p class="demo-note"><span>Echter Bericht für underpressure.ch, keine erfundenen Daten.</span> <button type="button" class="linkish" id="demo-reset">Demo zurücksetzen</button></p>
+<p class="demo-note"><span>Live-Prüfung. Die eingegebene Domain geht an den Prüfdienst, mehr dazu im Datenschutz.</span> <button type="button" class="linkish" id="demo-reset">Demo zurücksetzen</button></p>
 </div>
 <div role="tabpanel" id="panel-demo" aria-labelledby="tab-demo" class="panel"><div class="wrap wide"><div id="app" class="appframe t-sec" data-lang="de">
 <div class="sc-bar-top" id="scBar"><b>Sicherheitscheck</b></div>
 <div class="sc">
 <form class="sc-form" id="scForm" novalidate>
-<label for="scDomain">Geprüfte Domain</label>
-<div class="sc-row"><input id="scDomain" type="text" value="underpressure.ch" readonly><button class="a-btn p" type="submit" id="scGo">Check abspielen</button></div>
-<p class="sc-note">Die Demo zeigt den echten Bericht für unsere eigene Website. Der Check läuft auf einem Server und prüft nur, was jeder Browser ohnehin sieht. Ihre Domain prüfen wir gerne für Sie.</p>
+<label for="scDomain">Ihre Domain</label>
+<div class="sc-row"><input id="scDomain" name="domain" type="text" inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="ihre-firma.ch" required><button class="a-btn p" type="submit" id="scGo">Jetzt prüfen</button></div>
+<div class="sc-hp" aria-hidden="true"><label for="scWebsite">Website (bitte leer lassen)</label><input id="scWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+<p class="sc-note">Geprüft wird nur, was jeder Browser ohnehin sieht: die Startseite, die Weiterleitung auf HTTPS und öffentliche DNS-Einträge. Es werden keine Angriffe ausgeführt und nichts gespeichert. Bitte prüfen Sie nur Domains, für die Sie verantwortlich sind oder die Sie prüfen dürfen. <a href="/datenschutz.html#sicherheitscheck">Datenschutz</a></p>
+<p class="sc-err" id="scErr" role="alert" hidden></p>
 </form>
 <div class="sc-progress" id="scProgress" hidden aria-live="polite"><div class="sc-spin" aria-hidden="true"></div><ol id="scSteps"></ol></div>
 <div class="sc-result" id="scResult">
@@ -67,6 +69,7 @@
 <div class="sc-head-text"><div class="sc-domain" id="scDomainOut"></div><h2 id="scVerdict"></h2><p id="scSummary"></p><div class="sc-counts" id="scCounts"></div>
 <div class="sc-actions"><button class="a-btn" type="button" id="scPrint">Bericht drucken oder als PDF sichern</button></div></div>
 </div>
+<p class="sc-source" id="scSource" hidden></p>
 <div class="sc-cats" id="scCats"></div>
 <div class="sc-list-head"><h3>Befunde</h3><label class="sc-toggle"><input type="checkbox" id="scAll"> Auch erfüllte Punkte zeigen</label></div>
 <div class="sc-list" id="scList"></div>
@@ -77,7 +80,7 @@
 </div>
 </div>
 </div></div></div>
-<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Handbuch: Sicherheitscheck</h2><h3>Zweck</h3><p>Der Sicherheitscheck prüft eine Website von aussen, so wie sie jeder Browser sieht, und vergibt eine Note von A bis F. Zu jedem Befund gibt es eine Begründung und eine Anleitung zur Behebung.</p><h3>Was geprüft wird</h3><p>Nur Öffentliches: die Startseite, die Weiterleitung auf HTTPS, öffentliche DNS-Einträge und die Datei security.txt. Es werden keine Angriffe ausgeführt.</p><ul class="ticks"><li>Verschlüsselung: HTTPS, Weiterleitung und HSTS.</li><li>Schutz im Browser: Content-Security-Policy, Schutz vor Einbettung, weitere Sicherheits-Header und Cookies.</li><li>E-Mail-Schutz: SPF, DMARC und DKIM gegen gefälschte Absender.</li><li>Datenschutz und Drittanbieter: bekannte Tracking-Dienste und Link zur Datenschutzerklärung.</li><li>Namensdienst: DNSSEC, CAA und IPv6.</li><li>Offengelegte Informationen: Versionsangaben und security.txt.</li></ul><h3>Hinweis zur Demo</h3><p>Der Check läuft auf einem Server, diese Website ist statisch. Die Demo zeigt darum den echten Bericht für underpressure.ch. Die offenen Punkte betreffen vor allem HTTP-Header, die unser heutiger Hoster nicht setzen lässt. Ihre Domain prüfen wir gerne für Sie.</p><h3>Grenzen</h3><p>Der Check ersetzt keinen Pentest. Anwendungslogik, Zugriffsrechte und Schwachstellen in der Software prüft erst ein Pentest mit Ihrer schriftlichen Erlaubnis.</p></div></div></div>
+<div role="tabpanel" id="panel-man" aria-labelledby="tab-man" class="panel" hidden><div class="wrap"><div class="prose manual"><h2>Handbuch: Sicherheitscheck</h2><h3>Zweck</h3><p>Der Sicherheitscheck prüft eine Website von aussen, so wie sie jeder Browser sieht, und vergibt eine Note von A bis F. Zu jedem Befund gibt es eine Begründung und eine Anleitung zur Behebung.</p><h3>Was geprüft wird</h3><p>Nur Öffentliches: die Startseite, die Weiterleitung auf HTTPS, öffentliche DNS-Einträge und die Datei security.txt. Es werden keine Angriffe ausgeführt.</p><ul class="ticks"><li>Verschlüsselung: HTTPS, Weiterleitung und HSTS.</li><li>Schutz im Browser: Content-Security-Policy, Schutz vor Einbettung, weitere Sicherheits-Header und Cookies.</li><li>E-Mail-Schutz: SPF, DMARC und DKIM gegen gefälschte Absender.</li><li>Datenschutz und Drittanbieter: bekannte Tracking-Dienste und Link zur Datenschutzerklärung.</li><li>Namensdienst: DNSSEC, CAA und IPv6.</li><li>Offengelegte Informationen: Versionsangaben und security.txt.</li></ul><h3>Hinweis zur Demo</h3><p>Die Prüfung ist echt und läuft auf einem Prüfdienst bei Cloudflare. Beim Öffnen sehen Sie als Beispiel den Bericht für unsere eigene Website. Pro Absender sind 20 Prüfungen pro Stunde möglich. Die Befunde sind auf Deutsch.</p><h3>Grenzen</h3><p>Der Check ersetzt keinen Pentest. Anwendungslogik, Zugriffsrechte und Schwachstellen in der Software prüft erst ein Pentest mit Ihrer schriftlichen Erlaubnis.</p></div></div></div>
 </div>
 </main>
 <section class="cta-band" aria-labelledby="h-cta">

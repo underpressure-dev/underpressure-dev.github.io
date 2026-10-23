@@ -907,3 +907,9 @@ html.shot .app-shell { min-height: 100vh; }
 .sc-head-text h2 { margin: .25rem 0 .4rem; }
 .sc-list-head h3, .sc-cta h3 { margin: 0; }
 @media print { .demo-bar, .sc-form, .sc-progress, .sc-actions, .sc-toggle, .sc-cta, .sc-copy, .sc-bar-top { display: none !important; } .sc-f { break-inside: avoid; } }
+.sc-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.sc-err { margin-top: .9rem; padding: .7rem .9rem; border-radius: 6px; border: 1px solid var(--sev-high); background: var(--sev-high-bg); color: var(--sev-high); font-size: .92rem; }
+.sc-err[hidden] { display: none; }
+.sc-source { margin: 1rem 0 0; font-size: .86rem; color: var(--muted); }
+.sc-source[hidden] { display: none; }
+.sc-note a { color: var(--accent); }

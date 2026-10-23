@@ -214,7 +214,8 @@ window.UP_SEC_REPORT = {
    "Geprüft werden nur öffentlich abrufbare Informationen der Startseite und des Namensdienstes.",
    "TLS-Versionen, Verschlüsselungsverfahren, Anwendungslogik, Zugriffsrechte und Software-Schwachstellen werden nicht getestet.",
    "Automatische Befunde ersetzen keine Beratung und keine rechtliche Prüfung."
-  ]
+  ],
+  "example": true
  },
  "en": {
   "domain": "underpressure.ch",
@@ -430,6 +431,7 @@ window.UP_SEC_REPORT = {
    "Only publicly available information from the home page and the name service is checked.",
    "TLS versions, cipher suites, application logic, access rights and software vulnerabilities are not tested.",
    "Automatic findings do not replace advice or a legal review."
-  ]
+  ],
+  "example": true
  }
 };

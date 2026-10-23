@@ -1,12 +1,14 @@
-/* Sicherheitscheck (Live-Demo): zeigt den echten Bericht für underpressure.ch aus demo-security-data.js.
-   Der Check selbst läuft auf einem Server und prüft nur Öffentliches (Startseite, DNS, security.txt).
-   Alle Texte werden mit textContent eingesetzt. */
+/* Sicherheitscheck (Live-Demo): prüft die eingegebene Domain über den Prüfdienst (Cloudflare Worker, betrieben von der
+   Alta Engineering AG). Geprüft wird nur Öffentliches: Startseite, DNS, security.txt. Beim Öffnen zeigt die Seite als
+   Beispiel den gespeicherten Bericht für underpressure.ch (demo-security-data.js).
+   Alle Texte aus der Antwort werden mit textContent eingesetzt, nie als HTML. */
 (function () {
   'use strict';
   var UP = window.UP, frame = document.getElementById('app');
   if (!UP || !frame || !window.UP_SEC_REPORT) return;
   var de = UP.lang === 'de';
-  var D = window.UP_SEC_REPORT[de ? 'de' : 'en'];
+  var API = 'https://alta-kundenportal.alta-engineering.workers.dev/api/request-access/security-check';
+  var D = window.UP_SEC_REPORT[de ? 'de' : 'en'];  // aktueller Bericht, zu Beginn das Beispiel
   function $(id) { return document.getElementById(id); }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
@@ -76,7 +78,11 @@
     var lim = $('scLimits'); clear(lim);
     lim.appendChild(el('h4', '', L('Was dieser Check nicht leistet', 'What this check does not cover')));
     var ul = el('ul');
-    d.limitations.forEach(function (t) { ul.appendChild(el('li', '', t)); });
+    (d.limitations || (d.meta && d.meta.limitations) || []).forEach(function (t) { ul.appendChild(el('li', '', t)); });
+    var src = $('scSource');
+    src.textContent = d.example ? L('Beispiel: unsere eigene Website. Geben Sie oben eine andere Domain ein, um sie live zu prüfen.', 'Example: our own website. Enter another domain above to check it live.')
+      : (de ? '' : 'Live result. The findings are currently provided in German.');
+    src.hidden = !src.textContent;
     lim.appendChild(ul);
   }
 
@@ -112,19 +118,54 @@
     if (!shown) list.appendChild(el('p', 'sc-empty', L('Keine offenen Punkte.', 'No open points.')));
   }
 
-  async function replay() {
+  function setError(msg) { var x = $('scErr'); x.textContent = msg || ''; x.hidden = !msg; }
+
+  async function run(domain) {
     var btn = $('scGo'), progress = $('scProgress'), steps = $('scSteps'), result = $('scResult');
+    setError('');
     btn.disabled = true; result.hidden = true; progress.hidden = false; clear(steps);
     var items = STEPS.map(function (t) { var li = el('li', '', t); steps.appendChild(li); return li; });
-    for (var i = 0; i < items.length; i++) { items[i].className = 'run'; await sleep(i === items.length - 1 ? 250 : 420); items[i].className = 'done'; }
-    progress.hidden = true; result.hidden = false; btn.disabled = false;
-    render(D, true);
+    var fetched = fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ domain: domain, website: $('scWebsite').value }) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, status: r.status, json: j }; }); });
+    try {
+      for (var i = 0; i < items.length; i++) {
+        items[i].className = 'run';
+        await sleep(i === items.length - 1 ? 250 : 420);
+        if (i === items.length - 2) await fetched.catch(function () {});
+        items[i].className = 'done';
+      }
+      var res = await fetched;
+      if (!res.ok || !res.json || !res.json.grade) {
+        var known = {
+          400: L('Bitte geben Sie eine gültige Domain ein, zum Beispiel ihre-firma.ch.', 'Please enter a valid domain, for example your-company.ch.'),
+          429: L('Zu viele Prüfungen in kurzer Zeit. Bitte versuchen Sie es in einer Stunde erneut.', 'Too many checks in a short time. Please try again in an hour.'),
+          502: L('Die Prüfung konnte nicht abgeschlossen werden. Bitte versuchen Sie es später erneut.', 'The check could not be completed. Please try again later.')
+        };
+        throw new Error(known[res.status] || L('Die Prüfung ist fehlgeschlagen.', 'The check failed.'));
+      }
+      D = res.json;
+      $('scAll').checked = false;
+      progress.hidden = true; result.hidden = false;
+      render(D, true);
+      result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (e) {
+      progress.hidden = true; result.hidden = false;
+      var m = e && e.message;
+      setError(m && !/Failed to fetch|NetworkError|Load failed/i.test(m) ? m : L('Der Prüfdienst ist gerade nicht erreichbar. Bitte versuchen Sie es in einer Minute erneut.', 'The check service is not reachable right now. Please try again in a minute.'));
+    } finally {
+      btn.disabled = false;
+    }
   }
 
   UP.initTheme(frame);
   $('scBar').appendChild(UP.themeButton(frame, 'a-btn sc-theme'));
-  UP.init(function () { $('scAll').checked = false; replay(); });
-  $('scForm').addEventListener('submit', function (e) { e.preventDefault(); replay(); });
+  UP.init(function () { setError(''); $('scAll').checked = false; $('scDomain').value = ''; D = window.UP_SEC_REPORT[de ? 'de' : 'en']; render(D, true); });
+  $('scForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = $('scDomain').value.trim();
+    if (!v) { setError(L('Bitte geben Sie eine Domain ein, zum Beispiel ihre-firma.ch.', 'Please enter a domain, for example your-company.ch.')); $('scDomain').focus(); return; }
+    run(v);
+  });
   $('scAll').addEventListener('change', renderList);
   $('scPrint').addEventListener('click', function () { window.print(); });
   render(D);
