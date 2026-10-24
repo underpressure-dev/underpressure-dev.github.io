@@ -981,3 +981,9 @@ html.shot .app-shell { min-height: 100vh; }
 .ex-copy { font: inherit; font-size: .74rem; padding: .2rem .55rem; border-radius: 4px; border: 1px solid var(--line-2); background: var(--surface); color: var(--text); cursor: pointer; }
 .ex-ctab { margin-top: 1.8rem; padding: clamp(1rem, 3vw, 1.4rem); border-radius: var(--radius); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line)); }
 .ex-ctab p { margin: 0 0 .7rem; }
+.dw-example-line { margin-top: 12px; color: var(--muted); font-size: .9rem; }
+.dw-example-line[hidden] { display: none; }
+.appframe .linkish { font: inherit; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-decoration: underline; }
+.dw-exnote { margin: 0 0 12px; padding: .5rem .8rem; border-radius: 8px; background: var(--alt); color: var(--muted); font-size: .88rem; }
+.dw-shot { margin: 0 0 16px; }
+.dw-shot img { max-width: min(100%, 440px); border: 1px solid var(--line); border-radius: 8px; background: #fff; display: block; }

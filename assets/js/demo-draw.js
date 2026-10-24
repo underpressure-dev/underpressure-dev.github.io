@@ -47,8 +47,12 @@
     parent.appendChild(el('dd', null, String(value)));
   }
 
-  function render(r) {
+  function render(r, exampleImg) {
     var box = $('dwResult'); clear(box); box.hidden = false;
+    if (exampleImg) {
+      box.appendChild(el('div', 'dw-exnote', L('Beispiel: eine bereits ausgewertete Zeichnung. Laden Sie oben Ihre eigene hoch für eine echte Auswertung.', 'Example: a drawing that was already analysed. Upload your own above for a real analysis.')));
+      var fig = el('figure', 'dw-shot'); var im = el('img'); im.src = exampleImg; im.alt = L('Beispiel-Zeichnung', 'Example drawing'); im.loading = 'lazy'; fig.appendChild(im); box.appendChild(fig);
+    }
     if (!r.lesbar) {
       box.appendChild(el('div', 'dw-note', L('Das Bild konnte nicht als technische Zeichnung gelesen werden.', 'The image could not be read as a technical drawing.')));
       if (r.hinweis) box.appendChild(el('p', 'dw-hint', r.hinweis));
@@ -131,6 +135,36 @@
   function reset() {
     $('dwResult').hidden = true; clear($('dwResult')); setError(''); $('dwFile').value = '';
     $('dwLabel').textContent = L('Zeichnung hierher ziehen oder wählen', 'Drag a drawing here or choose one');
+    var line = $('dwExampleLine'); if (line) line.hidden = false;
+  }
+
+  // Beispiel: eine Zeichnung, die das Modell bereits ausgewertet hat (echtes Ergebnis, kein neuer Aufruf).
+  function example() {
+    return {
+      lesbar: true, teil: 'Halteblech HB-204', material: 'S235JR', abmessungen: '120 × 80 × 3 mm, 2× Bohrung Ø12', menge: L('100 Stk', '100 pcs'),
+      verfahren: [L('Laserschneiden', 'Laser cutting'), L('Reiben der Bohrungen Ø12 H8', 'Reaming the Ø12 H8 bores'), L('Entgraten', 'Deburring'), L('Feuerverzinken (extern)', 'Hot-dip galvanizing (external)')],
+      toleranzen: [L('Allgemeintoleranz ±0.2 mm', 'General tolerance ±0.2 mm'), 'Ø12 H8'],
+      oberflaeche: L('feuerverzinkt', 'hot-dip galvanized'),
+      besonderheiten: [
+        L('Passung H8 und Feuerverzinkung widersprechen sich: die Zinkschicht (50–100 µm) überschreitet das H8-Toleranzfeld (27 µm) deutlich.', 'The H8 fit and hot-dip galvanizing contradict each other: the zinc layer (50–100 µm) clearly exceeds the H8 tolerance band (27 µm).'),
+        L('Für H8 ist Reiben nötig, mit dem Laser allein nicht erreichbar.', 'H8 requires reaming, not achievable with the laser alone.'),
+        L('Keine Angabe zu Kantenradien, Massstab oder Revision.', 'No details on edge radii, scale or revision.')],
+      rueckfragen: [
+        L('Die Lage der Bohrungen ist nicht bemasst. Bitte Abstände zu den Kanten und den Lochabstand angeben.', 'The bore positions are not dimensioned. Please give the distances to the edges and between the holes.'),
+        L('Gilt H8 für den Endzustand nach dem Verzinken?', 'Does H8 apply to the final state after galvanizing?'),
+        L('Wird ein Materialzeugnis (z. B. 3.1 nach EN 10204) benötigt?', 'Is a material certificate (e.g. 3.1 per EN 10204) required?')],
+      annahmen: [
+        L('Material ab Lager (Blech S235JR, 3 mm).', 'Material from stock (sheet S235JR, 3 mm).'),
+        L('Bohrungen mit Untermass gelasert und nach dem Verzinken auf Ø12 H8 aufgerieben.', 'Bores lasered undersize and reamed to Ø12 H8 after galvanizing.'),
+        L('Ein Los zu 100 Stück ohne Erstmusterprüfbericht.', 'A single batch of 100 pieces without a first article inspection report.')],
+      komplexitaet: L('mittel', 'medium'), richtwert_chf: { von: 6, bis: 15 },
+      hinweis: L('Beispiel, keine Offerte. Grösster Preistreiber ist die Klärung H8 gegen Feuerverzinkung.', 'Example, not a quote. The biggest price driver is resolving H8 versus hot-dip galvanizing.')
+    };
+  }
+  function showExample() {
+    setError(''); var line = $('dwExampleLine'); if (line) line.hidden = true;
+    $('dwLabel').textContent = L('Beispiel-Zeichnung', 'Example drawing');
+    render(example(), '/assets/img/beispiel-zeichnung.webp');
   }
 
   var drop = $('dwDrop');
@@ -141,20 +175,11 @@
   drop.addEventListener('drop', function (e) { var f = e.dataTransfer && e.dataTransfer.files[0]; if (f) send(f); });
   $('dwForm').addEventListener('submit', function (e) { e.preventDefault(); });
 
+  var exBtn = $('dwExample'); if (exBtn) exBtn.addEventListener('click', showExample);
   UP.initTheme(frame);
   $('dwBar').appendChild(UP.themeButton(frame, 'a-btn sc-theme'));
   UP.init(reset);
 
-  // Fuer das Vorschaubild (?shot): ein Beispielergebnis zeigen, ohne Netz.
-  if (UP.params && UP.params.has('shot')) {
-    $('dwLabel').textContent = L('halter-blech.pdf', 'bracket-sheet.pdf');
-    render({
-      lesbar: true, teil: L('Halter, Blech', 'Bracket, sheet metal'), material: 'S235JR, 3 mm', abmessungen: '180 × 90 × 40 mm', menge: '50',
-      verfahren: [L('Laserschneiden', 'Laser cutting'), L('Abkanten', 'Bending')], toleranzen: ['±0.2 mm', L('Bohrung H7', 'Bore H7')],
-      oberflaeche: L('pulverbeschichtet RAL 7016', 'powder-coated RAL 7016'), besonderheiten: [L('4 Senkungen 90°', '4 countersinks 90°'), L('2 Abkantungen', '2 bends')],
-      rueckfragen: [L('Toleranz der Abkantwinkel?', 'Tolerance of the bend angles?'), L('Grat entfernen nötig?', 'Deburring required?')],
-      annahmen: [L('Serie 50 Stück', 'batch of 50 pieces'), L('Standardblech ab Lager', 'standard sheet from stock')],
-      komplexitaet: 'mittel', richtwert_chf: { von: 18, bis: 26 }, hinweis: ''
-    });
-  }
+  // Vorschaubild (?shot): das Beispiel zeigen, ohne Netz.
+  if (UP.params && UP.params.has('shot')) showExample();
 })();
