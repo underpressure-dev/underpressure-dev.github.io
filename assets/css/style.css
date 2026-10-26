@@ -437,3 +437,15 @@ dialog.lightbox button { position: fixed; right: 18px; top: 14px; font: inherit;
 @media print { .head-cta { display: none; } }
 .mod-h { font-size: 1.15rem; margin: 0 0 14px; }
 .mod-h.mt { margin-top: 36px; }
+/* PC-7 auf der Drohnen-Seite */
+.specs { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 0.95rem; }
+.specs dt { color: var(--muted); }
+.specs dd { margin: 0; }
+.pc7-specs { margin-top: clamp(28px, 4vw, 48px); }
+.pc7-figs { margin-top: 14px; display: grid; gap: 14px; grid-template-columns: 1fr 1fr; align-items: start; }
+.pc7-figs .fw { grid-column: 1 / -1; }
+@media (min-width: 900px) { .pc7-figs { grid-template-columns: 2fr 1fr 1fr; } .pc7-figs .fw { grid-column: auto; } }
+.pc7-figs figure { margin: 0; }
+.pc7-figs img, .photo.pc7-hero img { width: auto; max-width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 8px; }
+.pc7-figs img { width: 100%; }
+.pc7-figs figcaption, .pc7-hero figcaption { margin-top: 8px; font-size: 0.85rem; color: var(--muted); }
