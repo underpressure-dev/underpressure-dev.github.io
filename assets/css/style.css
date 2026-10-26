@@ -441,7 +441,9 @@ dialog.lightbox button { position: fixed; right: 18px; top: 14px; font: inherit;
 .specs { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 0.95rem; }
 .specs dt { color: var(--muted); }
 .specs dd { margin: 0; }
-.pc7-route { margin-top: clamp(28px, 4vw, 48px); }
+.pc7-maps { margin-top: clamp(28px, 4vw, 48px); display: grid; gap: 14px; align-items: start; }
+@media (min-width: 900px) { .pc7-maps { grid-template-columns: 1.72fr 2.16fr; } }
+.pc7-maps figure { margin: 0; }
 .pc7-specs { margin-top: clamp(28px, 4vw, 48px); }
 .pc7-figs { margin-top: 14px; display: grid; gap: 14px; grid-template-columns: 1fr; align-items: start; }
 @media (min-width: 900px) { .pc7-figs { grid-template-columns: 1.34fr 1.44fr 0.555fr; } }
