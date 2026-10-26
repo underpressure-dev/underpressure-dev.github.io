@@ -441,11 +441,12 @@ dialog.lightbox button { position: fixed; right: 18px; top: 14px; font: inherit;
 .specs { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 0.95rem; }
 .specs dt { color: var(--muted); }
 .specs dd { margin: 0; }
+.pc7-route { margin-top: clamp(28px, 4vw, 48px); }
 .pc7-specs { margin-top: clamp(28px, 4vw, 48px); }
-.pc7-figs { margin-top: 14px; display: grid; gap: 14px; grid-template-columns: 1fr 1fr; align-items: start; }
-.pc7-figs .fw { grid-column: 1 / -1; }
-@media (min-width: 900px) { .pc7-figs { grid-template-columns: 2fr 1fr 1fr; } .pc7-figs .fw { grid-column: auto; } }
+.pc7-figs { margin-top: 14px; display: grid; gap: 14px; grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 900px) { .pc7-figs { grid-template-columns: 1.34fr 1.44fr 0.555fr; } }
 .pc7-figs figure { margin: 0; }
 .pc7-figs img, .photo.pc7-hero img { width: auto; max-width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 8px; }
 .pc7-figs img { width: 100%; }
-.pc7-figs figcaption, .pc7-hero figcaption { margin-top: 8px; font-size: 0.85rem; color: var(--muted); }
+@media (max-width: 899px) { .pc7-figs figure:last-child img { width: auto; max-width: 60%; } }
+.pc7-figs figcaption, .pc7-hero figcaption, .pc7-route figcaption { margin-top: 8px; font-size: 0.85rem; color: var(--muted); }
