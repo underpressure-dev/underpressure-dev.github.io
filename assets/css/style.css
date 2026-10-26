@@ -452,3 +452,5 @@ dialog.lightbox button { position: fixed; right: 18px; top: 14px; font: inherit;
 .pc7-figs img { width: 100%; }
 @media (max-width: 899px) { .pc7-figs figure:last-child img { width: auto; max-width: 60%; } }
 .pc7-figs figcaption, .pc7-hero figcaption, .pc7-route figcaption { margin-top: 8px; font-size: 0.85rem; color: var(--muted); }
+.flag { display: inline-flex; align-items: center; gap: 8px; margin: 10px 0 4px; padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); }
+.flag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
