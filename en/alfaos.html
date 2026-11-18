@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>AlfaOS: firmware and configurator for an RC submarine | Under Pressure</title>
+<meta name="description" content="AlfaOS runs the RC submarine Alfa: firmware on an RP2040 Zero and a configurator that runs in the browser. With a demo that needs no boat.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0b0e12">
+<link rel="canonical" href="https://underpressure.ch/en/alfaos.html">
+<link rel="alternate" hreflang="en" href="https://underpressure.ch/en/alfaos.html">
+<link rel="alternate" hreflang="de" href="https://underpressure.ch/alfaos.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AlfaOS: firmware and configurator for an RC submarine | Under Pressure">
+<meta property="og:description" content="AlfaOS runs the RC submarine Alfa: firmware on an RP2040 Zero and a configurator that runs in the browser. With a demo that needs no boat.">
+<meta property="og:url" content="https://underpressure.ch/en/alfaos.html">
+<meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/style.css?v=13a66d78">
+<script src="/assets/js/main.js?v=78a8e4cc" defer></script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="/en/" aria-label="Under Pressure, Home">Under Pressure</a>
+<nav class="nav-desktop" aria-label="Main navigation">
+<ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/alfaos.html" aria-current="page">AlfaOS</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li><li><a class="login" href="/intern/" title="Protected client area">Login</a></li><li><a class="lang" href="/alfaos.html" hreflang="de" lang="de" title="Deutsche Version">DE</a></li></ul>
+</nav>
+<details class="nav-mobile">
+<summary>Menu</summary>
+<nav aria-label="Main navigation"><ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/alfaos.html" aria-current="page">AlfaOS</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li><li><a href="/intern/">Client login</a></li><li><a href="/alfaos.html" hreflang="de" lang="de">Deutsche Version</a></li></ul></nav>
+</details>
+</div>
+</header>
+<main id="main">
+<div class="page-head "><div class="wrap"><p class="eyebrow">AlfaOS · Firmware and configurator</p><h1>An operating system for a 1:120 scale submarine.</h1><p class="lead">AlfaOS runs our remote-controlled submarine Alfa. The firmware runs in the boat, the configurator directly in the browser. It needs no server and no installation.</p><div class="cta"><a class="btn primary" href="/alfaos/">Open configurator</a><a class="btn" href="/alfaos/?demo">Demo without a boat</a></div></div></div>
+<section id="was" aria-labelledby="h-was">
+<div class="wrap">
+<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">01</span><h2 id="h-was">What AlfaOS does</h2></div>
+<div class="cards two"><div class="card reveal"><h3>Firmware</h3><p>Runs on an RP2040 Zero. It controls depth, pitch and heading, drives rudders, motor and ballast pump, and runs missions on its own.</p></div><div class="card reveal"><h3>Configurator</h3><p>Connects via USB straight from the browser. Sensors, calibration, tests, parameters and mission planning in one interface, with no installation.</p></div><div class="card reveal"><h3>Missions</h3><p>Radio does not reach under water. Deep missions are planned in the configurator, sent to the boat and run autonomously. The planner limits throttle and pitch the same way the firmware does.</p></div><div class="card reveal"><h3>Safety</h3><p>Test mode only when disarmed, motor and pump with a watchdog. On a leak, flat battery, depth limit, sensor failure or loss of radio: empty the ballast, nose up, surface.</p></div></div>
+</div>
+</section>
+<section class="alt" id="start" aria-labelledby="h-start">
+<div class="wrap">
+<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">02</span><h2 id="h-start">How to start</h2></div>
+<ul class="ticks"><li>Chrome or Edge on a PC or Mac, for the USB connection to the boat</li><li>Firefox, Safari and mobile browsers do not support the USB connection (Web Serial)</li><li>The demo needs no boat: it simulates telemetry, tests and missions</li></ul><div class="cta"><a class="btn primary" href="/alfaos/">Open configurator</a><a class="btn" href="/alfaos/?demo">Demo without a boat</a></div>
+</div>
+</section>
+<section id="stand" aria-labelledby="h-stand">
+<div class="wrap">
+<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">03</span><h2 id="h-stand">Status</h2></div>
+<div class="prose reveal"><p>Version 0.1. The firmware core is tested on a PC against test models: protocol, arming, failsafe, test mode and a complete mission against a boat model. AlfaOS has not yet been tested on real hardware or in the water. The controller values are starting values and will only be tuned in the water.</p></div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="wrap foot-grid">
+<div>
+<p class="foot-brand">Under Pressure</p>
+<p>Software for companies in Switzerland: the products ARGUS and KAIROS, websites, web apps and business software. Based in Lucerne.</p>
+</div>
+<div><p class="foot-h">Pages</p><ul><li><a href="/en/">Home</a></li><li><a href="/en/products.html">Products</a></li><li><a href="/en/software.html">Software</a></li><li><a href="/en/pentesting.html">Pentesting</a></li><li><a href="/en/demos/">Demos</a></li><li><a href="/en/fpv.html">Drones</a></li><li><a href="/en/aerospace.html">Aerospace</a></li><li><a href="/en/alfaos.html">AlfaOS</a></li><li><a href="/en/about.html">Company</a></li><li><a href="/en/contact.html">Contact</a></li></ul></div>
+<div><p class="foot-h">Contact</p><ul><li><a href="tel:+41779217136">+41 77 921 71 36</a></li><li><a href="mailto:info@underpressure.ch">info@underpressure.ch</a></li><li>Lucerne, Switzerland</li><li><a href="/intern/">Client login</a></li></ul></div>
+</div>
+<div class="wrap foot-base">
+<span>&copy; 2026 Under Pressure</span>
+<span><a href="/en/imprint.html">Imprint</a> &middot; <a href="/en/privacy.html">Privacy</a></span>
+</div>
+</footer>
+<div class="alt-readout" aria-hidden="true">Alt <b id="alt-value">0</b> m</div>
+</body>
+</html>
