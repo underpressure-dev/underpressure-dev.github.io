@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; connect-src 'none'; manifest-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>AlfaOS: Firmware und Konfigurator für ein RC U-Boot | Under Pressure</title>
-<meta name="description" content="AlfaOS steuert das RC U-Boot Alfa: Firmware auf einem RP2040 Zero und ein Konfigurator, der im Browser läuft. Mit Demo ohne Boot.">
+<title>AlfaOS: Autopilot und Konfigurator für U-Boote | Under Pressure</title>
+<meta name="description" content="AlfaOS ist Firmware und Konfigurator für ferngesteuerte U-Boote: stabilisieren, Tiefe halten, Missionen autonom fahren, Failsafe. Aufgebaut wie iNav, eingestellt im Browser. Mit Demo ohne Boot.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#0b0e12">
 <link rel="canonical" href="https://underpressure.ch/alfaos.html">
@@ -14,13 +14,13 @@
 <link rel="alternate" hreflang="en" href="https://underpressure.ch/en/alfaos.html">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:title" content="AlfaOS: Firmware und Konfigurator für ein RC U-Boot | Under Pressure">
-<meta property="og:description" content="AlfaOS steuert das RC U-Boot Alfa: Firmware auf einem RP2040 Zero und ein Konfigurator, der im Browser läuft. Mit Demo ohne Boot.">
+<meta property="og:title" content="AlfaOS: Autopilot und Konfigurator für U-Boote | Under Pressure">
+<meta property="og:description" content="AlfaOS ist Firmware und Konfigurator für ferngesteuerte U-Boote: stabilisieren, Tiefe halten, Missionen autonom fahren, Failsafe. Aufgebaut wie iNav, eingestellt im Browser. Mit Demo ohne Boot.">
 <meta property="og:url" content="https://underpressure.ch/alfaos.html">
 <meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
 <meta property="og:locale" content="de_CH">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/css/style.css?v=13a66d78">
+<link rel="stylesheet" href="/assets/css/style.css?v=38ee02cc">
 <script src="/assets/js/main.js?v=78a8e4cc" defer></script>
 </head>
 <body>
@@ -39,26 +39,64 @@
 </div>
 </header>
 <main id="main">
-<div class="page-head "><div class="wrap"><p class="eyebrow">AlfaOS · Firmware und Konfigurator</p><h1>Ein Betriebssystem für ein U-Boot im Massstab 1:120.</h1><p class="lead">AlfaOS steuert unser ferngesteuertes U-Boot Alfa. Die Firmware läuft im Boot, der Konfigurator direkt im Browser. Er braucht keinen Server und keine Installation.</p><div class="cta"><a class="btn primary" href="/alfaos/">Konfigurator öffnen</a><a class="btn" href="/alfaos/?demo">Demo ohne Boot</a></div></div></div>
-<section id="was" aria-labelledby="h-was">
+<div class="page-head "><div class="wrap"><p class="eyebrow">AlfaOS · Autopilot für U-Boote</p><h1>Der Autopilot für unter Wasser.</h1><p class="lead">AlfaOS ist Firmware und Konfigurator für ferngesteuerte U-Boote. Es stabilisiert, hält die Tiefe und fährt Missionen selbständig, auch dort, wo kein Funk mehr hinkommt. Eingestellt wird alles im Browser, ohne Installation.</p><div class="cta"><a class="btn primary" href="/alfaos/">Konfigurator öffnen</a><a class="btn" href="/alfaos/?demo">Demo ohne Boot</a></div></div></div>
+<section id="prinzip" aria-labelledby="h-prinzip">
 <div class="wrap">
-<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">01</span><h2 id="h-was">Was AlfaOS kann</h2></div>
-<div class="cards two"><div class="card reveal"><h3>Firmware</h3><p>Läuft auf einem RP2040 Zero. Sie regelt Tiefe, Nick und Kurs, steuert Ruder, Motor und Ballastpumpe und fährt Missionen selbständig ab.</p></div><div class="card reveal"><h3>Konfigurator</h3><p>Verbindet sich per USB direkt aus dem Browser. Sensoren, Kalibration, Tests, Parameter und Missionsplanung in einer Oberfläche, ohne Installation.</p></div><div class="card reveal"><h3>Missionen</h3><p>Unter Wasser trägt kein Funk. Tiefe Missionen werden im Konfigurator geplant, zum Boot gesendet und dort autonom gefahren. Der Planer begrenzt Gas und Nick wie die Firmware.</p></div><div class="card reveal"><h3>Sicherheit</h3><p>Testbetrieb nur im entschärften Zustand, Motor und Pumpe mit Watchdog. Bei Leckage, leerem Akku, Tiefenlimit, Sensorausfall oder Funkverlust: Ballast leer, Nase hoch, auftauchen.</p></div></div>
+<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">01</span><h2 id="h-prinzip">Das Prinzip</h2></div>
+<div class="stats four reveal"><div class="stat"><strong>100 Hz</strong><span>Regelschleife mit Watchdog</span></div><div class="stat"><strong>5</strong><span>Betriebsmodi, inklusive Failsafe</span></div><div class="stat"><strong>64</strong><span>Schritte pro Mission</span></div><div class="stat"><strong>58</strong><span>Parameter, alle einstellbar</span></div></div><div class="cols mt"><div class="prose reveal"><p class="lead">Aufgebaut wie iNav. Gemacht für unter Wasser.</p><p>Wer Flugzeuge oder Kopter mit iNav fliegt, kennt das Prinzip: eine Firmware im Fahrzeug, ein Konfigurator am PC, klare Modi, ein Missionsplaner und ein Failsafe, der im Notfall übernimmt.</p><p>AlfaOS überträgt dieses Prinzip unter Wasser, und dort kommt einiges dazu: Auftrieb und Ballast, Druck statt Höhe, und unter der Oberfläche kein Funk. Das Boot muss selbständig entscheiden können.</p><p>iNav kennen wir aus eigener Praxis: Unsere <a href="/fpv.html#pc7">PC-7 für lange Strecken</a> fliegt damit.</p></div><figure class="photo reveal alfa-shot"><img src="/assets/img/alfaos-dash.webp" width="1440" height="876" alt="Konfigurator AlfaOS, Übersicht: künstlicher Horizont, Kompass, Tiefenanzeige, Messwerte und Ausgänge" loading="lazy"><figcaption>Der Konfigurator im Demo-Modus: Lage, Kurs, Tiefe und alle Ausgänge auf einen Blick.</figcaption></figure></div>
 </div>
 </section>
-<section class="alt" id="start" aria-labelledby="h-start">
+<section class="alt" id="modi" aria-labelledby="h-modi">
 <div class="wrap">
-<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">02</span><h2 id="h-start">So starten Sie</h2></div>
-<ul class="ticks"><li>Chrome oder Edge auf einem PC oder Mac, für die USB-Verbindung zum Boot</li><li>Firefox, Safari und Browser auf dem Handy unterstützen die USB-Verbindung (Web Serial) nicht</li><li>Die Demo braucht kein Boot: Sie simuliert Telemetrie, Tests und Missionen</li></ul><div class="cta"><a class="btn primary" href="/alfaos/">Konfigurator öffnen</a><a class="btn" href="/alfaos/?demo">Demo ohne Boot</a></div>
+<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">02</span><h2 id="h-modi">Fünf Modi, ein klarer Ablauf</h2><p class="lead">Vom Fahren von Hand bis zur autonomen Mission. Und darüber der Failsafe, der immer Vorrang hat.</p></div>
+<div class="cards three"><div class="card reveal"><span class="num">01</span><h3>Manuell</h3><p>Direkte Steuerung über die Fernsteuerung. Ruder und Vortrieb folgen dem Piloten.</p></div><div class="card reveal"><span class="num">02</span><h3>Stabilisiert</h3><p>Ein PID-Regler hält den Nickwinkel, das Bugruder wird dazugemischt.</p></div><div class="card reveal"><span class="num">03</span><h3>Tiefe</h3><p>AlfaOS hält die eingestellte Tiefe mit Tiefenrudern, Sinkratendämpfung und Ballast. Steht das Boot still, hält die Pumpe die Tiefe.</p></div><div class="card reveal"><span class="num">04</span><h3>Mission</h3><p>Das Boot fährt eine geplante Mission Schritt für Schritt ab, autonom und auf Wunsch auch ganz ohne Funk.</p></div><div class="card reveal"><span class="num">05</span><h3>Failsafe</h3><p>Bei Leckage, kritischem Akku, Tiefenlimit, Sensorausfall oder Funkverlust übernimmt AlfaOS: Ballast leeren, Nase 10° hoch, 15 % Gas, auftauchen.</p></div></div>
 </div>
 </section>
-<section id="stand" aria-labelledby="h-stand">
+<section id="missionen" aria-labelledby="h-missionen">
 <div class="wrap">
-<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">03</span><h2 id="h-stand">Stand</h2></div>
-<div class="prose reveal"><p>Version 0.1. Der Kern der Firmware ist am PC mit Testmodellen geprüft: Protokoll, Scharfschalten, Failsafe, Testbetrieb und eine komplette Mission gegen ein Bootsmodell. Auf echter Hardware und im Wasser ist AlfaOS noch nicht getestet. Die Werte der Regler sind Startwerte und werden erst im Wasser eingestellt.</p></div>
+<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">03</span><h2 id="h-missionen">Missionen</h2></div>
+<figure class="photo reveal alfa-shot"><img src="/assets/img/alfaos-mission.webp" width="1440" height="876" alt="Missionsplaner AlfaOS mit Schrittliste, 3D-Vorschau der Bahn, Tiefenprofil und Draufsicht" loading="lazy"><figcaption>Der Missionsplaner: Schritte links, Bahn in 3D rechts, darunter Tiefenprofil und Draufsicht.</figcaption></figure><div class="cols mt"><div class="prose reveal"><h3>Bis 64 Schritte</h3><p>Unter Wasser trägt kein Funk. Darum plant man die Mission vorher, sendet sie ins Boot, und AlfaOS fährt sie autonom ab. Bausteine:</p><ul class="chips"><li>Warten</li><li>Tauchen</li><li>Geradeaus</li><li>Drehen</li><li>Kurve mit Radius</li><li>Ballast</li><li>Ruder fix</li><li>Auftauchen</li><li>Wiederholen</li></ul></div><div class="prose reveal"><h3>Vor dem Start wissen, was passiert</h3><ul class="ticks"><li>3D-Vorschau der Bahn, abspielbar</li><li>Tiefenprofil und Draufsicht</li><li>Dauer, Strecke, maximale Tiefe und Energiebedarf vor dem Start</li><li>Der Planer begrenzt Gas und Nick wie die Firmware und warnt, wenn eine Tiefe über dem Limit liegt</li><li>Senden, im Boot speichern, wieder auslesen</li></ul></div></div>
+</div>
+</section>
+<section class="alt" id="konfigurator" aria-labelledby="h-konfigurator">
+<div class="wrap">
+<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">04</span><h2 id="h-konfigurator">Der Konfigurator</h2></div>
+<div class="cols"><div class="prose reveal"><p class="lead">Ein Werkzeug für alles, direkt im Browser und ohne Installation.</p><p>Die Liste der Parameter liest der Konfigurator beim Bauen direkt aus dem Quellcode der Firmware. Boot und Konfigurator sprechen darum immer dieselbe Sprache.</p><div class="cta"><a class="btn primary" href="/alfaos/">Konfigurator öffnen</a><a class="btn" href="/alfaos/?demo">Demo ohne Boot</a></div></div><div class="reveal"><ul class="ticks"><li>Übersicht mit Lage, Kurs, Tiefe und allen Ausgängen</li><li>Live-Graphen für Lage, Kurs, Tiefe, Akku, Leckage und Ballast</li><li>Kalibration: Tiefe, Lage, IMU-Profil, Akkuspannung, Servo-Mitte, Endpunkte und Richtung</li><li>Tests für Servos, Motor und Pumpe, nur im entschärften Zustand und mit Watchdog</li><li>58 Parameter mit Minimum, Maximum, Einheit und Beschreibung, mit Import und Export</li><li>Speicherung im Flash mit Prüfsumme, Telemetrie von 0 bis 50 Hz</li><li>Terminal für jeden Befehl des Protokolls</li><li>Demo Boot: alles ausprobieren, ganz ohne Hardware</li></ul></div></div>
+</div>
+</section>
+<section id="sicherheit" aria-labelledby="h-sicherheit">
+<div class="wrap">
+<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">05</span><h2 id="h-sicherheit">Sicherheit eingebaut</h2></div>
+<div class="cards three"><div class="card reveal"><h3>Failsafe mit Vorrang</h3><p>Leckage, Akku, Tiefenlimit, Sensorausfall und Funkverlust werden laufend überwacht. Ein Auslöser genügt, und das Boot taucht auf.</p></div><div class="card reveal"><h3>Leckagesonde</h3><p>Zwei Messpunkte am tiefsten Punkt des Druckkörpers melden eindringendes Wasser, und der Failsafe greift.</p></div><div class="card reveal"><h3>Testbetrieb abgesichert</h3><p>Servos, Motor und Pumpe lassen sich nur entschärft direkt ansteuern. Bleibt das Signal 1.5 s aus, stoppt die Firmware alles.</p></div><div class="card reveal"><h3>Limits in der Software</h3><p>Ruderausschlag, Nick, Gas und Tiefe sind begrenzt, in der Firmware und im Missionsplaner gleich.</p></div><div class="card reveal"><h3>Wiederfinden</h3><p>Ein Blitzlicht sitzt in einem eigenen Pod, mit eigenem Akku und Reed-Schalter, unabhängig vom Boot.</p></div><div class="card reveal"><h3>Watchdog</h3><p>Die Regelschleife läuft mit 100 Hz und wird von einem Watchdog überwacht.</p></div></div><div class="tablewrap reveal mt"><table class="reftable"><caption>Limits: Standardwerte und einstellbare Bereiche der Software</caption><thead><tr><th scope="col">Limit</th><th scope="col">Standard</th><th scope="col">Bereich</th></tr></thead><tbody><tr><th scope="row">Tauchtiefe</th><td>3.0 m</td><td>0.5 bis 90 m</td></tr><tr><th scope="row">Ruderausschlag</th><td>25°</td><td>5 bis 45°</td></tr><tr><th scope="row">Nickwinkel</th><td>20°</td><td>5 bis 45°</td></tr><tr><th scope="row">Vortrieb</th><td>35 %</td><td>5 bis 100 %</td></tr><tr><th scope="row">Gasrampe</th><td>150 %/s</td><td>10 bis 1000 %/s</td></tr><tr><th scope="row">Funkverlust bis Failsafe</th><td>1.0 s</td><td>0.2 bis 10 s</td></tr><tr><th scope="row">Akku Warnung und kritisch</th><td>7.0 V und 6.4 V</td><td></td></tr><tr><th scope="row">Leckage-Schwelle</th><td>0.35</td><td>0.05 bis 0.95</td></tr></tbody></table></div>
+</div>
+</section>
+<section class="alt" id="hardware" aria-labelledby="h-hardware">
+<div class="wrap">
+<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">06</span><h2 id="h-hardware">Hardware</h2><p class="lead">Das Boot Alfa, auf dem AlfaOS entwickelt wird.</p></div>
+<div class="cards three"><div class="card reveal"><h3>Elektronik</h3><dl class="specs"><dt>Rechner</dt><dd>RP2040 Zero, 100 Hz, Watchdog</dd><dt>Lage</dt><dd>BNO055, IMU-Modus ohne Kompass, NDOF optional</dd><dt>Tiefe und Temperatur</dt><dd>MS5837-30BA, Kompensation 2. Ordnung</dd><dt>Funk</dt><dd>Crossfire (CRSF, 420000 Baud), 8 Kanäle, RSSI</dd><dt>Anschluss</dt><dd>USB für Konfiguration, Diagnose und Missionen</dd></dl></div><div class="card reveal"><h3>Antrieb und Ballast</h3><dl class="specs"><dt>Motor</dt><dd>AS2304 1800 KV, flutend</dd><dt>Regler</dt><dd>3D-Modus, vor und zurück, Totzone einstellbar</dd><dt>Ruder</dt><dd>3 × MG90S: Seite, Heck-Tiefe, Bug-Tiefe</dd><dt>Ballast</dt><dd>Peristaltikpumpe, füllt und leert über H-Brücke</dd><dt>Energie</dt><dd>2S 850 mAh, XT60, Spannungsmessung</dd></dl></div><div class="card reveal"><h3>Aufbau</h3><dl class="specs"><dt>Rumpf</dt><dd>SLA-Harz, gedruckt</dd><dt>Druckrohr</dt><dd>50 mm innen, 400 mm lang</dd><dt>Einschub</dt><dd>360 mm Chassis, ca. 72 g, Akku unten, 4 Gleitschienen</dd><dt>Sicherheit</dt><dd>Leckagesonde, Status-LED, Hold-Pin</dd><dt>Blitzlicht</dt><dd>eigener Pod mit eigenem Akku</dd></dl></div></div>
+</div>
+</section>
+<section id="ausprobieren" aria-labelledby="h-ausprobieren">
+<div class="wrap">
+<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">07</span><h2 id="h-ausprobieren">Selbst ausprobieren</h2></div>
+<ul class="ticks"><li>Chrome oder Edge auf einem PC oder Mac, für die USB-Verbindung zum Boot (Web Serial)</li><li>Firefox, Safari und Browser auf dem Handy unterstützen die USB-Verbindung nicht</li><li>Die Demo braucht kein Boot: Sie simuliert Telemetrie, Tests und Missionen</li></ul><div class="cta"><a class="btn primary" href="/alfaos/">Konfigurator öffnen</a><a class="btn" href="/alfaos/?demo">Demo ohne Boot</a></div>
+</div>
+</section>
+<section class="alt" id="stand" aria-labelledby="h-stand">
+<div class="wrap">
+<div class="sec-head reveal"><span class="sec-num" aria-hidden="true">08</span><p class="flag"><span class="flag-dot" aria-hidden="true"></span>In Entwicklung</p><h2 id="h-stand">Stand</h2></div>
+<div class="prose reveal"><p>AlfaOS 0.1 ist ein Entwurf. Firmware-Kern und Konfigurator sind am PC getestet, mit Testmodellen statt Hardware: Protokoll, Scharfschalten, Failsafe, Testbetrieb und eine komplette Mission gegen ein Bootsmodell. Die Tests im Wasser stehen noch aus. Die Reglerwerte sind Startwerte und werden im Wasser eingestellt.</p></div>
 </div>
 </section>
 </main>
+<section class="cta-band" aria-labelledby="h-cta">
+<div class="wrap">
+<p class="eyebrow">Nächster Schritt</p>
+<h2 id="h-cta">Sie bauen ein Fahrzeug, das selbständig arbeiten soll?</h2>
+<p>Firmware, Regelung, Konfigurator und Missionsplanung: Wir entwickeln das für Ihr Fahrzeug, unter Wasser, am Boden oder in der Luft.</p>
+<div class="cta"><a class="btn primary" href="/kontakt.html">Projekt anfragen</a><a class="btn" href="tel:+41779217136">+41 77 921 71 36</a></div>
+</div>
+</section>
 <footer class="site-footer">
 <div class="wrap foot-grid">
 <div>
