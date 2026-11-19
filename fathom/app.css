@@ -170,6 +170,35 @@ h3{letter-spacing:.2em;font-size:11px}h4{letter-spacing:.14em;font-size:11px}.st
 .toolbar.tight{gap:6px;padding:8px 0 0;background:none;border:0}
 @media(max-width:1100px){.siggrid{grid-template-columns:1fr}.sigprev{position:static}}
 @media(max-width:480px){.sigl{min-width:0;width:100%}.seg{flex-wrap:wrap}.segb{flex:1 1 auto}}
+/* Under Pressure: Lichtplan (Signale) */
+.lgrid-wrap{overflow-x:auto}
+.lgrid{width:100%;border-collapse:collapse;font-size:11px}
+.lgrid th,.lgrid td{border-bottom:1px solid var(--ln);padding:4px 6px;text-align:left;vertical-align:middle}
+.lgrid thead th{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8b9ba6;font-weight:500}
+.lgrid th small,.lgrid thead small{display:block;font-size:9.5px;letter-spacing:.04em;text-transform:none;color:var(--dim);font-weight:400}
+.lgrid tbody th b{font-weight:500;color:var(--tx)}
+.lgrid td.na{background:repeating-linear-gradient(45deg,transparent 0 4px,#0b1218 4px 8px)}
+.lcell{display:flex;align-items:center;gap:7px;width:100%;min-width:96px;background:#060b10;border:1px solid #1f2e3a;color:var(--tx);padding:5px 7px;font:inherit;font-size:10.5px;letter-spacing:.04em;cursor:pointer;border-radius:2px}
+.lcell:hover{border-color:#2c6b78}.lcell.on{border-color:var(--ac2);box-shadow:inset 0 0 0 1px var(--ac2);background:#0b2228}
+.lcell.inh span:last-child{color:var(--dim)}
+.lcell:focus-visible,.st:focus-visible,.sw:focus-visible{outline:2px solid var(--ac2);outline-offset:1px}
+.mini{flex:none;width:14px;height:14px;border-radius:50%;background:#0d151c;border:1px solid #22323f}
+.lamp.big{width:52px;height:52px;opacity:1;background:#0d151c}
+.led-ed h4{margin:0 0 6px;color:#a6e6f1;letter-spacing:.14em}
+.sigrow.col{flex-direction:column;align-items:stretch}
+.steps16{display:grid;grid-template-columns:repeat(16,1fr);gap:3px}
+.st{height:26px;border:1px solid #2a3a47;background:#060b10;border-radius:2px;cursor:pointer;padding:0}
+.st.on{background:var(--ac2);border-color:var(--ac2);box-shadow:0 0 8px rgba(86,200,220,.5)}
+.st:nth-child(4n+1){margin-left:2px}
+.cpick{width:44px;height:30px;border:1px solid #2a3a47;background:#060b10;padding:2px;border-radius:2px;cursor:pointer}
+.swatches{display:flex;gap:4px;flex-wrap:wrap}.sw{width:22px;height:22px;border:1px solid #2a3a47;border-radius:50%;cursor:pointer;padding:0}
+.stchk{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:2px 10px;margin:6px 0 8px}
+.stchk .chk{font-size:11px}
+.sigl.mt{margin-top:14px}
+@media(max-width:480px){.steps16{grid-template-columns:repeat(8,1fr)}.st:nth-child(4n+1){margin-left:0}}
+.sld{padding-right:6px}
+.sigcol{min-width:0}.siggrid>*{min-width:0}@media(max-width:1100px){.siggrid{grid-template-columns:minmax(0,1fr)}}
+.page>.card,.sigcol>.card{min-width:0;max-width:100%}
 
 /* required styles */
 
