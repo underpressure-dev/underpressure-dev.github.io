@@ -462,7 +462,7 @@ dialog.lightbox button { position: fixed; right: 18px; top: 14px; font: inherit;
 .tablewrap .reftable caption { padding: 12px 14px 10px; }
 /* FATHOM (U-Boote) */
 .fathom-hero { min-height: min(88svh, 820px); }
-.fathom-hero img.bg { object-position: 60% 0%; filter: saturate(0.7) brightness(0.85) contrast(1.08); }
+.fathom-hero img.bg { object-position: 78% 30%; filter: saturate(0.85) brightness(1.15) contrast(1.05); }
 .fathom-hero::after { background: linear-gradient(90deg, rgba(4,8,12,0.88) 0%, rgba(4,8,12,0.6) 42%, rgba(4,8,12,0.05) 75%), linear-gradient(180deg, rgba(4,8,12,0.3) 0%, rgba(4,8,12,0) 35%, rgba(4,8,12,0.85) 100%); }
 .fathom-hero h1 { font-size: clamp(2.2rem, 6.4vw, 5.2rem); max-width: 15ch; }
 .fathom-word { display: block; font-family: var(--mono); font-size: clamp(0.9rem, 1.6vw, 1.1rem); font-weight: 600; letter-spacing: 0.5em; color: #ffa58c; margin-bottom: 18px; }

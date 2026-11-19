@@ -131,6 +131,8 @@ h3{letter-spacing:.2em;font-size:11px}h4{letter-spacing:.14em;font-size:11px}.st
 .leaflet-control-attribution{background:rgba(5,8,11,.8)!important;color:#9fb0bb!important}.leaflet-control-attribution a{color:#a6e6f1!important}
 .leaflet-bar a{background:#0b1218;color:var(--tx);border-color:var(--ln)}.leaflet-bar a:hover{background:#101a22}
 .wpi{border-radius:2px;background:#0b2228;border-color:#56c8dc;color:#a6e6f1;font-family:var(--ui);font-weight:600}.wpi.st{background:#0c1f15;border-color:#4fb477;color:#8fe0ae}.wpi.boat{background:#ff7a59;border-color:#fff;color:#0b0e12}
+.top .btn.back{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--tx);margin-left:6px}.top .btn.back:hover{border-color:var(--ac2)}
+@media(max-width:480px){.top .btn.back span{display:none}.top .btn.back{padding:6px 8px;margin-left:0}}
 
 /* required styles */
 
