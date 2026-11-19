@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/css/style.css?v=707f23e6">
+<link rel="stylesheet" href="/assets/css/style.css?v=5912f4c6">
 <script src="/assets/js/main.js?v=78a8e4cc" defer></script>
 </head>
 <body>
@@ -43,7 +43,7 @@
 <h2>What this website does and does not do</h2>
 <ul>
 <li>It sets no cookies and uses no tracking or analytics tools.</li>
-<li>It embeds no external services. Fonts, images and scripts are served by this website itself. The only exception is the security check, and only if you use it.</li>
+<li>It embeds no external services. Fonts, images and scripts are served by this website itself. The exceptions are the tools below and the map in the FATHOM configurator, and only if you use them.</li>
 <li>The project brief on the contact page sends nothing. It only opens your own email program with a prepared text.</li>
 <li>The demos store your input only in your browser's local storage. It is not sent to any server. The CAD viewer reads your files only in your browser.</li>
 </ul>
@@ -53,6 +53,8 @@
 <p>When you upload a file in the «Drawing to quote» tool, your browser sends this file to our own tool server. There it is passed to a language model from Anthropic, PBC (USA), which reads the drawing. Neither our server nor Anthropic stores the file or the result for training. Do not upload documents you are not allowed to share.</p>
 <h2 id="angriffsflaeche">Attack surface</h2>
 <p>When you enter a domain in the «Attack surface» tool, our tool server queries public sources about this domain: Certificate Transparency (via crt.sh) and DNS (via the Cloudflare name service). No attacks and no scans are carried out. Neither the domain nor the result is stored. Against mass queries the server counts queries per sender for one hour, using a hash value of the IP address, not the address itself. The list of hostnames is only shown after a DNS proof of the domain.</p>
+<h2 id="fathom-karte">Map in the FATHOM configurator</h2>
+<p>The map in the FATHOM configurator loads nothing before you click «Karte laden» (load map). After that your browser loads map tiles directly from the federal geoportal (Federal Office of Topography swisstopo, Switzerland) and, if you choose OpenStreetMap, from the OpenStreetMap Foundation (United Kingdom). These providers receive your IP address and the requested map areas, OpenStreetMap also our domain as the origin. Your waypoints and plans stay in your browser’s local storage and are not sent to us.</p>
 <h2>Technical data when you visit</h2>
 <p>The website is served via GitHub Pages. When you visit, the hosting provider processes technical data such as your IP address and the page requested, for example in server logs. The provider is GitHub, Inc., a Microsoft company based in the USA. We have no influence over this and do not evaluate this data.</p>
 <h2>Getting in touch</h2>

@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://underpressure.ch/assets/img/og.jpg">
 <meta property="og:locale" content="de_CH">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/css/style.css?v=707f23e6">
+<link rel="stylesheet" href="/assets/css/style.css?v=5912f4c6">
 <script src="/assets/js/main.js?v=78a8e4cc" defer></script>
 </head>
 <body>
@@ -43,7 +43,7 @@
 <h2>Was diese Website tut und nicht tut</h2>
 <ul>
 <li>Sie setzt keine Cookies und verwendet keine Tracking- oder Analysewerkzeuge.</li>
-<li>Sie bindet keine externen Dienste ein. Schriften, Bilder und Skripte werden von dieser Website selbst ausgeliefert. Einzige Ausnahme ist der Sicherheitscheck, und nur wenn Sie ihn benutzen.</li>
+<li>Sie bindet keine externen Dienste ein. Schriften, Bilder und Skripte werden von dieser Website selbst ausgeliefert. Ausnahmen sind die Werkzeuge weiter unten und die Karte im FATHOM-Konfigurator, und nur wenn Sie sie benutzen.</li>
 <li>Der Projektbrief auf der Kontaktseite sendet nichts. Er öffnet nur Ihr eigenes E-Mail-Programm mit einem vorbereiteten Text.</li>
 <li>Die Demos speichern Ihre Eingaben ausschliesslich im lokalen Speicher Ihres Browsers. Sie werden nicht an einen Server gesendet. Der CAD-Viewer liest Ihre Dateien nur in Ihrem Browser.</li>
 </ul>
@@ -53,6 +53,8 @@
 <p>Wenn Sie im Werkzeug «Zeichnung zu Offerte» eine Datei hochladen, sendet Ihr Browser diese Datei an unseren eigenen Werkzeug-Server. Dort wird sie an ein Sprachmodell von Anthropic, PBC (USA) übergeben, das die Zeichnung liest. Die Datei und das Ergebnis werden weder auf unserem Server noch von Anthropic für ein Training gespeichert. Laden Sie keine Unterlagen hoch, die Sie nicht weitergeben dürfen.</p>
 <h2 id="angriffsflaeche">Angriffsfläche</h2>
 <p>Wenn Sie im Werkzeug «Angriffsfläche» eine Domain eingeben, fragt unser Werkzeug-Server öffentliche Quellen zu dieser Domain ab: Certificate Transparency (über crt.sh) und DNS (über den Namensdienst von Cloudflare). Es werden keine Angriffe und keine Scans ausgeführt. Weder die Domain noch das Ergebnis werden gespeichert. Gegen Massenabfragen zählt der Server die Abfragen pro Absender während einer Stunde, dafür verwendet er einen Hashwert der IP-Adresse, nicht die Adresse selbst. Die Liste der Hostnamen wird erst nach einem DNS-Nachweis der Domain angezeigt.</p>
+<h2 id="fathom-karte">Karte im FATHOM-Konfigurator</h2>
+<p>Die Karte im FATHOM-Konfigurator lädt nichts, bevor Sie «Karte laden» anklicken. Danach lädt Ihr Browser Kartenkacheln direkt vom Geoportal des Bundes (Bundesamt für Landestopografie swisstopo, Schweiz) und, wenn Sie OpenStreetMap wählen, von der OpenStreetMap Foundation (Vereinigtes Königreich). Diese Anbieter erhalten dabei Ihre IP-Adresse und die angefragten Kartenausschnitte, OpenStreetMap zusätzlich unsere Domain als Herkunft. Ihre Wegpunkte und Pläne bleiben im lokalen Speicher Ihres Browsers und werden nicht an uns gesendet.</p>
 <h2>Technische Daten beim Aufruf</h2>
 <p>Die Website wird über GitHub Pages ausgeliefert. Beim Aufruf verarbeitet der Hosting-Anbieter technisch bedingt Angaben wie die IP-Adresse und die aufgerufene Seite, zum Beispiel in Server-Protokollen. Anbieter ist GitHub, Inc., ein Unternehmen von Microsoft, mit Sitz in den USA. Wir haben darauf keinen Einfluss und werten diese Daten nicht aus.</p>
 <h2>Kontaktaufnahme</h2>
