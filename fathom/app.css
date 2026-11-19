@@ -133,6 +133,43 @@ h3{letter-spacing:.2em;font-size:11px}h4{letter-spacing:.14em;font-size:11px}.st
 .wpi{border-radius:2px;background:#0b2228;border-color:#56c8dc;color:#a6e6f1;font-family:var(--ui);font-weight:600}.wpi.st{background:#0c1f15;border-color:#4fb477;color:#8fe0ae}.wpi.boat{background:#ff7a59;border-color:#fff;color:#0b0e12}
 .top .btn.back{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--tx);margin-left:6px}.top .btn.back:hover{border-color:var(--ac2)}
 @media(max-width:480px){.top .btn.back span{display:none}.top .btn.back{padding:6px 8px;margin-left:0}}
+/* Under Pressure: Seite Signale (Status LEDs, Beacon, GPS) */
+.siggrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:12px;align-items:start}
+.sigcol{display:grid;gap:12px}
+.sigprev{position:sticky;top:8px}
+.sigrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0}
+.sigl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8b9ba6;min-width:120px}
+.seg{display:inline-flex;border:1px solid #2a3a47;border-radius:2px;overflow:hidden;flex-wrap:nowrap}
+.seg.wrap{flex-wrap:wrap;border:0;gap:4px;margin:8px 0}
+.seg.wrap .segb{border:1px solid #2a3a47}
+.segb{background:#060b10;color:var(--tx);border:0;border-right:1px solid #2a3a47;padding:6px 10px;font:inherit;font-size:11px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.segb:last-child{border-right:0}.segb:hover{background:#0f1a22}.segb.on{background:#0b2228;color:#a6e6f1;box-shadow:inset 0 -2px 0 var(--ac2)}
+.segb:disabled{opacity:.4;cursor:default}
+.segb:focus-visible,.tog input:focus-visible+.tsw{outline:2px solid var(--ac2);outline-offset:1px}
+.tog{display:flex;align-items:flex-start;gap:10px;margin:10px 0;cursor:pointer}
+.tog input{position:absolute;opacity:0;width:1px;height:1px}
+.tsw{flex:none;width:34px;height:18px;border:1px solid #2a3a47;background:#060b10;position:relative;margin-top:1px;border-radius:2px}
+.tsw::after{content:"";position:absolute;top:2px;left:2px;width:12px;height:12px;background:#4d606e;transition:transform .15s}
+.tog input:checked+.tsw{border-color:#2c6b78;background:#0b2228}.tog input:checked+.tsw::after{transform:translateX(16px);background:var(--ac2)}
+.tl{display:flex;flex-direction:column;gap:2px}.tl b{font-weight:500}.tl small{color:var(--dim);font-size:11px}
+.sld{margin:10px 0}.sh{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.06em;color:#a9b9c4;margin-bottom:4px}
+.sld .sl{width:100%;accent-color:var(--ac2)}.sv{font-family:var(--num);color:#a6e6f1;font-weight:500;white-space:nowrap;margin-left:12px}
+.lamps{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;padding:14px 4px 6px}
+.lamps figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.lamps figcaption{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#8b9ba6}
+.lsep{width:1px;align-self:stretch;background:var(--ln);margin:0 4px}
+.lamp{width:46px;height:46px;border-radius:50%;border:2px solid #22323f;opacity:.08;transition:opacity .03s}
+.lamp.g{background:radial-gradient(circle at 40% 35%,#c9ffd9,#2fd36a 45%,#0d5a2a)}
+.lamp.r{background:radial-gradient(circle at 40% 35%,#ffd0c8,#ff3b2e 45%,#6a120c)}
+.lamp.w{background:radial-gradient(circle at 40% 35%,#ffffff,#dff6ff 45%,#6d8a99)}
+.lamp.sm{width:30px;height:30px}
+.lamp.g.on{box-shadow:0 0 18px 4px rgba(47,211,106,.55)}.lamp.r.on{box-shadow:0 0 18px 4px rgba(255,59,46,.55)}.lamp.w.on{box-shadow:0 0 28px 10px rgba(220,245,255,.75)}
+.sigstate{margin:4px 0;font-family:var(--num);font-size:11px;letter-spacing:.06em;color:#a6e6f1}
+.legend td,.legend th{font-size:11.5px}.legend th[scope=row]{font-weight:500;text-transform:none;letter-spacing:0;color:var(--tx)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px}.dot.g{background:#2fd36a}.dot.r{background:#ff3b2e}
+.toolbar.tight{gap:6px;padding:8px 0 0;background:none;border:0}
+@media(max-width:1100px){.siggrid{grid-template-columns:1fr}.sigprev{position:static}}
+@media(max-width:480px){.sigl{min-width:0;width:100%}.seg{flex-wrap:wrap}.segb{flex:1 1 auto}}
 
 /* required styles */
 
