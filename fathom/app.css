@@ -207,6 +207,10 @@ h3{letter-spacing:.2em;font-size:11px}h4{letter-spacing:.14em;font-size:11px}.st
 .lb2{border-radius:1px;background:#fff;border:2.5px solid #9fb0bc}
 .lb3{border-radius:50%;background:conic-gradient(#ff3b2e,#ffd000,#20c35a,#00c8ff,#3b5bff,#c03bff,#ff3b2e);border-color:#fff}
 .lamps figcaption .lname{font-size:9.5px}
+/* Under Pressure: Seite Bord */
+.stat.ok b{color:var(--ok)}.stat.acc b{color:var(--acc)}
+.ptable b.ok{color:var(--ok)}.ptable b.dim,.row b.dim{color:var(--dim)}.row b.ok{color:var(--ok)}.row b.bad{color:var(--bad)}.row b.acc{color:var(--acc)}
+.senslist{display:grid;gap:8px;margin-bottom:10px}.sensrow{border:1px solid var(--ln);background:var(--p2);padding:7px 10px;border-radius:var(--r);min-width:0}.sensrow .note{display:block;margin:2px 0 0}.sensrow b.ok{color:var(--ok)}.sensrow b.dim{color:var(--dim)}
 
 /* required styles */
 
