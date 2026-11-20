@@ -475,3 +475,17 @@ code { font-family: var(--mono); font-size: 0.92em; background: var(--accent-sof
 .wifi-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .wifi-grid .card h3 { margin-top: 0; }
 .cad-shot img { background: #f2f2f2; }
+
+/* FATHOM: Daten und Moeglichkeiten, Bauplan */
+.fx-nums { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin: 0 0 28px; }
+.fx-nums div { background: var(--surface); padding: 22px 22px 20px; }
+.fx-nums strong { display: block; font-family: var(--display); font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1; font-weight: 600; color: var(--accent); letter-spacing: -0.01em; }
+.fx-nums span { display: block; margin-top: 10px; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); line-height: 1.45; }
+.fx-h { margin: 34px 0 14px; font-size: 1.2rem; }
+.fx-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.fx-chips li { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 13px; font-size: 0.9rem; }
+.note-sm { margin: 22px 0 0; color: var(--muted); font-size: 0.92rem; max-width: 70ch; }
+.wiring-shot { margin-top: 26px; }
+.wiring-shot img { background: #fff; border: 1px solid var(--line); }
+@media (min-width: 900px) { .fx-nums { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 420px) { .fx-nums div { padding: 16px 14px; } .fx-nums span { font-size: 0.68rem; } }
