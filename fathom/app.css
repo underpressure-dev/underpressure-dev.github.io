@@ -212,6 +212,15 @@ h3{letter-spacing:.2em;font-size:11px}h4{letter-spacing:.14em;font-size:11px}.st
 .ptable b.ok{color:var(--ok)}.ptable b.dim,.row b.dim{color:var(--dim)}.row b.ok{color:var(--ok)}.row b.bad{color:var(--bad)}.row b.acc{color:var(--acc)}
 .senslist{display:grid;gap:8px;margin-bottom:10px}.sensrow{border:1px solid var(--ln);background:var(--p2);padding:7px 10px;border-radius:var(--r);min-width:0}.sensrow .note{display:block;margin:2px 0 0}.sensrow b.ok{color:var(--ok)}.sensrow b.dim{color:var(--dim)}
 .lb4{border-radius:50%;background:#fff7d6;border:2.5px solid #ffd24a;box-shadow:0 0 5px #ffd24a}
+/* Missionsplaner: Zusaetze je Schritt, Kartenansicht, Hinweise */
+.xrow{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-top:8px;padding-top:6px;border-top:1px dashed var(--ln)}
+.xi{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--dim)}.xi .sl{width:110px}.xi b{color:var(--txt);font-weight:600;min-width:64px;font-variant-numeric:tabular-nums}
+.xi.hit{color:#ffb02e;font-weight:600}.xseg .segb{padding:2px 8px;font-size:11px}
+.mview{display:flex;flex-direction:column;gap:6px}.right>.seg{margin-bottom:6px}
+.warns .w.sug{display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-left-color:#ffb02e}.warns .w.info{border-left-color:#56c8dc}.warns .w.nav{border-left-color:#ffb02e}
+.wpi.sel{background:#ffb02e;border-color:#fff;color:#0b0e12}
+.sigintro .steps li{margin:4px 0}.sigsum{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 16px;margin-top:10px}.sigsrow{font-size:12px;color:var(--dim)}.sigsrow b{color:var(--txt);margin-right:6px}
+.xi .seg{flex:0 0 auto;flex-wrap:nowrap}.xi .segb{flex:0 0 auto}
 
 /* required styles */
 
