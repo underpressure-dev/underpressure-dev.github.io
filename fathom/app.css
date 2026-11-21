@@ -221,6 +221,11 @@ h3{letter-spacing:.2em;font-size:11px}h4{letter-spacing:.14em;font-size:11px}.st
 .wpi.sel{background:#ffb02e;border-color:#fff;color:#0b0e12}
 .sigintro .steps li{margin:4px 0}.sigsum{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px 16px;margin-top:10px}.sigsrow{font-size:12px;color:var(--dim)}.sigsrow b{color:var(--txt);margin-right:6px}
 .xi .seg{flex:0 0 auto;flex-wrap:nowrap}.xi .segb{flex:0 0 auto}
+.pflist { list-style: none; padding: 0; margin: 8px 0; font-size: 13px; }
+.pflist li { padding: 3px 0 3px 18px; position: relative; }
+.pflist li::before { content: ''; position: absolute; left: 2px; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--ok, #3a8f5c); }
+.pflist li.warn::before { background: var(--warn, #c9a227); }
+.pflist li.bad::before { background: var(--bad, #c0392b); }
 
 /* required styles */
 
