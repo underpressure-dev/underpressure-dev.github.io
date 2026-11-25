@@ -227,6 +227,10 @@ h3{letter-spacing:.2em;font-size:11px}h4{letter-spacing:.14em;font-size:11px}.st
 .pflist li.warn::before { background: var(--warn, #c9a227); }
 .pflist li.bad::before { background: var(--bad, #c0392b); }
 
+/* Signale: Erweitert eingeklappt */
+details.adv > summary, .sigprev details > summary { cursor: pointer; padding: 4px 0; }
+details.adv[open] > summary { margin-bottom: 12px; }
+
 /* required styles */
 
 .leaflet-pane,
